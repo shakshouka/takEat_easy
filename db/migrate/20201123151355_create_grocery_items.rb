@@ -4,7 +4,7 @@ class CreateGroceryItems < ActiveRecord::Migration[6.0]
       t.references :grocery_list, null: false, foreign_key: true
       t.string :total_quantity
       t.references :ingredient, null: false, foreign_key: true
-      t.boolean :bought
+      t.boolean :bought, default: false
 
       t.timestamps
     end

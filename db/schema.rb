@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_151425) do
+ActiveRecord::Schema.define(version: 2020_11_23_152751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2020_11_23_151425) do
     t.bigint "grocery_list_id", null: false
     t.string "total_quantity"
     t.bigint "ingredient_id", null: false
-    t.boolean "bought"
+    t.boolean "bought", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["grocery_list_id"], name: "index_grocery_items_on_grocery_list_id"
@@ -82,12 +82,13 @@ ActiveRecord::Schema.define(version: 2020_11_23_151425) do
 
   create_table "recipes", force: :cascade do |t|
     t.string "name"
-    t.boolean "status"
+    t.boolean "private", default: true
     t.string "difficulty"
     t.integer "cooking_time"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "instructions"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
@@ -102,7 +103,7 @@ ActiveRecord::Schema.define(version: 2020_11_23_151425) do
     t.string "first_name"
     t.string "last_name"
     t.integer "num_of_members"
-    t.text "address"
+    t.string "address"
     t.text "list_of_restrictions", default: [], array: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
