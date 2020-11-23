@@ -13,17 +13,100 @@ puts "########## SEED - START ##############"
 puts "######################################"
 
 # Ingredients
+puts "##########Ingredients#################"
+puts "---Ingrédients noms debut---------"
+
+def units
+
+end
+
+RESTRICTIONS  = [
+  {name: "gluten",
+  words: %w[ blé seigle orge avoine épeautre kamut ]
+  },
+  {name: "Crustacés",
+  words: %w[ crevette crabe langouste langoustine homard]
+  },
+  {name: "Œuf",
+  words: %w[œufs oeuf],
+  exceptions: %w[saumon truite poisson]
+  },
+  {name: "Poisson",
+  words: %w[saumon truite poisson]
+  },
+  {name: "Arachides",
+  words: %w[arachide]
+  },
+  {name: "Soja",
+  words: %w[soja]
+  },
+  {name: "Lait",
+  words: %w[lait yaourt fromage vache],
+  exceptions: %w[soja]
+  },
+  {name: "Fruits à coque",
+  words: %w[amande noisette noix cajou pécan pistache macadamia]
+  },
+  {name: "Céleri",
+  words: %w[celeri]
+  },
+  {name: "Moutarde",
+  words: %w[moutarde]
+  },
+  {name: "Graines de sésame",
+  words: %w[sésame]
+  },
+  {name: "Lupin",
+  words: %w[lupin lupins]
+  },
+  {name: "Mollusques",
+  words: %w[escargot huître moules palourde coquille Saint Jacques calamars poulpe seiche]
+  },
+  {name: "Porc",
+  words: %w[ porc jambon cochon]
+  },
+  {name: "Non Vegan",
+  words: %w[ viande porc boeuf poulet poule jambon]
+  },
+]
+
+def restrictions(ingredient)
+  list_of_restriction = []
+  RESTRICTIONS.each do |restriction|
+    if word?(restriction, ingredient)
+    list_of_restriction << restriction[:name]
+    end
+  end
+  "#{ingredient} - #{list_of_restriction}"
+end
+
+def word?(restriction, ingredient)
+  restriction[:words].each do |word|
+    ingredient.match?(/#{word}/)
+    return true if ingredient.match?(/#{word}/)
+  end
+end
+
+# restrictions("viande des grisons")
 
 ("a".."z").each do |letter| 
   url = "https://www.marmiton.org/recettes/index/ingredient/#{letter}"
-
   html_file = open(url).read
   html_doc = Nokogiri::HTML(html_file)
 
   html_doc.search('.index-item-card').each do |element|
     text = element.search('.index-item-card-name')
-    puts text.text.strip
+    p ingredient_name = text.text.strip
+
+    restrictions(ingredient_name)
+
     img = element.search('img')
-    p img.attr('src').value
+    p ingredient_img = img.attr('src').value
+
+
   end
 end
+puts "-------Ingrédients noms fin---------"
+puts "----------------------------------"
+
+
