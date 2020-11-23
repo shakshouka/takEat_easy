@@ -30,6 +30,7 @@ class WeeksController < ApplicationController
 
   def update
     @week = Week.find(params[:id])
+    authorize @week
     if @week.update(set_params)
       redirect_to week_path(@week)
     else
