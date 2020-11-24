@@ -1,0 +1,74 @@
+.week-show > h1 {
+  font-family: 'Merienda One', cursive;
+}
+
+.card-week {
+  width: 350px;
+  height: 450px;
+  border: 1px solid rgb(150,150,150);
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  background-color: rgb(150,150,150);
+  text-align:center;
+  position: relative;
+  #left {
+    position:absolute;
+    left: 0;
+    bottom: 222px;
+    color: black;
+    text-decoration: none;
+    z-index: 1;
+  }
+  #right {
+    position:absolute;
+    right: 0;
+    bottom: 222px;
+    color:black;
+    text-decoration: none;
+    z-index: 1;
+  }
+}
+
+.card-week-day {
+  border: 1px solid rgb(150,150,150);
+  border-radius: 10px;
+  width: 350px;
+  margin: 0 auto;
+  padding-top: 10px;
+  margin-top: 15px;
+  .card-week-day-description {
+    text-align: center;
+  }
+  .card-week-day-calendar {
+    padding:0px 30px;
+    padding-bottom: 10px;
+    ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0;
+      padding: 0;
+      li {
+        display: inline;
+        text-decoration: none;
+        text-align:center;
+        a {
+          justify-content: space-between;
+          color: black;
+          text-align:center;
+        }
+      }
+    }
+  }
+}
+
+.week-icon-active {
+  background-color: black;
+  background-size: 5px 5px;
+  border-radius: 50%;
+}
+
+
+
