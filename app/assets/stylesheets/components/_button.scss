@@ -1,0 +1,35 @@
+.btn-main {
+  font-weight: bold;
+  color: #FFFFFF;
+
+  background: #FFBE78;
+  border-radius: 10px;
+  padding: 15px 50px;
+  text-decoration: none;
+
+  margin:10px;
+
+    &:hover {
+    background: #FFB76A;
+    text-decoration: none;
+    color: #FFFFFF;
+    }
+}
+
+.btn-second {
+  font-weight: bold;
+  color: #FFFFFF;
+
+  background: #BAE8E8;
+  border-radius: 10px;
+  padding: 15px 50px;
+  text-decoration: none;
+
+  margin:10px;
+
+    &:hover {
+    background: #98F2F2;
+    text-decoration: none;
+    color: #FFFFFF;
+    }
+}

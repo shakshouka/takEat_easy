@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 require 'open-uri'
 require 'nokogiri'
 require 'pry-byebug'
@@ -109,7 +110,18 @@ end
 
   end
 end
-puts "-------Ingrédients noms fin---------"
-puts "----------------------------------"
+puts "------Ingrédients fin--------"
+
+# Users
+puts "############## Users #################"
+puts "------Users debut-----------------"
+
+user = User.create!(email: 'toto@yahoo.fr', password: 'abcdef', password_confirmation: 'abcdef', first_name: "Georgito", last_name: "Yito", address: "2 Avenue Jean Jaurès, Pont de Choisy, 94600 Choisy-le-Roi")
+user1 = User.create!(email: 'toto1@yahoo.fr', password: 'abcdef', password_confirmation: 'abcdef', first_name: "Martin", last_name: "Tran", address: "21 Rue de l'École de Médecine, 75006 Paris")
 
 
+puts "------ Users fin ----------------"
+
+puts "######################################"
+puts "########## SEED - END ################"
+puts "######################################"
