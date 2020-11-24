@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 require 'nokogiri'
+require 'pry-byebug'
 
 puts "######################################"
 puts "########## SEED - START ##############"
@@ -22,7 +23,7 @@ end
 
 RESTRICTIONS  = [
   {name: "gluten",
-  words: %w[ blé seigle orge avoine épeautre kamut ]
+  words: %w[ blé seigle orge avoine épeautre kamut pain ]
   },
   {name: "Crustacés",
   words: %w[ crevette crabe langouste langoustine homard]
@@ -41,7 +42,7 @@ RESTRICTIONS  = [
   words: %w[soja]
   },
   {name: "Lait",
-  words: %w[lait yaourt fromage vache],
+  words: %w[lait yaourt fromage vache, raclette, neuchâtel neufchâtel],
   exceptions: %w[soja]
   },
   {name: "Fruits à coque",
@@ -66,18 +67,19 @@ RESTRICTIONS  = [
   words: %w[ porc jambon cochon]
   },
   {name: "Non Vegan",
-  words: %w[ viande porc boeuf poulet poule jambon]
+  words: %w[ viande porc boeuf poulet poule jambon veau lapin lièvre palombe]
   },
 ]
 
 def restrictions(ingredient)
   list_of_restriction = []
+  # binding.pry
   RESTRICTIONS.each do |restriction|
     if word?(restriction, ingredient)
     list_of_restriction << restriction[:name]
     end
   end
-  "#{ingredient} - #{list_of_restriction}"
+  puts "#{ingredient} - #{list_of_restriction}"
 end
 
 def word?(restriction, ingredient)
@@ -85,6 +87,7 @@ def word?(restriction, ingredient)
     ingredient.match?(/#{word}/)
     return true if ingredient.match?(/#{word}/)
   end
+  return false
 end
 
 # restrictions("viande des grisons")
@@ -96,12 +99,12 @@ end
 
   html_doc.search('.index-item-card').each do |element|
     text = element.search('.index-item-card-name')
-    p ingredient_name = text.text.strip
+    ingredient_name = text.text.strip
 
     restrictions(ingredient_name)
 
     img = element.search('img')
-    p ingredient_img = img.attr('src').value
+    ingredient_img = img.attr('src').value
 
 
   end
