@@ -1,11 +1,16 @@
 <h1>Recipes</h1>
-<ul>
+
+<div class="row">
   <% @recipes.each do |recipe| %>
-    <% if recipe.photos.attached? %>
-      <% recipe.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <div class="column">
+      <%= link_to recipe_path(recipe), class: "cardit" do %>
+        <div class="card-rcp">
+          <% if recipe.photos.attached? %>
+            <%= cl_image_tag recipe.photos.first.key, height: 100, width: 400, crop: :fill %>
+          <% end %>
+          <h5><%= recipe.name  %></h5>
+        </div>
       <% end %>
-    <% end %>
-    <li> <%= recipe.name  %> </li>
+    </div>
   <% end %>
-</ul>
+</div>
