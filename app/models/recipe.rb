@@ -5,9 +5,9 @@ class Recipe < ApplicationRecord
   has_many :doses, dependent: :delete_all
   has_many_attached :photos
 
-  validates :name, presence: true, format: { with: /\A[a-zA-Z0-9]*\z/,
+  validates :name, presence: true, format: { with: /\A[\w\-\s]+\z/,
     message: "only allows alphanumeric" }, length: { minimum: 2}
-  validates :difficulty, presence: true, inclusion: { in: %w(facile moyen difficile) }
+  validates :difficulty, presence: true, inclusion: { in: %w(Facile Moyen Difficile) }
   validates :cooking_time, presence: true, numericality: { only_integer: true, greater_than: 0 }
-  validates :instructions, presence: true, length: { minimum: 100}
+  validates :instructions, presence: true, length: { minimum: 30}
 end

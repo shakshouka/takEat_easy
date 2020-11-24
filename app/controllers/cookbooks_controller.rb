@@ -17,6 +17,13 @@ class CookbooksController < ApplicationController
   def create
     @cookbook = Cookbook.new(set_params)
     authorize @cookbook
+    @user = current_user
+    @cookbook.user = @user
+    if @cookbook.save
+      redirect_to new_cookbook_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -44,6 +51,6 @@ class CookbooksController < ApplicationController
   private
 
   def set_params
-    params.require(:cookbook).permit(:name, :user_id)
+    params.require(:cookbook).permit(:name)
   end
 end

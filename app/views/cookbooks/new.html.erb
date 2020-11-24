@@ -1,0 +1,7 @@
+<div class="container w-50">
+  <h1>Formulaire d'un nouveau livre de recettes</h1>
+  <%= simple_form_for @cookbook do |f| %>
+  <%= f.input :name, label: 'Nom du livre', error: 'Utiliser seulement les caracteres alphanumeriques', input_html: { maxlength: 20 }, required: true %>
+  <%= f.button :submit, class: "btn btn-outline-danger" %>
+  <% end %>
+</div>
