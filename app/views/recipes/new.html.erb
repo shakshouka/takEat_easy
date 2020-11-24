@@ -1,0 +1,10 @@
+<div class="container w-50">
+  <h1>Formulaire d'une nouvelle recette!</h1>
+  <%= simple_form_for @recipe do |f| %>
+  <%= f.input :name, label: 'Nom de la recette', error: 'Utiliser seulement les caracteres alphanumeriques', input_html: { maxlength: 30 } %>
+  <%= f.input :difficulty, label: 'Difficulte', collection: ["Facile","Moyen","Difficile"], error: "Ne peut pas etre vide" %>
+  <%= f.input :cooking_time, label: 'Temps de preparation (en minutes)',placeholder: "en minutes", input_html: { min: '5', step: '5' }, error: "Ne peut pas etre vide" %>
+  <%= f.input :instructions, as: :text, error: 'Au moins 30 caracteres seulement alphanumeriques' %>
+  <%= f.button :submit, class: "btn btn-outline-danger" %>
+  <% end %>
+</div>
