@@ -1,11 +1,17 @@
 <div class="show-recipe">
   <h1> <%= @recipe.name %> </h1>
 
-  <% if @recipe.photos.attached? %>
-    <% @recipe.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="card-week">
+    SLIDERSHOW
+    <% if @recipe.photos.attached? %>
+      <% @recipe.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
     <% end %>
-  <% end %>
+    <a href="" id="left">GAUCHE</a>
+    <a href="" id="right">DROITE</a>
+  </div>
+
 
   <ul>
     <li> <strong>Difficulté:</strong> <%= @recipe.difficulty  %> </li>
