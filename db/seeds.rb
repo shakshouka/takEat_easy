@@ -162,6 +162,11 @@ puts "------ Cookbooks debut -----------------"
 cookbook = Cookbook.create!(name: 'Hello', description: 'Awesome beginner starter', user_id: 1)
 cookbook1 = Cookbook.create!(name: 'World', description: 'Second best book to have!', user_id: 1)
 puts "------ Cookbooks fin ----------------"
+
+puts "############ WEEK ########################"
+puts "----------- WEEK DEBUT --------------"
+week = Week.create!(user_id: 1, start_day: Date.today)
+puts "------------- WEEK FIN -----------------"
 p "*************************"
 p "****  DB:SEED END !  ****"
 p "*************************"
