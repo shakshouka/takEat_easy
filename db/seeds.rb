@@ -9,19 +9,22 @@
 require 'open-uri'
 require 'nokogiri'
 require 'pry-byebug'
-require "net/http"
 
 puts "######################################"
 puts "########## SEED - START ##############"
 puts "######################################"
 
+puts "########### Destroy #################"
+puts "-----Destroy Ingredients----"
+Ingredient.destroy_all
+puts "-----Destroy User----"
+User.destroy_all
+
+puts "----------------------------------"
+
 # Ingredients
-puts "##########Ingredients#################"
+puts "######### Ingredients ################"
 puts "---Ingrédients noms debut---------"
-
-def units
-
-end
 
 RESTRICTIONS  = [
   {name: "gluten",
@@ -110,8 +113,10 @@ def exception?(restriction, ingredient)
 end
 
 # restrictions("viande des grisons")
+count = 0
 
 ("a".."z").each do |letter|
+  puts letter
   (1..13).each do |page_num| # (1..13)
     url = "https://www.marmiton.org/recettes/index/ingredient/#{letter}/#{page_num}"
 
@@ -122,17 +127,19 @@ end
       text = element.search('.index-item-card-name')
       ingredient_name = text.text.strip
       list_of_restrictions = restrictions(ingredient_name)
-      puts Ingredient.create(name: ingredient_name, list_of_restrictions: list_of_restrictions)
+      Ingredient.create(name: ingredient_name, list_of_restrictions: list_of_restrictions)
+      count += 1
       # img = element.search('img')
       # ingredient_img = img.attr('src').value
     end
   end
 end
-puts "------Ingrédients fin--------"
+puts "#{count} Ingrédients crées !"
+puts "------ Ingrédients fin --------"
 
 # Users
 puts "############## Users #################"
-puts "------Users debut-----------------"
+puts "------ Users debut -----------------"
 
 user = User.create!(email: 'toto@yahoo.fr', password: 'abcdef', password_confirmation: 'abcdef', first_name: "Georgito", last_name: "Yito", address: "2 Avenue Jean Jaurès, Pont de Choisy, 94600 Choisy-le-Roi")
 user1 = User.create!(email: 'toto1@yahoo.fr', password: 'abcdef', password_confirmation: 'abcdef', first_name: "Martin", last_name: "Tran", address: "21 Rue de l'École de Médecine, 75006 Paris")
