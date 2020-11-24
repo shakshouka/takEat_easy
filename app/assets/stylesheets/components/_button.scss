@@ -6,14 +6,8 @@
   border-radius: 10px;
   padding: 15px 50px;
   text-decoration: none;
-
-  margin:10px;
-
-    &:hover {
-    background: #FFB76A;
-    text-decoration: none;
-    color: #FFFFFF;
-    }
+  padding: 10px;
+  text-align: center;
 }
 
 .btn-second {
@@ -24,12 +18,35 @@
   border-radius: 10px;
   padding: 15px 50px;
   text-decoration: none;
+  padding: 10px;
+  text-align: center;
+}
 
-  margin:10px;
+.btn-large {
+  width: 90vw;
+}
 
-    &:hover {
-    background: #98F2F2;
-    text-decoration: none;
-    color: #FFFFFF;
-    }
+
+.btn-medium {
+  width: 50vw;
+}
+
+.btn-small {
+  width: 30vw;
+}
+
+.btn-scroll-down {
+  // <i class="btn-scroll fas fa-chevron-down">
+  color: $color-paragraph ;
+  box-shadow: 0 0px 5px rgba(0,0,0,0.2);
+  border-radius: 50%;
+  padding: 5px 5px 3px 5px;
+}
+
+.btn-scroll-up {
+  // <i class="btn-scroll fas fa-chevron-up">
+  color: $color-paragraph ;
+  box-shadow: 0 0px 5px rgba(0,0,0,0.2);
+  border-radius: 50%;
+  padding: 3px 5px 5px 5px;
 }
