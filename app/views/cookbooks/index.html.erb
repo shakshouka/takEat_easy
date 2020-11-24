@@ -1,0 +1,14 @@
+<h1>Mes livres de recettes</h1>
+<br>
+<div class="row">
+  <% @cookbooks.each do |cookbook| %>
+    <div class="column">
+      <%= link_to cookbook_path(cookbook), class: "cardit" do %>
+      <div class="card-ckbk">
+          <h5><%= cookbook.name  %></h5>
+          <p><%= cookbook.description  %></p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

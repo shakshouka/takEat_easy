@@ -1,0 +1,12 @@
+<h1> <%= @recipe.name %> </h1>
+
+<% if @recipe.photos.attached? %>
+  <% @recipe.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+<% end %>
+<ul>
+  <li> Difficulté: <%= @recipe.difficulty  %> </li>
+  <li> Temps avant dégustation: <%= @recipe.cooking_time  %> min </li>
+  <li> Instructions: <%= @recipe.instructions  %> </li>
+</ul>
