@@ -35,9 +35,6 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'pundit'
 
-# Test if url exists
-gem "net/http"
-
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'

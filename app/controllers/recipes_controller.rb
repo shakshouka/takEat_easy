@@ -3,7 +3,6 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = policy_scope(Recipe).order(created_at: :desc)
-    authorize @recipes
   end
 
   def show
@@ -19,6 +18,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(set_params)
     authorize @recipe
+    @recipe.user = current_user
     if @recipe.save
       redirect_to recipe_path(@recipe)
     else
@@ -53,7 +53,8 @@ class RecipesController < ApplicationController
   def set_params
     params.require(:recipe).permit(:name, :instructions,
                                   :status, :user_id,
-                                  :difficulty, :cooking_time
+                                  :difficulty, :cooking_time,
+                                  photos: []
                                   )
   end
 end
