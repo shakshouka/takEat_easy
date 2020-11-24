@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index ]
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
     @recipes = policy_scope(Recipe).order(created_at: :desc)
@@ -54,7 +54,6 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(:name, :instructions,
                                   :status, :user_id,
                                   :difficulty, :cooking_time,
-                                  photos: []
-                                  )
+                                  photos: [])
   end
 end

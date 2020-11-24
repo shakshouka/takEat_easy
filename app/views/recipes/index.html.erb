@@ -1,0 +1,11 @@
+<h1>Recipes</h1>
+<ul>
+  <% @recipes.each do |recipe| %>
+    <% if recipe.photos.attached? %>
+      <% recipe.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
+    <% end %>
+    <li> <%= recipe.name  %> </li>
+  <% end %>
+</ul>

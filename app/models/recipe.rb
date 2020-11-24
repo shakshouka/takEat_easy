@@ -3,6 +3,7 @@ class Recipe < ApplicationRecord
   has_many :meals
   has_many :cookbookrecipes
   has_many :doses, dependent: :delete_all
+  has_many_attached :photos
 
   validates :name, presence: true, format: { with: /\A[\w\-\s]+\z/,
     message: "only allows alphanumeric" }, length: { minimum: 2}
