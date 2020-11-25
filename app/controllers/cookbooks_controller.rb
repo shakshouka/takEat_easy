@@ -20,7 +20,7 @@ class CookbooksController < ApplicationController
     @user = current_user
     @cookbook.user = @user
     if @cookbook.save
-      redirect_to new_cookbook_path
+      redirect_to cookbook_path(@cookbook)
     else
       render :new
     end
