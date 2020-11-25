@@ -153,8 +153,8 @@ puts "------ Users fin ----------------"
 
 puts "############## Recipes #################"
 puts "------ Recipes debut -----------------"
-recipe = Recipe.create!(name: 'Omelette', instructions: 'Cassez 2 oeufs et puis YOLO!! Filler filler filler filler filler filler filler filler filler filler filler filler YOOOOOooooooooolooooooooooooooooooooooooooooooooooooooo', difficulty: 'Facile', cooking_time: 5, user_id: 1)
-recipe1 = Recipe.create!(name: 'OmeletteBis', instructions: 'Cassez 2 oeufs et puis YOLO!! Filler filler filler filler filler filler filler filler filler filler filler filler YOOOOOooooooooolooooooooooooooooooooooooooooooooooooooo', difficulty: 'Facile', cooking_time: 5, user_id: 1)
+recipe = Recipe.create!(name: "Poulet à la moutarde, à l'estragon et aux champignons", instructions: "Faire revenir les échalotes dans l'huile d'olive 3 min sans faire roussir. Ajouter les champignons et laisser cuire 2 min. Ajouter le bouillon de volaille. Cuire 10 min. Faire revenir les blancs de poulet dans une poêle anti-adhésive jusqu'à ce qu'ils soient dorés. Les ajouter aux champignons et cuire 10 min. A la fin, enlever le poulet, ajouter la moutarde, la crème fraîche et l'estragon. Emincer les blancs de poulet en tranches et servir avec les champignons.", difficulty: 'Facile', cooking_time: 35, user_id: 1)
+recipe1 = Recipe.create!(name: 'Velouté de potiron', instructions: 'Cassez 2 oeufs et puis YOLO!! Filler filler filler filler filler filler filler filler filler filler filler filler YOOOOOooooooooolooooooooooooooooooooooooooooooooooooooo', difficulty: 'Moyen', cooking_time: 75, user_id: 1)
 puts "------ Recipes fin ----------------"
 
 puts "############## Cookbooks #################"
