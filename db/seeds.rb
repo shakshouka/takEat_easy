@@ -18,12 +18,18 @@ puts "########## SEED - START ##############"
 puts "######################################"
 
 puts "########### Destroy #################"
-puts "-----Destroy Recipes----"
-Recipe.destroy_all
-puts "-----Destroy Cookbooks----"
-Cookbook.destroy_all
 puts "-----Destroy Ingredients----"
 Ingredient.destroy_all
+puts "-----Destroy Recipes----"
+Recipe.destroy_all
+puts "-----Destroy Doses----"
+Dose.destroy_all
+puts "-----Destroy CookbookRecipes----"
+CookbookRecipe.destroy_all
+puts "-----Destroy Cookbooks----"
+Cookbook.destroy_all
+# GroceryItem
+
 puts "-----Destroy Users----"
 User.destroy_all
 
@@ -79,7 +85,7 @@ RESTRICTIONS  = [
   words: %w[ porc jambon cochon andouille sauciss rosette rillettes marcassin ]
   },
   {name: "Non Vegan",
-  words: %w[ viande porc boeuf bœuf poulet poule jambon veau lapin lièvre palombe agneau canard canard andouille autruche dinde tournedos steack sauciss rumsteck dindon biche rosette rognons rillettes poularde mouton perdrix paté marcassin joue oie entrecôte grenouille mouton volaille chevreuil chevreau cheval chèvre],
+  words: %w[ viande porc boeuf bœuf poulet poule jambon veau lapin lièvre palombe agneau canard canard andouille autruche dinde tournedos steack sauciss rumsteck dindon biche rosette rognons rillettes poularde mouton perdrix paté marcassin joue oie entrecôte grenouille mouton volaille chevreuil chevreau cheval chèvre farce faux-filet],
   exceptions: %w[ fromage ]
   },
   {name: "Alcool",
@@ -153,20 +159,79 @@ puts "------ Users fin ----------------"
 
 puts "############## Recipes #################"
 puts "------ Recipes debut -----------------"
-recipe = Recipe.create!(name: "Poulet à la moutarde, à l'estragon et aux champignons", instructions: "Faire revenir les échalotes dans l'huile d'olive 3 min sans faire roussir. Ajouter les champignons et laisser cuire 2 min. Ajouter le bouillon de volaille. Cuire 10 min. Faire revenir les blancs de poulet dans une poêle anti-adhésive jusqu'à ce qu'ils soient dorés. Les ajouter aux champignons et cuire 10 min. A la fin, enlever le poulet, ajouter la moutarde, la crème fraîche et l'estragon. Emincer les blancs de poulet en tranches et servir avec les champignons.", difficulty: 'Facile', cooking_time: 35, user_id: 1)
-recipe1 = Recipe.create!(name: 'Velouté de potiron', instructions: 'Cassez 2 oeufs et puis YOLO!! Filler filler filler filler filler filler filler filler filler filler filler filler YOOOOOooooooooolooooooooooooooooooooooooooooooooooooooo', difficulty: 'Moyen', cooking_time: 75, user_id: 1)
-puts "------ Recipes fin ----------------"
 
-puts "############## Cookbooks #################"
-puts "------ Cookbooks debut -----------------"
-cookbook = Cookbook.create!(name: 'Hello', description: 'Awesome beginner starter', user_id: 1)
-cookbook1 = Cookbook.create!(name: 'World', description: 'Second best book to have!', user_id: 1)
-puts "------ Cookbooks fin ----------------"
+puts "--- Recipes vel_potiron debut --------"
+
+puts "----vel_pot recipe.create---"
+vel_potiron = Recipe.create(name: 'Velouté de potiron', instructions: "Couper la chair du potiron en gros dés. Couper l'oignon et l'ail en lamelles et le faire revenir dans une cocotte avec un peu d'huile. Ajouter les dés de courge dans la cocotte et recouvrir d'eau (juste au niveau de la courge, pas plus). Laisser bouillir environ 45 min à 1 h. Ajouter la crème liquide, saler, poivrer. Mixer.", difficulty: 'Facile', cooking_time: 75, user_id: user)
+puts "----doses.create---"
+potiron = Dose.create(ingredient_id: Ingredient.find_by(name:"Potiron"), quantity:250, unit:"g", recipe_id: vel_potiron)
+ail = Dose.create(ingredient_id: Ingredient.find_by(name:"Ail"), quantity:10, unit:"g", recipe_id: vel_potiron)
+oignon = Dose.create(ingredient_id: Ingredient.find_by(name:"Oignon"), quantity:50, unit:"g", recipe_id: vel_potiron)
+puts "---- Recipes vel_potiron fin ---------"
+
+
+puts "--- Recipes rot_porc debut --------"
+rot_porc = Recipe.create(name: 'Rôti de porc aux oignons', instructions: 'Faire dorer le rôti sur chaque face. Réserver. Faire revenir les oignons jusqu\'à qu\'ils blondissent. Saler. Poivrer légèrement. Disposer le rôti sur les oignons. Fermer la cocotte et laisser cuire 1h00 minimum à feu moyen. Servir avec un riz blanc et du fromage râpé.', difficulty: 'Moyen', cooking_time: 70, user_id: user1)
+puts "----doses.create---"
+rotiporc = Dose.create(ingredient_id: Ingredient.find_by(name:"Rôti de porc"), quantity:150, unit:"g", recipe_id: rot_porc)
+oignon = Dose.create(ingredient_id: Ingredient.find_by(name:"Oignon"), quantity:50, unit:"g", recipe_id: rot_porc)
+riz = Dose.create(ingredient_id: Ingredient.find_by(name:"Riz thaï"), quantity:100, unit:"g", recipe_id: rot_porc)
+from = Dose.create(ingredient_id: Ingredient.find_by(name:"Fromage râpé"), quantity:30, unit:"g", recipe_id: rot_porc)
+puts "---- Recipes rot_porc fin ---------"
+
+puts "------ Recipe crepes debut ----------------"
+crepes = Recipe.create(name: 'Crêpes faciles', instructions: "Mélanger la farine et l'œuf. Ajouter progressivement le lait et enfin le rhum. Laisser reposer si on a le temps. Mettre une noisette de beurre ou d\'huile sur la poêle et verser peu de pâte pour que les crêpes soient fines. Les laisser cuire et faire le grand saut de la crêpe pour cuire l\'autre côté. Dégustez.", difficulty: 'Facile', cooking_time: 10, user_id: user1)
+puts "-doses.create-"
+farine = Dose.create(ingredient_id: Ingredient.find_by(name:"Farine de blé noir"), quantity:90, unit:"g", recipe_id: crepes)
+oeuf = Dose.create(ingredient_id: Ingredient.find_by(name:"Oeuf"), quantity:1, unit:"pc", recipe_id: crepes)
+lait = Dose.create(ingredient_id: Ingredient.find_by(name:"Lait demi-écrémé"), quantity:20, unit:"cl", recipe_id: crepes)
+beurre = Dose.create(ingredient_id: Ingredient.find_by(name:"Beurre demi-sel"), quantity:5, unit:"g", recipe_id: crepes)
+rhum = Dose.create(ingredient_id: Ingredient.find_by(name:"Rhum"), quantity:4, unit:"cl", recipe_id: crepes)
+puts "------ Recipe crepes fin ------"
+
+puts "------ Recipe crepes debut ----------------"
+crepes = Recipe.create(name: 'Crêpes faciles', instructions: "Mélanger la farine et l'œuf. Ajouter progressivement le lait et enfin le rhum. Laisser reposer si on a le temps. Mettre une noisette de beurre ou d\'huile sur la poêle et verser peu de pâte pour que les crêpes soient fines. Les laisser cuire et faire le grand saut de la crêpe pour cuire l\'autre côté. Dégustez.", difficulty: 'Facile', cooking_time: 10, user_id: 1)
+puts "-doses.create-"
+farine = Dose.create(ingredient_id: Ingredient.find_by(name:"Farine de blé noir"), quantity:90, unit:"g", recipe_id: crepes)
+oeuf = Dose.create(ingredient_id: Ingredient.find_by(name:"Oeuf"), quantity:1, unit:"pc", recipe_id: crepes)
+lait = Dose.create(ingredient_id: Ingredient.find_by(name:"Lait demi-écrémé"), quantity:20, unit:"cl", recipe_id: crepes)
+beurre = Dose.create(ingredient_id: Ingredient.find_by(name:"Beurre demi-sel"), quantity:5, unit:"g", recipe_id: crepes)
+rhum = Dose.create(ingredient_id: Ingredient.find_by(name:"Rhum"), quantity:4, unit:"cl", recipe_id: crepes)
+puts "------ Recipe crepes fin ------"
+
+puts "------ Recipe puree de carottes debut ----------------"
+pur_carottes = Recipe.create(name: 'Purée de carottes', instructions: "Eplucher les légumes et les couper en morceaux assez gros. Mettre à cuire environ 10 à 15 min dans une cocotte minute. Une fois cuits, mettre les légumes dans le bol du mixeur avec la crème fraiche et le beurre. Assaisonner selon votre convenance. Mixer le tout jusqu'à l'obtention d'une purée lisse. Servir chaud.", difficulty: 'Moyen', cooking_time: 25, user_id: user)
+puts "-doses.create-"
+beurre = Dose.create(ingredient_id: Ingredient.find_by(name:"Pomme de terre"), quantity:5, unit:"g", recipe_id: pur_carottes)
+carottes = Dose.create(ingredient_id: Ingredient.find_by(name:"Carotte"), quantity:2, unit:"pc", recipe_id: pur_carottes)
+^dt = Dose.create(ingredient_id: Ingredient.find_by(name:"Carotte"), quantity:2, unit:"pc", recipe_id: pur_carottes)
+creme = Dose.create(ingredient_id: Ingredient.find_by(name:"Crème fraîche épaisse"), quantity:1, unit:"cl", recipe_id: pur_carottes)
+puts "------ Recipe puree de carottes fin ------"
+
+puts "------ Recipes fin ----------------"
 
 puts "############ WEEK ########################"
 puts "----------- WEEK DEBUT --------------"
-week = Week.create!(user_id: 1, start_day: Date.today)
+week = Week.create(user_id: 1, start_day: Date.today)
 puts "------------- WEEK FIN -----------------"
 p "*************************"
 p "****  DB:SEED END !  ****"
 p "*************************"
+
+puts "############## Meals #################"
+puts "------ Meals debut -----------------"
+puts Meal.create(week_id:week,recipe_id:pur_carottes, moment:"", day: week.start_day + 0, num_of_members: 3 )
+puts "------ Meals fin -----------------"
+
+
+puts "############## Cookbooks #################"
+puts "------ Cookbooks debut -----------------"
+cookbook = Cookbook.create(name: 'Hello', description: 'Awesome beginner starter', user_id: user)
+cookbook1 = Cookbook.create(name: 'World', description: 'Second best book to have!', user_id: user)
+puts "------ Cookbooks fin ----------------"
+
+puts "############## Cookbook-recipes #################"
+puts "------ Cookbook-recipes debut -----------------"
+puts "To come..."
+puts "------ Cookbook-recipes fin -----------------"
