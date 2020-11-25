@@ -172,21 +172,23 @@ puts "------ Users fin ----------------"
 
 puts "############## Recipes #################"
 puts "------ Recipe omelette -----------------"
+
 puts omelette = Recipe.create!(name: 'Omelette nature', instructions: 'Battez les oeufs à la fourchette, salez et poivrez. Faites chauffer le beurre. Versez les oeufs dans la poêle à feu vif, baissez le feu et laissez cuire doucement en ramenant les bords de l\'omelette au centre au fur et à mesure qu\'ils prennent. Secouez un peu la poêle pour eviter que l\'omelette n\'attache. verifiez la texture baveuse ou bien prise. Pliez l\'omelette en deux et servez.', difficulty: 'Facile', cooking_time: 15, user_id: user.id)
 puts "----doses recipe omelette---"
-puts oeufs = Dose.create!(ingredient_id: Ingredient.find_by(name:"oeuf").id, quantity:7, unit:"pc", recipe_id: omelette.id )
-puts beurre = Dose.create!(ingredient_id: Ingredient.find_by(name:"beurre").id, quantity:50, unit:"g", recipe_id: omelette.id )
+puts oeufs = Dose.create!(ingredient_id: Ingredient.find_by(name:"oeuf").id, quantity:3, unit:"pc", recipe_id: omelette.id )
+puts beurre = Dose.create!(ingredient_id: Ingredient.find_by(name:"beurre").id, quantity:20, unit:"g", recipe_id: omelette.id )
 
 puts "------ Recipe raclette ----------------"
 p raclette = Recipe.create!(name: 'Raclette', instructions: 'Laver les pommes de terre, et les faire cuire en robe des champs avec du sel. Pendant que les pommes de terre cuisent, preparer le plat de fromage en coupant des tranches de la grandeur des poêlons. Quand les pommes de terre sont cuites, enclencher l\'appareil à raclette. Chacun fait fondre son fromage dans le poêlon et le deguste ensuite avec une pomme de terre et les accompagnements de son choix.', difficulty: 'Facile', cooking_time: 40, user_id: user.id)
 puts "----doses recipe raclette---"
-puts fromage = Dose.create!(ingredient_id: Ingredient.find_by(name:"fromage à raclette").id, quantity:800, unit:"g", recipe_id: raclette.id )
-puts pommes_de_terre = Dose.create!(ingredient_id: Ingredient.find_by(name:"pomme de terre").id, quantity:1000, unit:"g", recipe_id: raclette.id )
+
+puts fromage = Dose.create!(ingredient_id: Ingredient.find_by(name:"fromage à raclette").id, quantity:100, unit:"g", recipe_id: raclette.id )
+puts pommes_de_terre = Dose.create!(ingredient_id: Ingredient.find_by(name:"pomme de terre").id, quantity:200, unit:"g", recipe_id: raclette.id )
 
 puts "------ Recipe pommes_sautees -----------------"
 puts pommes_sautees = Recipe.create!(name: "Pommes de terres sautees", instructions: "Eplucher et laver les pommes de terre, puis les couper en cube. Dans une sauteuse, faire chauffer 3 cuillères à soupe d'huile. Lorsque l'huile est chaude, y mettre les pommes de terre d'un coup. Ajouter sel et poivre. Porter à feu maximal et faire cuire avec le couvercle", difficulty: "Facile", cooking_time: 20, user_id: user.id)
 puts "----doses recipe pommes_sautees---"
-puts pommes_de_terre = Dose.create!(ingredient_id: Ingredient.find_by(name:"pomme de terre").id, quantity:6, unit:"pc", recipe_id: pommes_sautees.id )
+puts pommes_de_terre = Dose.create!(ingredient_id: Ingredient.find_by(name:"pomme de terre").id, quantity:3, unit:"pc", recipe_id: pommes_sautees.id )
 puts huile = Dose.create!(ingredient_id: Ingredient.find_by(name:"huile").id, quantity:2, unit:"cl", recipe_id: pommes_sautees.id  )
 
 puts "--- Recipes rot_porc debut --------"
@@ -265,6 +267,7 @@ puts "------ Cookbooks fin ----------------"
 
 puts "############## Cookbook-recipes #################"
 puts "------ Cookbook-recipes debut -----------------"
+
 puts cbkrcp = CookbookRecipe.new(cookbook_id: cookbook.id, recipe_id: Recipe.find_by(name:"crepes"))
 puts cbkrcp2 = CookbookRecipe.new(cookbook_id: cookbook.id, recipe_id: Recipe.find_by(name:"raclette"))
 puts cbkrcp3 = CookbookRecipe.new(cookbook_id: cookbook.id, recipe_id: Recipe.find_by(name:"pommes_sautees"))
@@ -273,7 +276,6 @@ puts cbkrcp4 = CookbookRecipe.new(cookbook_id: cookbook1.id, recipe_id: Recipe.f
 puts cbkrcp5 = CookbookRecipe.new(cookbook_id: cookbook1.id, recipe_id: Recipe.find_by(name:"raclette"))
 puts cbkrcp6 = CookbookRecipe.new(cookbook_id: cookbook1.id, recipe_id: Recipe.find_by(name:"rot_porc"))
 puts cbkrcp7 = CookbookRecipe.new(cookbook_id: cookbook1.id, recipe_id: Recipe.find_by(name:"vel_potiron"))
-puts "To be continued..."
 puts "------ Cookbook-recipes fin -----------------"
 
 p "*************************"
