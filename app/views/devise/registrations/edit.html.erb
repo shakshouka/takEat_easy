@@ -10,6 +10,9 @@
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :address %>
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
@@ -21,6 +24,7 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :num_of_members, as: :integer%>
   </div>
 
   <div class="form-actions">
