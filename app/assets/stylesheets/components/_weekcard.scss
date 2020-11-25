@@ -15,22 +15,20 @@
   #left {
     position:absolute;
     left: 0;
-    bottom: 225px;
+    transform: translateY(50%);
+    bottom: 50%;
     color: black;
     text-decoration: none;
     z-index: 1;
-    border-radius: 50%;
-    width:30px;
   }
   #right {
     position:absolute;
     right: 0;
-    bottom: 225px;
+    transform: translateY(50%);
+    bottom: 50%;
     color:black;
     text-decoration: none;
     z-index: 1;
-    border-radius: 50%;
-    width:30px;
   }
 }
 

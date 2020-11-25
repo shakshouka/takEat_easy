@@ -12,4 +12,5 @@ Rails.application.routes.draw do
     end
     resources :meals, except: [ :destroy, :index ]
   end
+  get 'user', to: "users#show"
 end
