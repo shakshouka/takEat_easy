@@ -5,6 +5,8 @@
   <%= f.input :difficulty, label: 'Difficulte', collection: ["Facile","Moyen","Difficile"], error: "Ne peut pas etre vide" %>
   <%= f.input :cooking_time, label: 'Temps de preparation (en minutes)',placeholder: "en minutes", input_html: { min: '5', step: '5' }, error: "Ne peut pas etre vide" %>
   <%= f.input :instructions, as: :text, error: 'Au moins 30 caracteres seulement alphanumeriques' %>
-  <%= f.button :submit, class: "btn btn-outline-danger" %>
+  <%= f.button :submit, class: "btn-main", style:"width: 100%; margin-bottom:30px"%>
+
   <% end %>
 </div>
+
