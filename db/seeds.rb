@@ -11,7 +11,6 @@
 
 require 'open-uri'
 require 'nokogiri'
-require 'pry-byebug'
 
 puts "######################################"
 puts "########## SEED - START ##############"
