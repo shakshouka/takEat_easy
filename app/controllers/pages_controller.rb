@@ -6,4 +6,7 @@ class PagesController < ApplicationController
 
   def random
   end
+
+  def swipe
+  end
 end
