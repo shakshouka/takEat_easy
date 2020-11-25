@@ -1,10 +1,10 @@
 # This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+# The data can then be loaded with the rails db:seed command (or create!d alongside the database with db:setup).
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#   movies = Movie.create!([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create!(name: 'Luke', movie: movies.first)
 # User.delete_all
 # Recipe.delete_all
 # Cookbook.delete_all
@@ -17,48 +17,47 @@ puts "########## SEED - START ##############"
 puts "######################################"
 
 puts "########### Destroy #################"
-puts "-----Destroy Ingredients----"
-Ingredient.destroy_all
-
-puts "-----Destroy Meal----"
-Meal.destroy_all
-
-puts "-----Destroy CookbookRecipes----"
-CookbookRecipe.destroy_all
 
 puts "-----Destroy Grocery-item----"
 GroceryItem.destroy_all
 
-puts "-----Destroy Recipes----"
-Recipe.destroy_all
+puts "-----Destroy Meal----"
+Meal.destroy_all
 
 puts "-----Destroy Doses----"
 Dose.destroy_all
 
-puts "-----Destroy Cookbooks----"
-Cookbook.destroy_all
+puts "-----Destroy CookbookRecipes----"
+CookbookRecipe.destroy_all
 
-puts "-----Destroy Users----"
-User.destroy_all
+puts "-----Destroy Ingredients----"
+Ingredient.destroy_all
 
 puts "-----Destroy Week----"
 Week.destroy_all
 
+puts "-----Destroy Recipes----"
+Recipe.destroy_all
+
+puts "-----Destroy Cookbooks----"
+Cookbook.destroy_all
+
 puts "-----Destroy Grocery-list----"
 GroceryList.destroy_all
 
-puts "----------------------------------"
+puts "-----Destroy Users----"
+User.destroy_all
 
-# Ingredients
+puts "----------------------------------"
 puts "######### Ingredients ################"
-puts "---Ingrédients noms debut---------"
+puts "---Ingredients noms debut---------"
 
 RESTRICTIONS  = [
   {name: "gluten",
-  words: %w[ abadèche blé seigle orge avoine épeautre kamut pain abadèche ]
+  words: %w[ abadèche ble seigle orge avoine epeautre kamut pain abadèche ]
   },
-  {name: "Crustacés",
-  words: %w[ crevette crabe langouste langoustine homard écrevisse tourteau ]
+  {name: "Crustaces",
+  words: %w[ crevette crabe langouste langoustine homard ecrevisse tourteau ]
   },
   {name: "Œuf",
   words: %w[ œuf oeuf ],
@@ -75,19 +74,19 @@ RESTRICTIONS  = [
   },
   {name: "Lait",
   words: %w[ lait yaourt fromage vache raclette neuchâtel neufchâtel gruyère crème beurre],
-  exceptions: %w[ soja noisette vegetal végétal végetal vegétal avoine coco brebis amande marron mûre truffe bananes balsamique anchois cacahuète]
+  exceptions: %w[ soja noisette vegetal vegetal vegetal vegetal avoine coco brebis amande marron mûre truffe bananes balsamique anchois cacahuète]
   },
   {name: "Fruits à coque",
-  words: %w[ amande noisette noix cajou pécan pistache macadamia ]
+  words: %w[ amande noisette noix cajou pecan pistache macadamia ]
   },
-  {name: "Céleri",
+  {name: "Celeri",
   words: %w[ celeri ]
   },
   {name: "Moutarde",
   words: %w[ moutarde ]
   },
-  {name: "Graines de sésame",
-  words: %w[ sésame tahini tahiné ]
+  {name: "Graines de sesame",
+  words: %w[ sesame tahini tahine ]
   },
   {name: "Lupin",
   words: %w[ lupin lupins ]
@@ -99,7 +98,7 @@ RESTRICTIONS  = [
   words: %w[ porc jambon cochon andouille sauciss rosette rillettes marcassin ]
   },
   {name: "Non Vegan",
-  words: %w[ viande porc boeuf bœuf poulet poule jambon veau lapin lièvre palombe agneau canard canard andouille autruche dinde tournedos steack sauciss rumsteck dindon biche rosette rognons rillettes poularde mouton perdrix paté marcassin joue oie entrecôte grenouille mouton volaille chevreuil chevreau cheval chèvre farce faux-filet],
+  words: %w[ viande porc boeuf bœuf poulet poule jambon veau lapin lièvre palombe agneau canard canard andouille autruche dinde tournedos steack sauciss rumsteck dindon biche rosette rognons rillettes poularde mouton perdrix pate marcassin joue oie entrecôte grenouille mouton volaille chevreuil chevreau cheval chèvre farce faux-filet],
   exceptions: %w[ fromage ]
   },
   {name: "Alcool",
@@ -152,105 +151,133 @@ count = 0
 
     html_doc.search('.index-item-card').each do |element|
       text = element.search('.index-item-card-name')
-      ingredient_name = text.text.strip
+      ingredient_name = text.text.strip.downcase
       list_of_restrictions = restrictions(ingredient_name)
-      Ingredient.create(name: ingredient_name, list_of_restrictions: list_of_restrictions)
+      Ingredient.create!(name: ingredient_name, list_of_restrictions: list_of_restrictions)
       count += 1
       # img = element.search('img')
       # ingredient_img = img.attr('src').value
     end
   end
 end
-puts "#{count} Ingrédients crées !"
-puts "------ Ingrédients fin --------"
+puts "#{count} Ingredients crees !"
+puts "------ Ingredients fin --------"
 
 # Users
 puts "############## Users #################"
 puts "------ Users debut -----------------"
-user = User.create!(email: 'toto@yahoo.fr', password: 'abcdef', password_confirmation: 'abcdef', first_name: "Georgito", last_name: "Yito", address: "2 Avenue Jean Jaurès, Pont de Choisy, 94600 Choisy-le-Roi")
-user1 = User.create!(email: 'toto1@yahoo.fr', password: 'abcdef', password_confirmation: 'abcdef', first_name: "Martin", last_name: "Tran", address: "21 Rue de l'École de Médecine, 75006 Paris")
+puts user = User.create!(email: 'toto@yahoo.fr', password: 'abcdef', password_confirmation: 'abcdef', first_name: "Georgito", last_name: "Yito", address: "2 Avenue Jean Jaurès, Pont de Choisy, 94600 Choisy-le-Roi")
+puts user1 = User.create!(email: 'toto1@yahoo.fr', password: 'abcdef', password_confirmation: 'abcdef', first_name: "Martin", last_name: "Tran", address: "21 Rue de l'ecole de Medecine, 75006 Paris")
 puts "------ Users fin ----------------"
 
 puts "############## Recipes #################"
 puts "------ Recipe omelette -----------------"
-omlette = Recipe.create(name: 'Omelette nature', instructions: 'Battez les oeufs à la fourchette, salez et poivrez. Faites chauffer le beurre. Versez les oeufs dans la poêle à feu vif, baissez le feu et laissez cuire doucement en ramenant les bords de l\'omelette au centre au fur et à mesure qu\'ils prennent. Secouez un peu la poêle pour éviter que l\'omelette n\'attache. vérifiez la texture baveuse ou bien prise. Pliez l\'omelette en deux et servez.', difficulty: 'Facile', cooking_time: 15, user_id: user)
-puts "----doses recipe omlette---"
-oeufs = Dose.create(ingredient_id: Ingredient.find_by(name:"Oeuf"), quantity:3, unit:"pc", recipe_id: omelette )
-beurre = Dose.create(ingredient_id: Ingredient.find_by(name:"Beurre"), quantity:20, unit:"g", recipe_id: omelette)
+
+puts omelette = Recipe.create!(name: 'Omelette nature', instructions: 'Battez les oeufs à la fourchette, salez et poivrez. Faites chauffer le beurre. Versez les oeufs dans la poêle à feu vif, baissez le feu et laissez cuire doucement en ramenant les bords de l\'omelette au centre au fur et à mesure qu\'ils prennent. Secouez un peu la poêle pour eviter que l\'omelette n\'attache. verifiez la texture baveuse ou bien prise. Pliez l\'omelette en deux et servez.', difficulty: 'Facile', cooking_time: 15, user_id: user.id)
+puts "----doses recipe omelette---"
+puts oeufs = Dose.create!(ingredient_id: Ingredient.find_by(name:"oeuf").id, quantity:3, unit:"pc", recipe_id: omelette.id )
+puts beurre = Dose.create!(ingredient_id: Ingredient.find_by(name:"beurre").id, quantity:20, unit:"g", recipe_id: omelette.id )
 
 puts "------ Recipe raclette ----------------"
-raclette = Recipe.create(name: 'Raclette', instructions: 'Laver les pommes de terre, et les faire cuire en robe des champs avec du sel. Pendant que les pommes de terre cuisent, préparer le plat de fromage en coupant des tranches de la grandeur des poêlons. Quand les pommes de terre sont cuites, enclencher l\'appareil à raclette. Chacun fait fondre son fromage dans le poêlon et le déguste ensuite avec une pomme de terre et les accompagnements de son choix.', difficulty: 'facile', cooking_time: 40, user_id: user1)
+p raclette = Recipe.create!(name: 'Raclette', instructions: 'Laver les pommes de terre, et les faire cuire en robe des champs avec du sel. Pendant que les pommes de terre cuisent, preparer le plat de fromage en coupant des tranches de la grandeur des poêlons. Quand les pommes de terre sont cuites, enclencher l\'appareil à raclette. Chacun fait fondre son fromage dans le poêlon et le deguste ensuite avec une pomme de terre et les accompagnements de son choix.', difficulty: 'Facile', cooking_time: 40, user_id: user.id)
 puts "----doses recipe raclette---"
-fromage = Dose.create(ingredient_id: Ingredient.find_by(name:"Fromage à raclette"), quantity:100, unit:"g", recipe_id: raclette )
-pommes_de_terre = Dose.create(ingredient_id: Ingredient.find_by(name:"Pomme de terres"), quantity:200, unit:"g", recipe_id: raclette )
+
+puts fromage = Dose.create!(ingredient_id: Ingredient.find_by(name:"fromage à raclette").id, quantity:100, unit:"g", recipe_id: raclette.id )
+puts pommes_de_terre = Dose.create!(ingredient_id: Ingredient.find_by(name:"pomme de terre").id, quantity:200, unit:"g", recipe_id: raclette.id )
 
 puts "------ Recipe pommes_sautees -----------------"
-pommes_sautees = Recipe.create(name: 'Pommes de terres sautées', instructions: 'Eplucher et laver les pommes de terre, puis les couper en cube. Dans une sauteuse, faire chauffer 3 cuillères à soupe d\'huile. Lorsque l\'huile est chaude, y mettre les pommes de terre d\'un coup. Ajouter sel et poivre. Porter à feu maximal et faire cuire avec le couvercle', difficulty: 'Facile', cooking_time: 20, user_id: user)
+puts pommes_sautees = Recipe.create!(name: "Pommes de terres sautees", instructions: "Eplucher et laver les pommes de terre, puis les couper en cube. Dans une sauteuse, faire chauffer 3 cuillères à soupe d'huile. Lorsque l'huile est chaude, y mettre les pommes de terre d'un coup. Ajouter sel et poivre. Porter à feu maximal et faire cuire avec le couvercle", difficulty: "Facile", cooking_time: 20, user_id: user.id)
 puts "----doses recipe pommes_sautees---"
-pommes_de_terre = Dose.create(ingredient_id: Ingredient.find_by(name:"Pomme de terres"), quantity:3, unit:"pc", recipe_id: pommes_sautees )
-huile = Dose.create(ingredient_id: Ingredient.find_by(name:"Huile"), quantity:2, unit:"cl", recipe_id: pommes_sautees  )
+puts pommes_de_terre = Dose.create!(ingredient_id: Ingredient.find_by(name:"pomme de terre").id, quantity:3, unit:"pc", recipe_id: pommes_sautees.id )
+puts huile = Dose.create!(ingredient_id: Ingredient.find_by(name:"huile").id, quantity:2, unit:"cl", recipe_id: pommes_sautees.id  )
 
 puts "--- Recipes rot_porc debut --------"
-rot_porc = Recipe.create(name: 'Rôti de porc aux oignons', instructions: 'Faire dorer le rôti sur chaque face. Réserver. Faire revenir les oignons jusqu\'à qu\'ils blondissent. Saler. Poivrer légèrement. Disposer le rôti sur les oignons. Fermer la cocotte et laisser cuire 1h00 minimum à feu moyen. Servir avec un riz blanc et du fromage râpé.', difficulty: 'Moyen', cooking_time: 70, user_id: user1)
-puts "----doses.create---"
-rotiporc = Dose.create(ingredient_id: Ingredient.find_by(name:"Rôti de porc"), quantity:150, unit:"g", recipe_id: rot_porc)
-oignon = Dose.create(ingredient_id: Ingredient.find_by(name:"Oignon"), quantity:50, unit:"g", recipe_id: rot_porc)
-riz = Dose.create(ingredient_id: Ingredient.find_by(name:"Riz thaï"), quantity:100, unit:"g", recipe_id: rot_porc)
-from = Dose.create(ingredient_id: Ingredient.find_by(name:"Fromage râpé"), quantity:30, unit:"g", recipe_id: rot_porc)
+rot_porc = Recipe.create!(name: 'Roti de porc aux oignons', instructions: 'Faire dorer le rôti sur chaque face. Reserver. Faire revenir les oignons jusqu\'à qu\'ils blondissent. Saler. Poivrer legèrement. Disposer le rôti sur les oignons. Fermer la cocotte et laisser cuire 1h00 minimum à feu moyen. Servir avec un riz blanc et du fromage râpe.', difficulty: 'Moyen', cooking_time: 70, user_id: user.id)
+puts "----doses.create!---"
+puts rotiporc = Dose.create!(ingredient_id: Ingredient.find_by(name:"rôti de porc").id, quantity:150, unit:"g", recipe_id: rot_porc.id)
+puts oignon = Dose.create!(ingredient_id: Ingredient.find_by(name:"oignon").id, quantity:50, unit:"g", recipe_id: rot_porc.id)
+puts riz = Dose.create!(ingredient_id: Ingredient.find_by(name:"riz thaï").id, quantity:100, unit:"g", recipe_id: rot_porc.id)
+puts from = Dose.create!(ingredient_id: Ingredient.find_by(name:"fromage râpé").id, quantity:30, unit:"g", recipe_id: rot_porc.id)
 puts "---- Recipes rot_porc fin ---------"
 
 puts "------ Recipe crepe ----------------"
-crepes = Recipe.create(name: 'Crêpes faciles', instructions: "Mélanger la farine et l'œuf. Ajouter progressivement le lait et enfin le rhum. Laisser reposer si on a le temps. Mettre une noisette de beurre ou d\'huile sur la poêle et verser peu de pâte pour que les crêpes soient fines. Les laisser cuire et faire le grand saut de la crêpe pour cuire l\'autre côté. Dégustez.", difficulty: 'Facile', cooking_time: 10, user_id: user1)
-puts "----doses.create----"
-farine = Dose.create(ingredient_id: Ingredient.find_by(name:"Farine de blé noir"), quantity:90, unit:"g", recipe_id: crepes)
-oeuf = Dose.create(ingredient_id: Ingredient.find_by(name:"Oeuf"), quantity:1, unit:"pc", recipe_id: crepes)
-lait = Dose.create(ingredient_id: Ingredient.find_by(name:"Lait demi-écrémé"), quantity:20, unit:"cl", recipe_id: crepes)
-beurre = Dose.create(ingredient_id: Ingredient.find_by(name:"Beurre demi-sel"), quantity:5, unit:"g", recipe_id: crepes)
-rhum = Dose.create(ingredient_id: Ingredient.find_by(name:"Rhum"), quantity:4, unit:"cl", recipe_id: crepes)
+puts crepes = Recipe.create!(name: 'Crepes faciles', instructions: "Melanger la farine et l'œuf. Ajouter progressivement le lait et enfin le rhum. Laisser reposer si on a le temps. Mettre une noisette de beurre ou d\'huile sur la poêle et verser peu de pâte pour que les crêpes soient fines. Les laisser cuire et faire le grand saut de la crêpe pour cuire l\'autre côte. Degustez.", difficulty: 'Facile', cooking_time: 10, user_id: user1.id)
+puts "----doses.create!----"
+puts farine = Dose.create!(ingredient_id: Ingredient.find_by(name:"farine de blé noir").id, quantity:90, unit:"g", recipe_id: crepes.id)
+puts oeuf = Dose.create!(ingredient_id: Ingredient.find_by(name:"oeuf").id, quantity:1, unit:"pc", recipe_id: crepes.id)
+puts lait = Dose.create!(ingredient_id: Ingredient.find_by(name:"lait demi-écrémé").id, quantity:20, unit:"cl", recipe_id: crepes.id)
+puts beurre = Dose.create!(ingredient_id: Ingredient.find_by(name:"beurre demi-sel").id, quantity:5, unit:"g", recipe_id: crepes.id)
+puts rhum = Dose.create!(ingredient_id: Ingredient.find_by(name:"rhum").id, quantity:4, unit:"cl", recipe_id: crepes.id)
 puts "------ Recipe crepes fin ------"
 
 puts "--- Recipes vel_potiron debut --------"
-puts "----vel_pot recipe.create---"
-vel_potiron = Recipe.create(name: 'Velouté de potiron', instructions: "Couper la chair du potiron en gros dés. Couper l'oignon et l'ail en lamelles et le faire revenir dans une cocotte avec un peu d'huile. Ajouter les dés de courge dans la cocotte et recouvrir d'eau (juste au niveau de la courge, pas plus). Laisser bouillir environ 45 min à 1 h. Ajouter la crème liquide, saler, poivrer. Mixer.", difficulty: 'Facile', cooking_time: 75, user_id: user)
-puts "----doses.create---"
-potiron = Dose.create(ingredient_id: Ingredient.find_by(name:"Potiron"), quantity:250, unit:"g", recipe_id: vel_potiron)
-ail = Dose.create(ingredient_id: Ingredient.find_by(name:"Ail"), quantity:10, unit:"g", recipe_id: vel_potiron)
-oignon = Dose.create(ingredient_id: Ingredient.find_by(name:"Oignon"), quantity:50, unit:"g", recipe_id: vel_potiron)
+puts "----vel_pot recipe.create!---"
+puts vel_potiron = Recipe.create!(name: 'Veloute de potiron', instructions: "Couper la chair du potiron en gros des. Couper l'oignon et l'ail en lamelles et le faire revenir dans une cocotte avec un peu d'huile. Ajouter les des de courge dans la cocotte et recouvrir d'eau (juste au niveau de la courge, pas plus). Laisser bouillir environ 45 min à 1 h. Ajouter la crème liquide, saler, poivrer. Mixer.", difficulty: 'Difficile', cooking_time: 75, user_id: user.id)
+puts "----doses.create!---"
+puts potiron = Dose.create!(ingredient_id: Ingredient.find_by(name:"potiron").id, quantity:250, unit:"g", recipe_id: vel_potiron.id)
+puts ail = Dose.create!(ingredient_id: Ingredient.find_by(name:"ail").id, quantity:10, unit:"g", recipe_id: vel_potiron.id)
+puts oignon = Dose.create!(ingredient_id: Ingredient.find_by(name:"oignon").id, quantity:50, unit:"g", recipe_id: vel_potiron.id)
 puts "---- Recipes vel_potiron fin ---------"
 
 puts "------ Recipe puree de carottes debut ----------------"
-pur_carottes = Recipe.create(name: 'Purée de carottes', instructions: "Eplucher les légumes et les couper en morceaux assez gros. Mettre à cuire environ 10 à 15 min dans une cocotte minute. Une fois cuits, mettre les légumes dans le bol du mixeur avec la crème fraiche et le beurre. Assaisonner selon votre convenance. Mixer le tout jusqu'à l'obtention d'une purée lisse. Servir chaud.", difficulty: 'Moyen', cooking_time: 25, user_id: user)
-puts "-doses.create-"
-beurre = Dose.create(ingredient_id: Ingredient.find_by(name:"Pomme de terre"), quantity:5, unit:"g", recipe_id: pur_carottes)
-carottes = Dose.create(ingredient_id: Ingredient.find_by(name:"Carotte"), quantity:2, unit:"pc", recipe_id: pur_carottes)
-pdt = Dose.create(ingredient_id: Ingredient.find_by(name:"Carotte"), quantity:2, unit:"pc", recipe_id: pur_carottes)
-creme = Dose.create(ingredient_id: Ingredient.find_by(name:"Crème fraîche épaisse"), quantity:10, unit:"cl", recipe_id: pur_carottes)
+puts pur_carottes = Recipe.create!(name: 'Puree de carottes', instructions: "Eplucher les legumes et les couper en morceaux assez gros. Mettre à cuire environ 10 à 15 min dans une cocotte minute. Une fois cuits, mettre les legumes dans le bol du mixeur avec la crème fraiche et le beurre. Assaisonner selon votre convenance. Mixer le tout jusqu'à l'obtention d'une puree lisse. Servir chaud.", difficulty: 'Moyen', cooking_time: 25, user_id: user.id)
+puts "-doses.create!-"
+puts pdt = Dose.create!(ingredient_id: Ingredient.find_by(name:"pomme de terre").id, quantity:5, unit:"g", recipe_id: pur_carottes.id)
+puts carottes = Dose.create!(ingredient_id: Ingredient.find_by(name:"carotte").id, quantity:2, unit:"pc", recipe_id: pur_carottes.id)
+puts beurre = Dose.create!(ingredient_id: Ingredient.find_by(name:"beurre").id, quantity:2, unit:"pc", recipe_id: pur_carottes.id)
+puts creme = Dose.create!(ingredient_id: Ingredient.find_by(name:"crème fraîche épaisse").id, quantity:10, unit:"cl", recipe_id: pur_carottes.id)
 puts "------ Recipe puree de carottes fin ------"
 
 puts "------ Recipes fin ----------------"
 puts "############ WEEK ########################"
 puts "----------- WEEK DEBUT --------------"
-week = Week.create(user_id: 1, start_day: Date.today)
+puts week = Week.create!(user_id: user.id, start_day: Date.today)
 puts "------------- WEEK FIN -----------------"
-p "*************************"
-p "****  DB:SEED END !  ****"
-p "*************************"
 
 puts "############## Meals #################"
 puts "------ Meals debut -----------------"
-puts Meal.create(week_id:week, recipe_id:pur_carottes, moment:"", day: week.start_day + 0, num_of_members: 3 )
-puts Meal.create(week_id:week, recipe_id:crepes, moment:"", day: week.start_day + 1, num_of_members: 3 )
-puts Meal.create(week_id:week, recipe_id:rot_porc, moment:"", day: week.start_day + 2, num_of_members: 3 )
-puts Meal.create(week_id:week, recipe_id:vel_potiron, moment:"", day: week.start_day + 3, num_of_members: 3 )
+puts Meal.create!(week_id:week.id, recipe_id:pur_carottes.id, moment:"diner", day: week.start_day + 0, num_of_members: 3 )
+puts Meal.create!(week_id:week.id, recipe_id:crepes.id, moment:"diner", day: week.start_day + 1, num_of_members: 3 )
+puts Meal.create!(week_id:week.id, recipe_id:rot_porc.id, moment:"diner", day: week.start_day + 2, num_of_members: 3 )
+puts Meal.create!(week_id:week.id, recipe_id:pommes_sautees.id, moment:"diner", day: week.start_day + 3, num_of_members: 3 )
+puts Meal.create!(week_id:week.id, recipe_id:raclette.id, moment:"déjeuner", day: week.start_day + 4, num_of_members: 3 )
+puts Meal.create!(week_id:week.id, recipe_id:omelette.id, moment:"diner", day: week.start_day + 5, num_of_members: 3 )
+puts Meal.create!(week_id:week.id, recipe_id:vel_potiron.id, moment:"diner", day: week.start_day + 6, num_of_members: 3 )
 puts "------ Meals fin -----------------"
+
+puts "############## Grocery_list #################"
+puts "------ Grocery_list debut -----------------"
+grocery_list = GroceryList.new(week_id: week.id)
+puts "------ Grocery_list fin -----------------"
+
+puts "############## Grocery_items #################"
+puts "------ Grocery_items debut -----------------"
+potiron = GroceryItem.new(grocery_list_id: grocery_list.id, total_quantity: 1000, unit: "g", ingredient_id: Ingredient.find_by(name:"Potiron") )
+beurre = GroceryItem.new(grocery_list_id: grocery_list.id, total_quantity: 1000, unit: "g", ingredient_id: Ingredient.find_by(name:"Beurre") )
+farine = GroceryItem.new(grocery_list_id: grocery_list.id, total_quantity: 1000, unit: "g", ingredient_id: Ingredient.find_by(name:"Farine") )
+oeuf = GroceryItem.new(grocery_list_id: grocery_list.id, total_quantity: 1000, unit: "pc", ingredient_id: Ingredient.find_by(name:"Oeuf") )
+lait = GroceryItem.new(grocery_list_id: grocery_list.id, total_quantity: 200, unit: "cl", ingredient_id: Ingredient.find_by(name:"Oeuf") )
+puts "------ Grocery_items fin -----------------"
 
 puts "############## Cookbooks #################"
 puts "------ Cookbooks debut -----------------"
-cookbook = Cookbook.create(name: 'Hello', description: 'Awesome beginner starter', user_id: user)
-cookbook1 = Cookbook.create(name: 'World', description: 'Second best book to have!', user_id: user)
+puts cookbook = Cookbook.create!(name: 'Hello', description: 'Awesome beginner starter', user_id: user.id)
+puts cookbook1 = Cookbook.create!(name: 'World', description: 'Second best book to have!', user_id: user.id)
 puts "------ Cookbooks fin ----------------"
 
 puts "############## Cookbook-recipes #################"
 puts "------ Cookbook-recipes debut -----------------"
-puts "To come..."
+
+puts cbkrcp = CookbookRecipe.new(cookbook_id: cookbook.id, recipe_id: Recipe.find_by(name:"crepes"))
+puts cbkrcp2 = CookbookRecipe.new(cookbook_id: cookbook.id, recipe_id: Recipe.find_by(name:"raclette"))
+puts cbkrcp3 = CookbookRecipe.new(cookbook_id: cookbook.id, recipe_id: Recipe.find_by(name:"pommes_sautees"))
+
+puts cbkrcp4 = CookbookRecipe.new(cookbook_id: cookbook1.id, recipe_id: Recipe.find_by(name:"crepes"))
+puts cbkrcp5 = CookbookRecipe.new(cookbook_id: cookbook1.id, recipe_id: Recipe.find_by(name:"raclette"))
+puts cbkrcp6 = CookbookRecipe.new(cookbook_id: cookbook1.id, recipe_id: Recipe.find_by(name:"rot_porc"))
+puts cbkrcp7 = CookbookRecipe.new(cookbook_id: cookbook1.id, recipe_id: Recipe.find_by(name:"vel_potiron"))
 puts "------ Cookbook-recipes fin -----------------"
+
+p "*************************"
+p "****  DB:SEED END !  ****"
+p "*************************"

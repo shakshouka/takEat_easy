@@ -50,3 +50,13 @@
   border-radius: 50%;
   padding: 3px 5px 5px 5px;
 }
+
+.btn-back {
+  font-size: 24px;
+  color: $color-paragraph ;
+  // box-shadow: 0 0px 5px rgba(0,0,0,0.2); if you want a box-shadow around your circled icon
+  padding: 10px;
+  border-radius: 50%;
+  // padding: 1px 8px 2px 5px; if you want a circle around your icon
+  background-color: transparent;
+}
