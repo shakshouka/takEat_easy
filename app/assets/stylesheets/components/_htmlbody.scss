@@ -1,6 +1,17 @@
 html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+  margin: 0!important;
+  padding: 0!important;
   position: relative;
+}
+
+.container-wrapper{
+  flex-direction: column;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container-main {
+  flex-grow: 1;
+  overflow-y: auto;
 }

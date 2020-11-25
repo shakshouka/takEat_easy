@@ -15,7 +15,31 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+// import Swiper bundle with all modules installed
+import Swiper from 'swiper/bundle';
+// init Swiper:
+var mySwiper = new Swiper('.swiper-container', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
 
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+})
+const swiper = new Swiper(mySwiper);
 
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
@@ -25,6 +49,7 @@ require("channels")
 // External imports
 import "bootstrap";
 import { loader } from "../plugins/loader";
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
