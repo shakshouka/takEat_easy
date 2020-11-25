@@ -175,19 +175,19 @@ puts "############## Recipes #################"
 puts "------ Recipe omelette -----------------"
 omlette = Recipe.create(name: 'Omelette nature', instructions: 'Battez les oeufs à la fourchette, salez et poivrez. Faites chauffer le beurre. Versez les oeufs dans la poêle à feu vif, baissez le feu et laissez cuire doucement en ramenant les bords de l\'omelette au centre au fur et à mesure qu\'ils prennent. Secouez un peu la poêle pour éviter que l\'omelette n\'attache. vérifiez la texture baveuse ou bien prise. Pliez l\'omelette en deux et servez.', difficulty: 'Facile', cooking_time: 15, user_id: user)
 puts "----doses recipe omlette---"
-oeufs = Dose.create(ingredient_id: Ingredient.find_by(name:"Oeufs"), quantity:7, unit:"pc", recipe_id: omelette )
-beurre = Dose.create(ingredient_id: Ingredient.find_by(name:"Beurre"), quantity:50, unit:"g", recipe_id: omelette)
+oeufs = Dose.create(ingredient_id: Ingredient.find_by(name:"Oeuf"), quantity:3, unit:"pc", recipe_id: omelette )
+beurre = Dose.create(ingredient_id: Ingredient.find_by(name:"Beurre"), quantity:20, unit:"g", recipe_id: omelette)
 
 puts "------ Recipe raclette ----------------"
 raclette = Recipe.create(name: 'Raclette', instructions: 'Laver les pommes de terre, et les faire cuire en robe des champs avec du sel. Pendant que les pommes de terre cuisent, préparer le plat de fromage en coupant des tranches de la grandeur des poêlons. Quand les pommes de terre sont cuites, enclencher l\'appareil à raclette. Chacun fait fondre son fromage dans le poêlon et le déguste ensuite avec une pomme de terre et les accompagnements de son choix.', difficulty: 'facile', cooking_time: 40, user_id: user1)
 puts "----doses recipe raclette---"
-fromage = Dose.create(ingredient_id: Ingredient.find_by(name:"Fromage à raclette"), quantity:800, unit:"g", recipe_id: raclette )
-pommes_de_terre = Dose.create(ingredient_id: Ingredient.find_by(name:"Pomme de terres"), quantity:1000, unit:"g", recipe_id: raclette )
+fromage = Dose.create(ingredient_id: Ingredient.find_by(name:"Fromage à raclette"), quantity:100, unit:"g", recipe_id: raclette )
+pommes_de_terre = Dose.create(ingredient_id: Ingredient.find_by(name:"Pomme de terres"), quantity:200, unit:"g", recipe_id: raclette )
 
-uts "------ Recipe pommes_sautees -----------------"
+puts "------ Recipe pommes_sautees -----------------"
 pommes_sautees = Recipe.create(name: 'Pommes de terres sautées', instructions: 'Eplucher et laver les pommes de terre, puis les couper en cube. Dans une sauteuse, faire chauffer 3 cuillères à soupe d\'huile. Lorsque l\'huile est chaude, y mettre les pommes de terre d\'un coup. Ajouter sel et poivre. Porter à feu maximal et faire cuire avec le couvercle', difficulty: 'Facile', cooking_time: 20, user_id: user)
 puts "----doses recipe pommes_sautees---"
-pommes_de_terre = Dose.create(ingredient_id: Ingredient.find_by(name:"Pomme de terres"), quantity:6, unit:"pc", recipe_id: pommes_sautees )
+pommes_de_terre = Dose.create(ingredient_id: Ingredient.find_by(name:"Pomme de terres"), quantity:3, unit:"pc", recipe_id: pommes_sautees )
 huile = Dose.create(ingredient_id: Ingredient.find_by(name:"Huile"), quantity:2, unit:"cl", recipe_id: pommes_sautees  )
 
 puts "--- Recipes rot_porc debut --------"
