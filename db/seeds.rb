@@ -242,7 +242,7 @@ puts Meal.create(week_id:week, recipe_id:pur_carottes, moment:"", day: week.star
 puts Meal.create(week_id:week, recipe_id:crepes, moment:"", day: week.start_day + 1, num_of_members: 3 )
 puts Meal.create(week_id:week, recipe_id:rot_porc, moment:"", day: week.start_day + 2, num_of_members: 3 )
 puts Meal.create(week_id:week, recipe_id:pommes_sautees, moment:"", day: week.start_day + 3, num_of_members: 3 )
-puts Meal.create(week_id:week, recipe_id:raclettte, moment:"", day: week.start_day + 4, num_of_members: 3 )
+puts Meal.create(week_id:week, recipe_id:raclette, moment:"", day: week.start_day + 4, num_of_members: 3 )
 puts Meal.create(week_id:week, recipe_id:omelette, moment:"", day: week.start_day + 5, num_of_members: 3 )
 puts Meal.create(week_id:week, recipe_id:vel_potiron, moment:"", day: week.start_day + 6, num_of_members: 3 )
 puts "------ Meals fin -----------------"
@@ -254,7 +254,11 @@ puts "------ Grocery_list fin -----------------"
 
 puts "############## Grocery_items #################"
 puts "------ Grocery_items debut -----------------"
-potiron = GroceryItem.new(grocery_list: grocery_list, total_quantity: 2, ingredient_id: Ingredient.find_by(name:"Potiron") )
+potiron = GroceryItem.new(grocery_list: grocery_list, total_quantity: 1000, unit: "g", ingredient_id: Ingredient.find_by(name:"Potiron") )
+beurre = GroceryItem.new(grocery_list: grocery_list, total_quantity: 1000, unit: "g", ingredient_id: Ingredient.find_by(name:"Beurre") )
+farine = GroceryItem.new(grocery_list: grocery_list, total_quantity: 1000, unit: "g", ingredient_id: Ingredient.find_by(name:"Farine") )
+oeuf = GroceryItem.new(grocery_list: grocery_list, total_quantity: 1000, unit: "pc", ingredient_id: Ingredient.find_by(name:"Oeuf") )
+lait = GroceryItem.new(grocery_list: grocery_list, total_quantity: 200, unit: "cl", ingredient_id: Ingredient.find_by(name:"Oeuf") )
 puts "------ Grocery_items fin -----------------"
 
 puts "############## Cookbooks #################"
@@ -265,5 +269,13 @@ puts "------ Cookbooks fin ----------------"
 
 puts "############## Cookbook-recipes #################"
 puts "------ Cookbook-recipes debut -----------------"
-puts "To come..."
+puts cbkrcp = CookbookRecipe.new(cookbook: cookbook, recipe_id: Recipe.find_by(name:"crepes"))
+puts cbkrcp2 = CookbookRecipe.new(cookbook: cookbook, recipe_id: Recipe.find_by(name:"raclette"))
+puts cbkrcp2 = CookbookRecipe.new(cookbook: cookbook, recipe_id: Recipe.find_by(name:"pommes_sautees"))
+
+puts cbkrcp = CookbookRecipe.new(cookbook: cookbook1, recipe_id: Recipe.find_by(name:"crepes"))
+puts cbkrcp2 = CookbookRecipe.new(cookbook: cookbook1, recipe_id: Recipe.find_by(name:"raclette"))
+puts cbkrcp3 = CookbookRecipe.new(cookbook: cookbook1, recipe_id: Recipe.find_by(name:"rot_porc"))
+puts cbkrcp4 = CookbookRecipe.new(cookbook: cookbook1, recipe_id: Recipe.find_by(name:"vel_potiron"))
+puts "To be continued..."
 puts "------ Cookbook-recipes fin -----------------"
