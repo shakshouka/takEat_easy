@@ -172,18 +172,23 @@ user1 = User.create!(email: 'toto1@yahoo.fr', password: 'abcdef', password_confi
 puts "------ Users fin ----------------"
 
 puts "############## Recipes #################"
-puts "------ Recipes debut -----------------"
+puts "------ Recipe omelette -----------------"
+omlette = Recipe.create(name: 'Omelette nature', instructions: 'Battez les oeufs à la fourchette, salez et poivrez. Faites chauffer le beurre. Versez les oeufs dans la poêle à feu vif, baissez le feu et laissez cuire doucement en ramenant les bords de l\'omelette au centre au fur et à mesure qu\'ils prennent. Secouez un peu la poêle pour éviter que l\'omelette n\'attache. vérifiez la texture baveuse ou bien prise. Pliez l\'omelette en deux et servez.', difficulty: 'Facile', cooking_time: 15, user_id: user)
+puts "----doses recipe omlette---"
+oeufs = Dose.create(ingredient_id: Ingredient.find_by(name:"Oeufs"), quantity:7, unit:"pc", recipe_id: omelette )
+beurre = Dose.create(ingredient_id: Ingredient.find_by(name:"Beurre"), quantity:50, unit:"g", recipe_id: omelette)
 
-puts "--- Recipes vel_potiron debut --------"
+puts "------ Recipe raclette ----------------"
+raclette = Recipe.create(name: 'Raclette', instructions: 'Laver les pommes de terre, et les faire cuire en robe des champs avec du sel. Pendant que les pommes de terre cuisent, préparer le plat de fromage en coupant des tranches de la grandeur des poêlons. Quand les pommes de terre sont cuites, enclencher l\'appareil à raclette. Chacun fait fondre son fromage dans le poêlon et le déguste ensuite avec une pomme de terre et les accompagnements de son choix.', difficulty: 'facile', cooking_time: 40, user_id: user1)
+puts "----doses recipe raclette---"
+fromage = Dose.create(ingredient_id: Ingredient.find_by(name:"Fromage à raclette"), quantity:800, unit:"g", recipe_id: raclette )
+pommes_de_terre = Dose.create(ingredient_id: Ingredient.find_by(name:"Pomme de terres"), quantity:1000, unit:"g", recipe_id: raclette )
 
-puts "----vel_pot recipe.create---"
-vel_potiron = Recipe.create(name: 'Velouté de potiron', instructions: "Couper la chair du potiron en gros dés. Couper l'oignon et l'ail en lamelles et le faire revenir dans une cocotte avec un peu d'huile. Ajouter les dés de courge dans la cocotte et recouvrir d'eau (juste au niveau de la courge, pas plus). Laisser bouillir environ 45 min à 1 h. Ajouter la crème liquide, saler, poivrer. Mixer.", difficulty: 'Facile', cooking_time: 75, user_id: user)
-puts "----doses.create---"
-potiron = Dose.create(ingredient_id: Ingredient.find_by(name:"Potiron"), quantity:250, unit:"g", recipe_id: vel_potiron)
-ail = Dose.create(ingredient_id: Ingredient.find_by(name:"Ail"), quantity:10, unit:"g", recipe_id: vel_potiron)
-oignon = Dose.create(ingredient_id: Ingredient.find_by(name:"Oignon"), quantity:50, unit:"g", recipe_id: vel_potiron)
-puts "---- Recipes vel_potiron fin ---------"
-
+uts "------ Recipe pommes_sautees -----------------"
+pommes_sautees = Recipe.create(name: 'Pommes de terres sautées', instructions: 'Eplucher et laver les pommes de terre, puis les couper en cube. Dans une sauteuse, faire chauffer 3 cuillères à soupe d\'huile. Lorsque l\'huile est chaude, y mettre les pommes de terre d\'un coup. Ajouter sel et poivre. Porter à feu maximal et faire cuire avec le couvercle', difficulty: 'Facile', cooking_time: 20, user_id: user)
+puts "----doses recipe pommes_sautees---"
+pommes_de_terre = Dose.create(ingredient_id: Ingredient.find_by(name:"Pomme de terres"), quantity:6, unit:"pc", recipe_id: pommes_sautees )
+huile = Dose.create(ingredient_id: Ingredient.find_by(name:"Huile"), quantity:2, unit:"cl", recipe_id: pommes_sautees  )
 
 puts "--- Recipes rot_porc debut --------"
 rot_porc = Recipe.create(name: 'Rôti de porc aux oignons', instructions: 'Faire dorer le rôti sur chaque face. Réserver. Faire revenir les oignons jusqu\'à qu\'ils blondissent. Saler. Poivrer légèrement. Disposer le rôti sur les oignons. Fermer la cocotte et laisser cuire 1h00 minimum à feu moyen. Servir avec un riz blanc et du fromage râpé.', difficulty: 'Moyen', cooking_time: 70, user_id: user1)
@@ -194,15 +199,24 @@ riz = Dose.create(ingredient_id: Ingredient.find_by(name:"Riz thaï"), quantity:
 from = Dose.create(ingredient_id: Ingredient.find_by(name:"Fromage râpé"), quantity:30, unit:"g", recipe_id: rot_porc)
 puts "---- Recipes rot_porc fin ---------"
 
-puts "------ Recipe crepes debut ----------------"
+puts "------ Recipe crepe ----------------"
 crepes = Recipe.create(name: 'Crêpes faciles', instructions: "Mélanger la farine et l'œuf. Ajouter progressivement le lait et enfin le rhum. Laisser reposer si on a le temps. Mettre une noisette de beurre ou d\'huile sur la poêle et verser peu de pâte pour que les crêpes soient fines. Les laisser cuire et faire le grand saut de la crêpe pour cuire l\'autre côté. Dégustez.", difficulty: 'Facile', cooking_time: 10, user_id: user1)
-puts "-doses.create-"
+puts "----doses.create----"
 farine = Dose.create(ingredient_id: Ingredient.find_by(name:"Farine de blé noir"), quantity:90, unit:"g", recipe_id: crepes)
 oeuf = Dose.create(ingredient_id: Ingredient.find_by(name:"Oeuf"), quantity:1, unit:"pc", recipe_id: crepes)
 lait = Dose.create(ingredient_id: Ingredient.find_by(name:"Lait demi-écrémé"), quantity:20, unit:"cl", recipe_id: crepes)
 beurre = Dose.create(ingredient_id: Ingredient.find_by(name:"Beurre demi-sel"), quantity:5, unit:"g", recipe_id: crepes)
 rhum = Dose.create(ingredient_id: Ingredient.find_by(name:"Rhum"), quantity:4, unit:"cl", recipe_id: crepes)
 puts "------ Recipe crepes fin ------"
+
+puts "--- Recipes vel_potiron debut --------"
+puts "----vel_pot recipe.create---"
+vel_potiron = Recipe.create(name: 'Velouté de potiron', instructions: "Couper la chair du potiron en gros dés. Couper l'oignon et l'ail en lamelles et le faire revenir dans une cocotte avec un peu d'huile. Ajouter les dés de courge dans la cocotte et recouvrir d'eau (juste au niveau de la courge, pas plus). Laisser bouillir environ 45 min à 1 h. Ajouter la crème liquide, saler, poivrer. Mixer.", difficulty: 'Facile', cooking_time: 75, user_id: user)
+puts "----doses.create---"
+potiron = Dose.create(ingredient_id: Ingredient.find_by(name:"Potiron"), quantity:250, unit:"g", recipe_id: vel_potiron)
+ail = Dose.create(ingredient_id: Ingredient.find_by(name:"Ail"), quantity:10, unit:"g", recipe_id: vel_potiron)
+oignon = Dose.create(ingredient_id: Ingredient.find_by(name:"Oignon"), quantity:50, unit:"g", recipe_id: vel_potiron)
+puts "---- Recipes vel_potiron fin ---------"
 
 puts "------ Recipe puree de carottes debut ----------------"
 pur_carottes = Recipe.create(name: 'Purée de carottes', instructions: "Eplucher les légumes et les couper en morceaux assez gros. Mettre à cuire environ 10 à 15 min dans une cocotte minute. Une fois cuits, mettre les légumes dans le bol du mixeur avec la crème fraiche et le beurre. Assaisonner selon votre convenance. Mixer le tout jusqu'à l'obtention d'une purée lisse. Servir chaud.", difficulty: 'Moyen', cooking_time: 25, user_id: user)
@@ -211,11 +225,9 @@ beurre = Dose.create(ingredient_id: Ingredient.find_by(name:"Pomme de terre"), q
 carottes = Dose.create(ingredient_id: Ingredient.find_by(name:"Carotte"), quantity:2, unit:"pc", recipe_id: pur_carottes)
 pdt = Dose.create(ingredient_id: Ingredient.find_by(name:"Carotte"), quantity:2, unit:"pc", recipe_id: pur_carottes)
 creme = Dose.create(ingredient_id: Ingredient.find_by(name:"Crème fraîche épaisse"), quantity:10, unit:"cl", recipe_id: pur_carottes)
-
 puts "------ Recipe puree de carottes fin ------"
 
 puts "------ Recipes fin ----------------"
-
 puts "############ WEEK ########################"
 puts "----------- WEEK DEBUT --------------"
 week = Week.create(user_id: 1, start_day: Date.today)
