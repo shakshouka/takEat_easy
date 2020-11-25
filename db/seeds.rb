@@ -20,18 +20,38 @@ puts "######################################"
 puts "########### Destroy #################"
 puts "-----Destroy Ingredients----"
 Ingredient.destroy_all
-puts "-----Destroy Recipes----"
-Recipe.destroy_all
-puts "-----Destroy Doses----"
-Dose.destroy_all
+
+puts "-----Destroy Meal----"
+Meal.destroy_all
+
 puts "-----Destroy CookbookRecipes----"
 CookbookRecipe.destroy_all
+
+puts "-----Destroy Grocery-item----"
+GroceryItem.destroy_all
+
+puts "-----Destroy Recipes----"
+Recipe.destroy_all
+
+puts "-----Destroy Doses----"
+Dose.destroy_all
+
+
+
 puts "-----Destroy Cookbooks----"
 Cookbook.destroy_all
-# GroceryItem
 
 puts "-----Destroy Users----"
 User.destroy_all
+
+puts "-----Destroy Week----"
+Week.destroy_all
+
+puts "-----Destroy Grocery-list----"
+GroceryList.destroy_all
+
+
+
 
 puts "----------------------------------"
 
@@ -205,8 +225,9 @@ pur_carottes = Recipe.create(name: 'Purée de carottes', instructions: "Eplucher
 puts "-doses.create-"
 beurre = Dose.create(ingredient_id: Ingredient.find_by(name:"Pomme de terre"), quantity:5, unit:"g", recipe_id: pur_carottes)
 carottes = Dose.create(ingredient_id: Ingredient.find_by(name:"Carotte"), quantity:2, unit:"pc", recipe_id: pur_carottes)
-^dt = Dose.create(ingredient_id: Ingredient.find_by(name:"Carotte"), quantity:2, unit:"pc", recipe_id: pur_carottes)
-creme = Dose.create(ingredient_id: Ingredient.find_by(name:"Crème fraîche épaisse"), quantity:1, unit:"cl", recipe_id: pur_carottes)
+pdt = Dose.create(ingredient_id: Ingredient.find_by(name:"Carotte"), quantity:2, unit:"pc", recipe_id: pur_carottes)
+creme = Dose.create(ingredient_id: Ingredient.find_by(name:"Crème fraîche épaisse"), quantity:10, unit:"cl", recipe_id: pur_carottes)
+
 puts "------ Recipe puree de carottes fin ------"
 
 puts "------ Recipes fin ----------------"
@@ -221,9 +242,11 @@ p "*************************"
 
 puts "############## Meals #################"
 puts "------ Meals debut -----------------"
-puts Meal.create(week_id:week,recipe_id:pur_carottes, moment:"", day: week.start_day + 0, num_of_members: 3 )
+puts Meal.create(week_id:week, recipe_id:pur_carottes, moment:"", day: week.start_day + 0, num_of_members: 3 )
+puts Meal.create(week_id:week, recipe_id:crepes, moment:"", day: week.start_day + 1, num_of_members: 3 )
+puts Meal.create(week_id:week, recipe_id:rot_porc, moment:"", day: week.start_day + 2, num_of_members: 3 )
+puts Meal.create(week_id:week, recipe_id:vel_potiron, moment:"", day: week.start_day + 3, num_of_members: 3 )
 puts "------ Meals fin -----------------"
-
 
 puts "############## Cookbooks #################"
 puts "------ Cookbooks debut -----------------"
