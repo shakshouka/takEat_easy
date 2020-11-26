@@ -2,5 +2,7 @@ class Meal < ApplicationRecord
   belongs_to :week
   belongs_to :recipe
 
-  validates :moment, inclusion: { in: %w[petit-dejeuner déjeuner diner] }
+  MOMENTS = %w[petit-dejeuner déjeuner diner].freeze
+
+  validates :moment, inclusion: { in: MOMENTS }
 end

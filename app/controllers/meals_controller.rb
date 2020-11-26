@@ -31,17 +31,34 @@ class MealsController < ApplicationController
 
   def update
     @meal = Meal.find(params[:id])
+    @recipe = random_recipe
+    @meal.recipe_id = @recipe.id
+    @meal.save!
     authorize @meal
-    if @meal.update(set_params)
-      redirect_to meal_path(@meal)
-    else
-      render :edit
-    end
+    redirect_to week_meals_path
+  end
+
+  def update_empty
+    @meal = Meal.find(params[:id])
+    @meal.recipe_id = 1
+    @meal.save!
+    authorize @meal
+    redirect_to week_meals_path
+  end
+
+  def index
+    @week = Week.find(params[:week_id])
+    @meals = policy_scope(Meal.where(week_id: @week.id)).order(created_at: :desc)
+    authorize @meals
   end
 
   private
 
+  def random_recipe
+    return Recipe.find(rand(2..Recipe.count))
+  end
+
   def set_params
-    params.require(:meal).permit(:moment,:day,:num_of_members)
+    params.require(:meal).permit(:moment, :day, :num_of_members, :week_id, :recipe_id)
   end
 end

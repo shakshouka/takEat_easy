@@ -14,10 +14,18 @@ class MealPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    true
   end
 
   def today?
+    true
+  end
+
+  def index?
+    true
+  end
+
+  def update_empty?
     true
   end
 end

@@ -168,9 +168,13 @@ puts "############## Users #################"
 puts "------ Users debut -----------------"
 puts user = User.create!(email: 'toto@yahoo.fr', password: 'abcdef', password_confirmation: 'abcdef', first_name: "Georgito", last_name: "Yito", address: "2 Avenue Jean Jaurès, Pont de Choisy, 94600 Choisy-le-Roi")
 puts user1 = User.create!(email: 'toto1@yahoo.fr', password: 'abcdef', password_confirmation: 'abcdef', first_name: "Martin", last_name: "Tran", address: "21 Rue de l'ecole de Medecine, 75006 Paris")
+puts user666 = User.create!(email: 'diablo@yahoo.fr', password: 'abcdef', password_confirmation: 'abcdef', first_name: "Lucie", last_name: "Fer", address: "User qui sert juste pour les recipe vides")
 puts "------ Users fin ----------------"
 
 puts "############## Recipes #################"
+puts "------ Empty Recipe -----------------"
+puts empty = Recipe.create!(name: 'EMPTY', instructions: "Ceci est une recette vide, vous n'êtes pas sensé la voir. J'espère que ca fait trente caractères.", difficulty: 'Facile', cooking_time: 666, user_id: user666.id)
+
 puts "------ Recipe omelette -----------------"
 
 puts omelette = Recipe.create!(name: 'Omelette nature', instructions: 'Battez les oeufs à la fourchette, salez et poivrez. Faites chauffer le beurre. Versez les oeufs dans la poêle à feu vif, baissez le feu et laissez cuire doucement en ramenant les bords de l\'omelette au centre au fur et à mesure qu\'ils prennent. Secouez un peu la poêle pour eviter que l\'omelette n\'attache. verifiez la texture baveuse ou bien prise. Pliez l\'omelette en deux et servez.', difficulty: 'Facile', cooking_time: 15, user_id: user.id)
@@ -236,16 +240,16 @@ puts "------------- WEEK FIN -----------------"
 
 puts "############## Meals #################"
 puts "------ Meals debut -----------------"
-puts Meal.create!(week_id:week.id, recipe_id:pur_carottes.id, moment:"déjeuner", day: week.start_day + 0, num_of_members: 3 )
-puts Meal.create!(week_id:week.id, recipe_id:omelette.id, moment:"diner", day: week.start_day + 0, num_of_members: 3 )
-puts Meal.create!(week_id:week.id, recipe_id:crepes.id, moment:"diner", day: week.start_day + 1, num_of_members: 3 )
-puts Meal.create!(week_id:week.id, recipe_id:rot_porc.id, moment:"diner", day: week.start_day + 2, num_of_members: 3 )
-puts Meal.create!(week_id:week.id, recipe_id:pommes_sautees.id, moment:"diner", day: week.start_day + 3, num_of_members: 3 )
-puts Meal.create!(week_id:week.id, recipe_id:pommes_sautees.id, moment:"déjeuner", day: week.start_day + 3, num_of_members: 3 )
-puts Meal.create!(week_id:week.id, recipe_id:raclette.id, moment:"déjeuner", day: week.start_day + 4, num_of_members: 3 )
-puts Meal.create!(week_id:week.id, recipe_id:omelette.id, moment:"déjeuner", day: week.start_day + 5, num_of_members: 3 )
-puts Meal.create!(week_id:week.id, recipe_id:crepes.id, moment:"diner", day: week.start_day + 5, num_of_members: 3 )
-puts Meal.create!(week_id:week.id, recipe_id:vel_potiron.id, moment:"diner", day: week.start_day + 6, num_of_members: 3 )
+puts Meal.create!(week_id:week.id, recipe_id:pur_carottes.id, moment:"déjeuner", day: (week.start_day + 0).strftime('%a %d %b %Y'), num_of_members: 3 )
+puts Meal.create!(week_id:week.id, recipe_id:omelette.id, moment:"diner", day: (week.start_day + 0).strftime('%a %d %b %Y'), num_of_members: 3 )
+puts Meal.create!(week_id:week.id, recipe_id:crepes.id, moment:"diner", day: (week.start_day + 1).strftime('%a %d %b %Y'), num_of_members: 3 )
+puts Meal.create!(week_id:week.id, recipe_id:rot_porc.id, moment:"diner", day: (week.start_day + 2).strftime('%a %d %b %Y'), num_of_members: 3 )
+puts Meal.create!(week_id:week.id, recipe_id:pommes_sautees.id, moment:"diner", day: (week.start_day + 3).strftime('%a %d %b %Y'), num_of_members: 3 )
+puts Meal.create!(week_id:week.id, recipe_id:pommes_sautees.id, moment:"déjeuner", day: (week.start_day + 3).strftime('%a %d %b %Y'), num_of_members: 3 )
+puts Meal.create!(week_id:week.id, recipe_id:raclette.id, moment:"déjeuner", day: (week.start_day + 4).strftime('%a %d %b %Y'), num_of_members: 3 )
+puts Meal.create!(week_id:week.id, recipe_id:omelette.id, moment:"déjeuner", day: (week.start_day + 5).strftime('%a %d %b %Y'), num_of_members: 3 )
+puts Meal.create!(week_id:week.id, recipe_id:crepes.id, moment:"diner", day: (week.start_day + 5).strftime('%a %d %b %Y'), num_of_members: 3 )
+puts Meal.create!(week_id:week.id, recipe_id:vel_potiron.id, moment:"diner", day: (week.start_day + 6).strftime('%a %d %b %Y'), num_of_members: 3 )
 puts "------ Meals fin -----------------"
 
 puts "############## Grocery_list #################"
