@@ -40,7 +40,7 @@ class WeeksController < ApplicationController
 
   def today
     @week = Week.find(params[:id])
-    @today = Date.now
+    @today = Date.today
     @meals = Meal.where("week_id = ? AND day = ?", @week, @today)
     authorize @meals
   end

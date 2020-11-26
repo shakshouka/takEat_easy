@@ -1,0 +1,64 @@
+
+<!-- Ui cards -->
+<section id="cards">
+    <div class="container py-2">
+
+
+
+        <div class="row pb-4">
+            <div class="col-12 text-center">
+                <h2>Aujourd'hui<h2>
+            </div>
+        </div>
+        <!-- cards -->
+
+
+    <% @meals.each do |meal|  %>
+    <div class="row">
+      <div class="col-12 pb-4">
+        <div class="card shadow-sm">
+            <img src="https://www.expatica.com/app/uploads/sites/5/2020/03/Boeuf-bourguignon-1920x1080.jpg" class="shadow-sm card-img-top"/>
+            <div class="card-body">
+              <h5 class="text-capitalize"><%= meal.recipe.name %></h5>
+              <p class=" text-capitalize text-muted small blockquote-footer"><%= meal.moment %></p>
+              <div class="small d-flex justify-content-between">
+                <div>
+                  <p><%= meal.recipe.difficulty %></p>
+                </div>
+                <div>
+                  <p><%= meal.recipe.cooking_time %> min</p>
+                </div>
+              </div>
+              <p class="small text-muted mb-0"><%= meal.recipe.instructions %></p>
+            </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <% @meals.each do |meal|  %>
+    <div class="row">
+      <div class="col-12">
+        <div class="card shadow-sm">
+            <img src="https://www.expatica.com/app/uploads/sites/5/2020/03/Boeuf-bourguignon-1920x1080.jpg" class="shadow-sm card-img-top"/>
+            <div class="card-body">
+              <h5 class="text-capitalize"><%= meal.recipe.name %></h5>
+              <p class=" text-capitalize text-muted small blockquote-footer"><%= meal.moment %></p>
+              <div class="small d-flex justify-content-between">
+                <div>
+                  <p><%= meal.recipe.difficulty %></p>
+                </div>
+                <div>
+                  <p><%= meal.recipe.cooking_time %> min</p>
+                </div>
+              </div>
+              <p class="small text-muted mb-0"><%= meal.recipe.instructions %></p>
+            </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+
+
+  </div>
+</section>

@@ -1,33 +1,33 @@
 <div class="container week-show">
-  <h1 class="text-center">My week menu</h1>
+  <h1 class="text-center merienda">My week menu</h1>
 
 
-  <div class="swiper-container">
+  <div class="swiper-container shadow-sm">
     <!-- Additional required wrapper -->
-    <div class="swiper-wrapper">
-        <!-- Slides -->
-        <div class="swiper-slide">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
-        ...
-    </div>
-    <!-- If we need pagination -->
-    <div class="swiper-pagination"></div>
 
-    <!-- If we need navigation buttons -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+      <div class="swiper-wrapper">
+          <!-- Slides -->
+          <% @meals = Meal.where(day: 'Mon, 30 Nov 2020') %>
+          <% @meals.each do |meal| %>
+          <%= link_to recipe_path(meal.recipe), class: "font-italic white" do %>
+            <div class="swiper-slide d-flex" style='background-image: linear-gradient(rgba(0,0,0,0.4), rgba(50,50,50,0.3)), url(https://img.cuisineaz.com/660x660/2013-12-20/i108264-puree-de-carottes-aux-epices-douces.jpeg); background-size: cover;'>
+              <div class="position-bottom align-self-end pl-3">
+                <h5 class="text-white"><%= meal.recipe.name.upcase %></h5>
+                <p><%= meal.moment.capitalize %></p>
+              </div>
+            </div>
+            <% end %>
+          <% end %>
+      </div>
+      <!-- If we need pagination -->
 
-    <!-- If we need scrollbar -->
-    <div class="swiper-scrollbar"></div>
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
   </div>
-  <div class="card-week">
-    SLIDERSHOW
-    <a href="" id="left">GAUCHE</a>
-    <a href="" id="right">DROITE</a>
-  </div>
 
-  <div class="card-week-day">
+  <div class="card-week-day shadow-sm">
     <div class="card-week-day-description">
       <h4>D A Y</h4>
     </div>
