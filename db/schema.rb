@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_150341) do
+ActiveRecord::Schema.define(version: 2020_11_26_131535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 2020_11_25_150341) do
     t.bigint "week_id", null: false
     t.bigint "recipe_id", null: false
     t.string "moment"
-    t.date "day"
+    t.string "day"
     t.integer "num_of_members"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

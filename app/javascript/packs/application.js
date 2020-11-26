@@ -49,7 +49,7 @@ const swiper = new Swiper(mySwiper);
 // External imports
 import "bootstrap";
 import { loader } from "../plugins/loader";
-
+import { changeday } from "../vanilla/changeday";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -57,4 +57,5 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   loader();
+  changeday();
 });
