@@ -24,4 +24,8 @@ class MealPolicy < ApplicationPolicy
   def index?
     true
   end
+
+  def update_empty?
+    true
+  end
 end

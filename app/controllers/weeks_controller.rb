@@ -19,6 +19,7 @@ class WeeksController < ApplicationController
     @week.user_id = @user.id
     authorize @week
     if @week.save
+      empty_meals
       redirect_to week_meals_path(@week)
     else
       render :new
@@ -48,6 +49,13 @@ class WeeksController < ApplicationController
   end
 
   private
+
+  def empty_meals
+    (0..6).to_a.each do |day|
+      Meal.new(moment: "déjeuner", day: @week.start_day + day, week_id: @week.id, recipe_id: 1).save
+      Meal.new(moment: "diner", day: @week.start_day + day, week_id: @week.id, recipe_id: 1).save
+    end
+  end
 
   def set_params
     params.require(:week).permit(:user_id, :start_day)

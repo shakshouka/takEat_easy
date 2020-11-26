@@ -1,12 +1,15 @@
+<%= link_to "Valider semaine", today_week_path(@week.id) %>
 <ul>
   <% @meals.each do |meal|%>
     <li>
+    <%= meal.id %>  
       <% if Recipe.find(meal.recipe_id).name == "EMPTY" %>
         <p> Image + </p>
       <% else %>
         <%= Recipe.find(meal.recipe_id).name %>
       <% end %>
       <%= link_to "Changer", week_meal_path(meal.week_id,meal), :method=> :put %>
+      <%= link_to "Supprimer", week_empty_path(meal.week_id,meal), :method=> :put %>
     </li>
   <% end %>
 </ul>

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get :today
     end
     resources :meals, except: [ :destroy ]
+    put '/weeks/:week_id/meals/:id(.:format)/empty', to: "meals#update_empty", as: :empty
   end
   get 'user', to: "users#show"
 end
