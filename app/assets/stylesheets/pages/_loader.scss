@@ -125,17 +125,29 @@
   -webkit-transform: translateY(-100%);  /* Chrome, Opera 15+, Safari 3.1+ */
       -ms-transform: translateY(-100%);  /* IE 9 */
           transform: translateY(-100%);  /* Firefox 16+, IE 10+, Opera */
-  -webkit-transition: all 0.3s 0.6s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
-          transition: all 0.3s 0.6s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+  -webkit-transition: all 0.3s ease-in;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+          transition: all 0.3s ease-in;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
 }
 
 
+.home-h1 {
+    color: white;
+    z-index: 1001;
+    position: fixed;
+    top: 25%;
+    right: 25%;
+  }
 
 
 
 
-
-
+.home-h2 {
+    color: white;
+    z-index: 1001;
+    position: fixed;
+    top: 30%;
+    right: 35%;
+  }
 
 
 

@@ -13,12 +13,16 @@
 
   <body>
     <div class="container-wrapper">
-      <%= render 'shared/navbar' %>
-      <%= render 'shared/flashes' %>
+      <% if user_signed_in? %>
+        <%= render 'shared/navbar' %>
+        <%= render 'shared/flashes' %>
+      <% end %>
       <div class="container-main">
         <%= yield %>
       </div>
-      <%= render 'shared/footer' %>
+      <% if user_signed_in? %>
+        <%= render 'shared/footer' %>
+      <% end %>
     </div>
   </body>
 </html>
