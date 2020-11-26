@@ -7,24 +7,29 @@
 
       <div class="swiper-wrapper">
           <!-- Slides -->
-          <% @meals = Meal.where(day: 'Mon, 30 Nov 2020') %>
-          <% @meals.each do |meal| %>
-          <%= link_to recipe_path(meal.recipe), class: "font-italic white" do %>
-            <div class="swiper-slide d-flex" style='background-image: linear-gradient(rgba(0,0,0,0.4), rgba(50,50,50,0.3)), url(https://img.cuisineaz.com/660x660/2013-12-20/i108264-puree-de-carottes-aux-epices-douces.jpeg); background-size: cover;'>
-              <div class="position-bottom align-self-end pl-3">
-                <h5 class="text-white"><%= meal.recipe.name.upcase %></h5>
-                <p><%= meal.moment.capitalize %></p>
-              </div>
-            </div>
+          <% ["mon", "tue", "wed", "thu", "fri", "sat", "sun"].each do |day| %>
+
+            <% @week.meals.where('day LIKE ?', "%#{day.capitalize}%").each do |meal| %>
+
+              <%= link_to recipe_path(meal.recipe), class: "white" do %>
+                <div class="pb-4 swiper-slide d-flex <%= day %> <%= "hidden" if day != "mon" %>" style='background-image: linear-gradient(rgba(0,0,0,0.4), rgba(50,50,50,0.3)), url(https://img.cuisineaz.com/660x660/2013-12-20/i108264-puree-de-carottes-aux-epices-douces.jpeg); background-size: cover;'>
+                  <div class="position-bottom align-self-end pl-3">
+                    <h5 class="text-white"><%= meal.recipe.name.upcase %></h5>
+                    <p><%= meal.day %> <%= meal.moment.capitalize %></p>
+                  </div>
+                </div>
+              <% end %>
+
             <% end %>
+
           <% end %>
       </div>
       <!-- If we need pagination -->
 
+
       <!-- If we need navigation buttons -->
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
-      <div class="swiper-pagination"></div>
   </div>
 
   <div class="card-week-day shadow-sm">
@@ -36,17 +41,17 @@
 
         <li>
           L
-          <br><a href="" class="circle">
-            <i class="far fa-circle week-icon-active"></i>
+          <br><a href="">
+            <i class="far fa-circle mon week-icon-active"></i>
           </a>
         </li>
 
-        <li>M<br><a href=""><i class="far fa-circle"></i></a></li>
-        <li>M<br><a href=""><i class="far fa-circle"></i></a></li>
-        <li>J<br><a href=""><i class="far fa-circle"></i></a></li>
-        <li>V<br><a href=""><i class="far fa-circle"></i></a></li>
-        <li>S<br><a href=""><i class="far fa-circle"></i></a></li>
-        <li>D<br><a href=""><i class="far fa-circle"></i></a></li>
+        <li>M<br><a href=""><i class="far fa-circle tue"></i></a></li>
+        <li>M<br><a href=""><i class="far fa-circle wed"></i></a></li>
+        <li>J<br><a href=""><i class="far fa-circle thu"></i></a></li>
+        <li>V<br><a href=""><i class="far fa-circle fri"></i></a></li>
+        <li>S<br><a href=""><i class="far fa-circle sat"></i></a></li>
+        <li>D<br><a href=""><i class="far fa-circle sun"></i></a></li>
       </ul>
     </div>
   </div>
