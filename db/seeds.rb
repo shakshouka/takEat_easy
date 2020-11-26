@@ -24,28 +24,28 @@ GroceryItem.destroy_all
 puts "-----Destroy Meal----"
 Meal.destroy_all
 
-puts "-----Destroy Doses----"
+puts "-----Destroy Dose----"
 Dose.destroy_all
 
 puts "-----Destroy CookbookRecipes----"
 CookbookRecipe.destroy_all
 
-puts "-----Destroy Ingredients----"
+puts "-----Destroy Ingredient----"
 Ingredient.destroy_all
 
 puts "-----Destroy Week----"
 Week.destroy_all
 
-puts "-----Destroy Recipes----"
+puts "-----Destroy Recipe----"
 Recipe.destroy_all
 
-puts "-----Destroy Cookbooks----"
+puts "-----Destroy Cookbook----"
 Cookbook.destroy_all
 
 puts "-----Destroy Grocery-list----"
 GroceryList.destroy_all
 
-puts "-----Destroy Users----"
+puts "-----Destroy User----"
 User.destroy_all
 
 puts "----------------------------------"
@@ -236,12 +236,15 @@ puts "------------- WEEK FIN -----------------"
 
 puts "############## Meals #################"
 puts "------ Meals debut -----------------"
-puts Meal.create!(week_id:week.id, recipe_id:pur_carottes.id, moment:"diner", day: week.start_day + 0, num_of_members: 3 )
+puts Meal.create!(week_id:week.id, recipe_id:pur_carottes.id, moment:"déjeuner", day: week.start_day + 0, num_of_members: 3 )
+puts Meal.create!(week_id:week.id, recipe_id:omelette.id, moment:"diner", day: week.start_day + 0, num_of_members: 3 )
 puts Meal.create!(week_id:week.id, recipe_id:crepes.id, moment:"diner", day: week.start_day + 1, num_of_members: 3 )
 puts Meal.create!(week_id:week.id, recipe_id:rot_porc.id, moment:"diner", day: week.start_day + 2, num_of_members: 3 )
 puts Meal.create!(week_id:week.id, recipe_id:pommes_sautees.id, moment:"diner", day: week.start_day + 3, num_of_members: 3 )
+puts Meal.create!(week_id:week.id, recipe_id:pommes_sautees.id, moment:"déjeuner", day: week.start_day + 3, num_of_members: 3 )
 puts Meal.create!(week_id:week.id, recipe_id:raclette.id, moment:"déjeuner", day: week.start_day + 4, num_of_members: 3 )
-puts Meal.create!(week_id:week.id, recipe_id:omelette.id, moment:"diner", day: week.start_day + 5, num_of_members: 3 )
+puts Meal.create!(week_id:week.id, recipe_id:omelette.id, moment:"déjeuner", day: week.start_day + 5, num_of_members: 3 )
+puts Meal.create!(week_id:week.id, recipe_id:crepes.id, moment:"diner", day: week.start_day + 5, num_of_members: 3 )
 puts Meal.create!(week_id:week.id, recipe_id:vel_potiron.id, moment:"diner", day: week.start_day + 6, num_of_members: 3 )
 puts "------ Meals fin -----------------"
 
