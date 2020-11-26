@@ -1,0 +1,12 @@
+<ul>
+  <% @meals.each do |meal|%>
+    <li>
+      <% if Recipe.find(meal.recipe_id).name == "EMPTY" %>
+        <p> Image + </p>
+      <% else %>
+        <%= Recipe.find(meal.recipe_id).name %>
+      <% end %>
+      <%= link_to "Changer", week_meal_path(meal.week_id,meal), :method=> :put %>
+    </li>
+  <% end %>
+</ul>

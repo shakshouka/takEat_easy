@@ -19,7 +19,7 @@ class WeeksController < ApplicationController
     @week.user_id = @user.id
     authorize @week
     if @week.save
-      redirect_to new_week_meal_path
+      redirect_to week_meals_path(@week)
     else
       render :new
     end
