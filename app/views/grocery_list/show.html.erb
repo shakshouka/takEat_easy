@@ -1,0 +1,4 @@
+<h1>Ma liste de courses:</h1>
+<% @grocery_items.each do |grocery_item| %>
+ <p><%= grocery_item.ingredient.name %></p>
+<% end %>

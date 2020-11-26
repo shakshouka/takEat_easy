@@ -2,7 +2,6 @@
 <ul>
   <% @meals.each do |meal|%>
     <li>
-    <%= meal.id %>  
       <% if Recipe.find(meal.recipe_id).name == "EMPTY" %>
         <p> Image + </p>
       <% else %>
