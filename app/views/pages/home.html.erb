@@ -13,13 +13,18 @@
   <div class="container-home d-flex">
     <div class="row align-items-center ">
       <div class="col-12 text-center">
-        <%= link_to "Explore our Recipes!", recipes_path, class: "button"  %>
 
-        <h2 class="iciiiiii"><br>Manage<br></h2>
+        <h2 class="iciiiiii pb-4">W E L C O M E<br></h2>
+        <%= link_to "Explore our Recipes!", recipes_path, class: "button"  %>
         <p><br></p>
-        <%= link_to "Log in", user_session_path, class: "btn-main" %>
-        <p><br></p>
-        <%= link_to "Register", new_user_registration_path, class: "btn-second btn-medium" %>
+        <div class="d-flex justify-content-around">
+          <div >
+            <%= link_to "Log in", user_session_path, class: "btn-main" %>
+          </div>
+          <div>
+            <%= link_to "Register", new_user_registration_path, class: "btn-second btn-medium" %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
