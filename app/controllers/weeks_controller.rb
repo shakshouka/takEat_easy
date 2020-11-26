@@ -15,9 +15,11 @@ class WeeksController < ApplicationController
 
   def create
     @week = Week.new(set_params)
+    @user = current_user
+    @week.user_id = @user.id
     authorize @week
     if @week.save
-      redirect_to week_path(@week)
+      redirect_to new_week_meal_path
     else
       render :new
     end

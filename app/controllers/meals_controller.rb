@@ -39,7 +39,18 @@ class MealsController < ApplicationController
     end
   end
 
+  def index
+    @week = Week.find(params[id])
+    empty_meals
+    @meals = Meal.all
+    authorize @meals
+  end
+
   private
+
+  def empty_meals
+
+  end
 
   def set_params
     params.require(:meal).permit(:moment,:day,:num_of_members)

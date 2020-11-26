@@ -2,5 +2,7 @@ class Dose < ApplicationRecord
   belongs_to :ingredient
   belongs_to :recipe
 
-  validates :unit, inclusion: { in: %w[g cl pc] } # grammes, centilitres ou pièce
+  UNITS = %w[g cl pc].freeze
+
+  validates :unit, inclusion: { in: UNITS } # grammes, centilitres ou piece
 end

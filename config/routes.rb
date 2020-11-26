@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     member do
       get :today
     end
-    resources :meals, except: [ :destroy, :index ]
+    resources :meals, except: [ :destroy ]
   end
   get 'user', to: "users#show"
 end
