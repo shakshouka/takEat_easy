@@ -3,13 +3,14 @@ class GroceryListController < ApplicationController
     @week = Week.find(params[:week_id])
     @grocery_list = GroceryList.new
     @grocery_list.week_id = @week.id
+    @grocery_list.save
     authorize @grocery_list
     fill_in_cart
-    @grocery_list.save
-    redirect_to week_grocery_list_path
   end
 
   def show
+    create
+    raise
     @grocery_list = GroceryList.find(params[:id])
     authorize @grocery_list
     @grocery_items = GroceryItem.where(grocery_list_id: @grocery_list.id)
@@ -26,11 +27,12 @@ class GroceryListController < ApplicationController
     @doses.flatten.each do |dose|
       if GroceryItem.find_by(ingredient_id: dose.ingredient_id)
         @updating_grocery = GroceryItem.find_by(ingredient_id: dose.ingredient_id)
-        @updating_grocery.total_quantity += dose.quantity
+        @updating_grocery.total_quantity.to_i += dose.quantity.to_i
         @updating_grocery.save
       else
-        GroceryItem.create(grocery_list_id: @grocery_list.id, total_quantity: dose.quantity, unit: dose.unit, ingredient_id: dose.ingredient_id)
+        GroceryItem.create(grocery_list_id: @grocery_list.id, total_quantity: dose.quantity, unit: dose.unit, ingredient_id: dose.ingredient_id).save
       end
+    end
   end
 
   def set_params
