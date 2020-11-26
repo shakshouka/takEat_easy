@@ -9,5 +9,9 @@
   <br>
   <p><i class="fas fa-male label"></i> <strong class="label">Mon foyer : </strong><%= @user.num_of_members %> personnes</p>
   <br>
-  <p><i class="fas fa-seedling label"></i> <strong class="label">Mes restrictions : </strong><%= @user.list_of_restrictions.join(", ") %> </p>
+  <% if @user.list_of_restrictions.any? %>
+    <p>
+      <i class="fas fa-seedling label"></i> <strong class="label">Mes restrictions : </strong> <%= @user.list_of_restrictions.join(", ") %>
+    </p>
+  <% end %>
 </div>
