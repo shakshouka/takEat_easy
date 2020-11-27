@@ -166,7 +166,7 @@ puts "------ Ingredients fin --------"
 # Users
 puts "############## Users #################"
 puts "------ Users debut -----------------"
-puts user = User.create!(email: 'toto@yahoo.fr', password: 'abcdef', password_confirmation: 'abcdef', first_name: "Georgito", last_name: "Yito", address: "2 Avenue Jean Jaurès, Pont de Choisy, 94600 Choisy-le-Roi")
+puts user = User.create!(email: 'toto@yahoo.fr', password: 'abcdef', password_confirmation: 'abcdef', first_name: "Georgito", last_name: "Yito", address: "2 Avenue Jean Jaurès, Pont de Choisy, 94600 Choisy-le-Roi", list_of_restrictions:["porc", "soja"], num_of_members:1)
 puts user1 = User.create!(email: 'toto1@yahoo.fr', password: 'abcdef', password_confirmation: 'abcdef', first_name: "Martin", last_name: "Tran", address: "21 Rue de l'ecole de Medecine, 75006 Paris")
 puts user666 = User.create!(email: 'diablo@yahoo.fr', password: 'abcdef', password_confirmation: 'abcdef', first_name: "Lucie", last_name: "Fer", address: "User qui sert juste pour les recipe vides")
 puts "------ Users fin ----------------"
