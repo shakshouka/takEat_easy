@@ -166,7 +166,7 @@ puts "------ Ingredients fin --------"
 # Users
 puts "############## Users #################"
 puts "------ Users debut -----------------"
-puts user = User.create!(email: 'toto@yahoo.fr', password: 'abcdef', password_confirmation: 'abcdef', first_name: "Georgito", last_name: "Yito", address: "2 Avenue Jean Jaurès, Pont de Choisy, 94600 Choisy-le-Roi")
+puts user = User.create!(email: 'toto@yahoo.fr', password: 'abcdef', password_confirmation: 'abcdef', first_name: "Georgito", last_name: "Yito", address: "2 Avenue Jean Jaurès, Pont de Choisy, 94600 Choisy-le-Roi", list_of_restrictions:["porc", "soja"], num_of_members:1)
 puts user1 = User.create!(email: 'toto1@yahoo.fr', password: 'abcdef', password_confirmation: 'abcdef', first_name: "Martin", last_name: "Tran", address: "21 Rue de l'ecole de Medecine, 75006 Paris")
 puts user666 = User.create!(email: 'diablo@yahoo.fr', password: 'abcdef', password_confirmation: 'abcdef', first_name: "Lucie", last_name: "Fer", address: "User qui sert juste pour les recipe vides")
 puts "------ Users fin ----------------"
@@ -192,7 +192,7 @@ puts pommes_de_terre = Dose.create!(ingredient_id: Ingredient.find_by(name:"pomm
 puts "------ Recipe pommes_sautees -----------------"
 puts pommes_sautees = Recipe.create!(name: "Pommes de terres sautees", instructions: "Eplucher et laver les pommes de terre, puis les couper en cube. Dans une sauteuse, faire chauffer 3 cuillères à soupe d'huile. Lorsque l'huile est chaude, y mettre les pommes de terre d'un coup. Ajouter sel et poivre. Porter à feu maximal et faire cuire avec le couvercle", difficulty: "Facile", cooking_time: 20, user_id: user.id)
 puts "----doses recipe pommes_sautees---"
-puts pommes_de_terre = Dose.create!(ingredient_id: Ingredient.find_by(name:"pomme de terre").id, quantity:3, unit:"pc", recipe_id: pommes_sautees.id )
+puts pommes_de_terre = Dose.create!(ingredient_id: Ingredient.find_by(name:"pomme de terre").id, quantity:200, unit:"g", recipe_id: pommes_sautees.id )
 puts huile = Dose.create!(ingredient_id: Ingredient.find_by(name:"huile").id, quantity:2, unit:"cl", recipe_id: pommes_sautees.id  )
 
 puts "--- Recipes rot_porc debut --------"
@@ -228,7 +228,7 @@ puts pur_carottes = Recipe.create!(name: 'Puree de carottes', instructions: "Epl
 puts "-doses.create!-"
 puts pdt = Dose.create!(ingredient_id: Ingredient.find_by(name:"pomme de terre").id, quantity:5, unit:"g", recipe_id: pur_carottes.id)
 puts carottes = Dose.create!(ingredient_id: Ingredient.find_by(name:"carotte").id, quantity:2, unit:"pc", recipe_id: pur_carottes.id)
-puts beurre = Dose.create!(ingredient_id: Ingredient.find_by(name:"beurre").id, quantity:2, unit:"pc", recipe_id: pur_carottes.id)
+puts beurre = Dose.create!(ingredient_id: Ingredient.find_by(name:"beurre").id, quantity:10, unit:"g", recipe_id: pur_carottes.id)
 puts creme = Dose.create!(ingredient_id: Ingredient.find_by(name:"crème fraîche épaisse").id, quantity:10, unit:"cl", recipe_id: pur_carottes.id)
 puts "------ Recipe puree de carottes fin ------"
 

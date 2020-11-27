@@ -8,8 +8,9 @@
       <%= link_to "WEEK NEW", new_week_path, class: "black" %>
     </div>
   </div>
-  <h1 class="text-center my-3">MENU DE LA SEMAINE</h1>
-  <h2 class="text-center my-3">Debut: <%= @week.start_day.strftime('%a %d %b') %></h2>
+  <h1 class="text-center my-3">Menu de la semaine</h1>
+  <h2 class="text-center my-3">Début: <%= @week.start_day.strftime('%a %d %b') %></h2>
+  <br>
   <% ["mon", "tue", "wed", "thu", "fri", "sat", "sun"].each_with_index do |day, index| %>
 
       <div class="swiper-container my-3 shadow-sm <%= day %> <%= "hidden" if index != Date.today.wday - 1 %>">
@@ -37,7 +38,7 @@
 
                       <%= link_to recipe_path(meal.recipe), class: "white" do %>
                         <div class="position-bottom align-self-end pl-3 pt-2">
-                          <h5 class="text-white"><%= meal.recipe.name.upcase %></h5>
+                          <h2 class="text-white"><%= meal.recipe.name %></h2>
                           <p><%= meal.day %> <%= meal.moment.capitalize %></p>
                         </div>
                       <% end %>
@@ -55,10 +56,10 @@
         <div class="swiper-button-next"></div>
       </div>
   <% end %>
-
+<br>
   <div class="card-week-day shadow-sm">
     <div class="card-week-day-description">
-      <h4>D A Y</h4>
+      <h3>Jour</h3>
     </div>
     <div class="card-week-day-calendar">
       <ul>
