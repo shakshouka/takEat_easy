@@ -1,3 +1,5 @@
+import { swiper } from "../plugins/swiper";
+
 const changeday = () => {
 
   let active = document.querySelector(".week-icon-active");
@@ -87,6 +89,7 @@ const changeday = () => {
             rightone.classList.remove("hidden");
           })
         };
+        swiper();
 
 
       })})};
