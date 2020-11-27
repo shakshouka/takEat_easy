@@ -2,13 +2,13 @@
   <ul class="footer-list">
 
     <li class="<%= "footer-active" if (params[:controller] == 'weeks' && params[:action] == 'today') %>">
-      <%= link_to today_week_path(Week.last) do %>
+      <%= link_to today_week_path(Week.first) do %>
         <i class="fas fa-calendar-day footer-icon"></i><br>JOUR
       <% end %>
     </li>
 
     <li class="<%= "footer-active" if (params[:controller] == 'weeks' && params[:action] != 'today') %>">
-      <%= link_to week_path(Week.last) do %>
+      <%= link_to week_path(Week.first) do %>
         <i class="fas fa-calendar-week footer-icon"></i>
         <br>MA SEMAINE
       <% end %>

@@ -1,6 +1,7 @@
 <div class="container w-50">
-  <h2>Log in</h2>
-
+  <br>
+  <h2>Connexion</h2>
+<br>
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-inputs">
       <%= f.input :email,
@@ -14,7 +15,7 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Log in", class: "btn-main", style:"width: 100%; margin-bottom:30px" %>
+      <%= f.button :submit, "Connexion", class: "btn-main", style:"width: 100%; margin-bottom:30px" %>
     </div>
   <% end %>
 
