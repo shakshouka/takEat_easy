@@ -46,11 +46,16 @@ class WeeksController < ApplicationController
     @today = Date.today
     @meals = Meal.includes(:recipe).where("week_id = ? AND day LIKE ?", @week, @today.strftime('%a %d %b %Y'))
     authorize @meals
+  end
+
+  def createlisting
+    @week = Week.last
     @grocery_list = GroceryList.new
     @grocery_list.week_id = @week.id
     @grocery_list.save
     authorize @grocery_list
     fill_in_cart
+    redirect_to '/weeks/2/grocery_list/1'
   end
 
   private
