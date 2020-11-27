@@ -1,4 +1,7 @@
 <h1>Ma liste de courses:</h1>
+<ul>
 <% @grocery_items.each do |grocery_item| %>
- <p><%= grocery_item.ingredient.name %></p>
+ <li><strong><%= grocery_item.ingredient.name %>:</strong> <%= grocery_item.total_quantity %> <%= grocery_item.unit %></li>
 <% end %>
+</ul>
+
