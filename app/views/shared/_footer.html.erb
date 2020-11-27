@@ -29,10 +29,10 @@
     </li>
 
     <li class="<%= "footer-active" if (params[:controller] == 'grocery_items') %>">
-      <a href="#">
+      <%= link_to '/weeks/2/grocery_list/1' do  %>
         <i class="fas fa-shopping-cart footer-icon"></i>
         <br>COURSES
-      </a>
+      <% end %>
     </li>
   </ul>
 </div>

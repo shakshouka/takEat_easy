@@ -1,9 +1,9 @@
-<%= link_to "Valider semaine", today_week_path(@week.id) %>
+<%= link_to "Valider semaine", createlisting_week_path(@week.id) %>
 <ul>
   <% @meals.each do |meal|%>
     <li>
       <% if Recipe.find(meal.recipe_id).name == "EMPTY" %>
-        <p> Image + </p>
+        <p> Pas de recette pour ce jour </p>
       <% else %>
         <%= Recipe.find(meal.recipe_id).name %>
       <% end %>

@@ -20,4 +20,8 @@ class WeekPolicy < ApplicationPolicy
   def today?
     true
   end
+
+  def createlisting?
+    true
+  end
 end

@@ -1,7 +1,11 @@
 <h1>Ma liste de courses:</h1>
-<ul>
+
 <% @grocery_items.each do |grocery_item| %>
- <li><strong><%= grocery_item.ingredient.name %>:</strong> <%= grocery_item.total_quantity %> <%= grocery_item.unit %></li>
+  <div class="grocery-item-list">
+    <%= form_for grocery_item do |f, index| %>
+        <p><%= f.check_box :bought %> <span class= "index"><strong><%= grocery_item.ingredient.name %>:</strong> <%= grocery_item.total_quantity %> <%= grocery_item.unit %></span></p>
+    <% end %>
+  </div>
 <% end %>
-</ul>
+
 
