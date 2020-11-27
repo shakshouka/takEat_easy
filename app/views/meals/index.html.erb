@@ -8,7 +8,7 @@
           <%= link_to recipe_path(recipe) do %>
             <% if recipe.name == "EMPTY" %>
               <div class="card-rcp" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
-              <h5>+</h5>
+              <%= link_to "Changer", week_meal_path(meal.week_id,meal), :method=> :put %>
               </div>
             <% else %>
               <div class="card-rcp" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(
@@ -33,10 +33,10 @@
                 <% end %>
               )">
               <h5><%= recipe.name %></h5>
+              <%= link_to "Changer", week_meal_path(meal.week_id,meal), :method=> :put %>
+              <%= link_to "Supprimer", week_empty_path(meal.week_id,meal), :method=> :put %>
               </div>
             <% end %>
-            <%= link_to "Changer", week_meal_path(meal.week_id,meal), :method=> :put %>
-            <%= link_to "Supprimer", week_empty_path(meal.week_id,meal), :method=> :put %>
           <% end %>
         </div>
       <% end %>
