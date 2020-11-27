@@ -31,10 +31,15 @@ body {
   height: 200px;
   text-align: center;
   justify-content: center;
-  background-color: $color-third;
-  opacity: 0.7;
+
   border-radius: 10px;
   margin: 5px 10px;
+
+  background-size: cover;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   a {
     text-decoration: none;
@@ -49,6 +54,9 @@ body {
 
   h5 {
     text-align: center;
-    color: $color-headline;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   }
 }
