@@ -18,7 +18,26 @@ require("channels")
 // import Swiper bundle with all modules installed
 import Swiper from 'swiper/bundle';
 // init Swiper:
-var mySwiper = new Swiper('.swiper-container', {
+
+
+// ----------------------------------------------------
+// Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
+// WRITE YOUR OWN JS STARTING FROM HERE 👇
+// ----------------------------------------------------
+
+// External imports
+import "bootstrap";
+import { loader } from "../plugins/loader";
+import { changeday } from "../vanilla/changeday";
+// Internal imports, e.g:
+// import { initSelect2 } from '../components/init_select2';
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your functions here, e.g:
+  // initSelect2();
+  loader();
+  changeday();
+  var mySwiper = new Swiper('.swiper-container', {
   // Optional parameters
   direction: 'horizontal',
   loop: true,
@@ -40,22 +59,4 @@ var mySwiper = new Swiper('.swiper-container', {
   },
 })
 const swiper = new Swiper(mySwiper);
-
-// ----------------------------------------------------
-// Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
-// WRITE YOUR OWN JS STARTING FROM HERE 👇
-// ----------------------------------------------------
-
-// External imports
-import "bootstrap";
-import { loader } from "../plugins/loader";
-import { changeday } from "../vanilla/changeday";
-// Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
-
-document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
-  loader();
-  changeday();
 });

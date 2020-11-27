@@ -3,7 +3,8 @@ class PagesController < ApplicationController
 
   def home
     if user_signed_in?
-      redirect_to '/weeks/1/today'
+      week_id = Week.last.id
+      redirect_to "/weeks/#{week_id}/today"
     end
   end
 

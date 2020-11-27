@@ -2,30 +2,30 @@
   <ul class="footer-list">
 
     <li class="<%= "footer-active" if (params[:controller] == 'weeks' && params[:action] == 'today') %>">
-      <a href="#">
+      <%= link_to today_week_path(Week.last) do %>
         <i class="fas fa-calendar-day footer-icon"></i><br>JOUR
-      </a>
+      <% end %>
     </li>
 
     <li class="<%= "footer-active" if (params[:controller] == 'weeks' && params[:action] != 'today') %>">
-      <a href="#">
+      <%= link_to week_path(Week.last) do %>
         <i class="fas fa-calendar-week footer-icon"></i>
         <br>MA SEMAINE
-      </a>
+      <% end %>
     </li>
 
     <li class="<%= "footer-active" if (params[:controller] == 'recipes') %>">
-      <a href="#">
+      <%= link_to recipes_path do %>
         <i class="fas fa-search footer-icon"></i>
         <br>PARCOURIR
-      </a>
+      <% end %>
     </li>
 
     <li class="<%= "footer-active" if (params[:controller] == 'cookbooks') %>" >
-      <a href="#">
+      <%= link_to cookbooks_path do  %>
         <i class="fas fa-book footer-icon"></i>
         <br>LIVRES
-      </a>
+      <% end %>
     </li>
 
     <li class="<%= "footer-active" if (params[:controller] == 'grocery_items') %>">
