@@ -1,13 +1,13 @@
 <div class="container text-center">
   <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
   <br>
-  <h1> Welcome <%= @user.first_name + " " + @user.last_name %></h1>
+  <h1> Bonjour <%= @user.first_name + " " + @user.last_name %></h1>
   <br>
   <p><i class="fas fa-map-marker-alt label"></i> <strong class="label">Adresse : </strong><%= @user.address %></p>
   <br>
   <p><i class="far fa-envelope label"></i> <strong class="label">email : </strong><%= @user.email %></p>
   <br>
-  <p><i class="fas fa-male label"></i> <strong class="label">Mon foyer : </strong><%= @user.num_of_members %> personnes</p>
+  <p><i class="fas fa-male label"></i> <strong class="label">Mon foyer : </strong><%= @user.num_of_members %> personne(s)</p>
   <br>
   <% if @user.list_of_restrictions.any? %>
     <p>
