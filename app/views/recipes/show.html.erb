@@ -1,11 +1,10 @@
-<div class="d-flex justify-content-between recipebar">
+<div class="d-flex justify-content-left recipebar">
   <div>
     <%= link_to "ALL RECIPES", recipes_path, class: "black" %>
   </div>
-  <div>
-    <%= link_to "NEW RECIPE", new_recipe_path, class: "black" %>
-  </div>
 </div>
+
+
 
 <div class="swiper-container swiper-show">
   <!-- Additional required wrapper -->
@@ -60,3 +59,14 @@
 
 
 </div>
+  <nav class="circular-menu">
+
+    <div class="circle">
+      <%= link_to "", new_recipe_path, class: "fas fa-plus text-black bg-dark rounded-circle" %>
+      <a href="" class="fas fa-star bg-dark rounded-circle"></a>
+    </div>
+    <a href="" class="menu-button fa fa-bars fa-2x small text-black"></a>
+
+  </nav>
+
+
