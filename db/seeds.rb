@@ -235,7 +235,7 @@ puts "------ Recipe puree de carottes fin ------"
 puts "------ Recipes fin ----------------"
 puts "############ WEEK ########################"
 puts "----------- WEEK DEBUT --------------"
-puts week = Week.create!(user_id: user.id, start_day: Date.today)
+puts week = Week.create!(user_id: user.id, start_day: Date.new(2020,11,21))
 puts "------------- WEEK FIN -----------------"
 
 puts "############## Meals #################"
