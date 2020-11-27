@@ -1,0 +1,14 @@
+<div class="container">
+  <h1 class="text-center">Weeks Index</h1>
+  <div class="d-block">
+    <% @weeks.each do |week| %>
+    <div class="week-index-card">
+      <%= link_to week_path(week) do%>
+        <h3>Semaine numéro <%= week.id %></h3>
+        <p class="text-muted small blockquote-footer"><%= week.start_day.strftime('%a %d %b') %></p>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+
+</div>

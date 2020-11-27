@@ -1,5 +1,3 @@
-
-<!-- Ui cards -->
 <section id="cards">
     <div class="container py-2">
 
@@ -7,26 +5,42 @@
 
         <div class="row pb-4">
             <div class="col-12 text-center">
-                <h2>Aujourd'hui<h2>
+                <h1>Aujourd'hui<h1>
             </div>
         </div>
-        <!-- cards -->
 
 
     <% @meals.each do |meal|  %>
+    <%= link_to recipe_path(meal.recipe) do %>
     <div class="row">
       <div class="col-12 pb-4">
         <div class="card shadow-sm">
-            <img src="https://www.expatica.com/app/uploads/sites/5/2020/03/Boeuf-bourguignon-1920x1080.jpg" class="shadow-sm card-img-top"/>
+            <% if meal.recipe.name.downcase == "puree de carottes" %>
+              <%= image_tag "https://img.mesrecettesfaciles.fr/wp-content/uploads/2016/11/pureecarotte-1000x500.jpg", class: "shadow-sm card-img-top" %>
+            <% elsif meal.recipe.name.downcase == "omelette nature" %>
+              <%= image_tag "https://img-3.journaldesfemmes.fr/zCdWcXo8IjfSP8MK8uAgxqetCq4=/910x607/smart/09ca38eb418e4ba4b8d5732c442a775b/ccmcms-jdf/10861244.jpg", class: "shadow-sm card-img-top" %>
+            <% elsif meal.recipe.name.downcase == "raclette" %>
+              <%= image_tag "https://www.demotivateur.fr/images-buzz/cover/18955809795e30552c9ff4d_raclette-bowl-800x420.jpg", class: "shadow-sm card-img-top" %>
+            <% elsif meal.recipe.name.downcase == "pommes de terres sautees" %>
+              <%= image_tag "https://sf1.viepratique.fr/wp-content/uploads/sites/2/2015/04/Pommes-de-terre-saut%C3%A9es.jpg", class: "shadow-sm card-img-top" %>
+            <% elsif meal.recipe.name.downcase == "roti de porc aux oignons" %>
+              <%= image_tag "https://res.cloudinary.com/swissmilk/image/fetch/w_1600,c_fill,g_auto,f_auto,q_auto:eco,ar_16:9/https://api.swissmilk.ch/wp-content/uploads/2019/06/schweinsbraten-an-zwiebelsauce.jpg", class: "shadow-sm card-img-top" %>
+            <% elsif meal.recipe.name.downcase == "crepes faciles" %>
+              <%= image_tag "https://lepetitjournal.com/sites/default/files/styles/main_article/public/2020-02/Crepes_0.jpg?itok=5V2dScZn", class: "shadow-sm card-img-top" %>
+            <% elsif meal.recipe.name.downcase == "veloute de potiron" %>
+              <%= image_tag "https://aufilduthym.fr/wp-content/uploads/2018/10/soupe-potimarron-fenouil-curry-au-fil-du-thym.jpg", class: "shadow-sm card-img-top" %>
+            <% else %>
+              <img src="https://www.expatica.com/app/uploads/sites/5/2020/03/Boeuf-bourguignon-1920x1080.jpg" class="shadow-sm card-img-top"/>
+            <% end %>
             <div class="card-body">
-              <h5 class="text-capitalize"><%= meal.recipe.name %></h5>
+              <h5 class="text-capitalize text-dark"><%= meal.recipe.name %></h5>
               <p class=" text-capitalize text-muted small blockquote-footer"><%= meal.moment %></p>
               <div class="small d-flex justify-content-between">
                 <div>
-                  <p><%= meal.recipe.difficulty %></p>
+                  <p class="text-danger"><%= meal.recipe.difficulty %></p>
                 </div>
                 <div>
-                  <p><%= meal.recipe.cooking_time %> min</p>
+                  <p class="text-info"><%= meal.recipe.cooking_time %> min</p>
                 </div>
               </div>
               <p class="small text-muted mb-0"><%= meal.recipe.instructions %></p>
@@ -35,30 +49,6 @@
       </div>
     </div>
     <% end %>
-    <% @meals.each do |meal|  %>
-    <div class="row">
-      <div class="col-12">
-        <div class="card shadow-sm">
-            <img src="https://www.expatica.com/app/uploads/sites/5/2020/03/Boeuf-bourguignon-1920x1080.jpg" class="shadow-sm card-img-top"/>
-            <div class="card-body">
-              <h5 class="text-capitalize"><%= meal.recipe.name %></h5>
-              <p class=" text-capitalize text-muted small blockquote-footer"><%= meal.moment %></p>
-              <div class="small d-flex justify-content-between">
-                <div>
-                  <p><%= meal.recipe.difficulty %></p>
-                </div>
-                <div>
-                  <p><%= meal.recipe.cooking_time %> min</p>
-                </div>
-              </div>
-              <p class="small text-muted mb-0"><%= meal.recipe.instructions %></p>
-            </div>
-        </div>
-      </div>
-    </div>
     <% end %>
-
-
-
   </div>
 </section>

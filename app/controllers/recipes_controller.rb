@@ -6,6 +6,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @doses = Dose.where(recipe_id: params[:id])
     @recipe = Recipe.find(params[:id])
     authorize @recipe
   end

@@ -1,7 +1,18 @@
-@media screen and (max-width: 375px) {
-  .show-recipe {
-    width: 90%;
-    display: block;
-    margin-bottom: 20px;
-  }
+.swiper-slide > img {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-show {
+  height: 275px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.recipebar {
+  margin: 15px 19px;
+}
+
+.recipe-show-list {
+  padding: 21px;
 }
