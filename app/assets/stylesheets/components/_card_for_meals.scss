@@ -22,8 +22,8 @@
 
 /* Style the counter cards */
 .card-meal {
-  box-shadow: 2px 4px 8px rgba(0, 0, 0, 1); /* this adds the "card" effect */
-  padding: 300px 45px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.07); /* this adds the "card" effect */
+  padding: 16px 45px;
   height: 200px;
   text-align: center;
   justify-content: center;
@@ -62,13 +62,13 @@
 
 .chg {
   position: absolute;
-  color: black;
-  bottom: 10px;
+  color: blue;
+  bottom: 100px;
   right: 0px;
 }
 
 .del {
-  color: yellow;
+  color: red;
   top: 0px;
   right: 0px;
 }
