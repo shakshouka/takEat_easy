@@ -12,4 +12,12 @@ class GroceryListPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def today?
+    true
+  end
+
+  def createlisting?
+    true
+  end
 end

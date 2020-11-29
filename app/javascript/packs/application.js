@@ -16,7 +16,7 @@ require("channels")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 // import Swiper bundle with all modules installed
-import Swiper from 'swiper/bundle';
+
 // init Swiper:
 
 
@@ -29,6 +29,8 @@ import Swiper from 'swiper/bundle';
 import "bootstrap";
 import { loader } from "../plugins/loader";
 import { changeday } from "../vanilla/changeday";
+import { menu } from "../plugins/menu";
+import { swiper } from "../plugins/swiper";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -36,27 +38,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   loader();
+  swiper();
+  menu();
   changeday();
-  var mySwiper = new Swiper('.swiper-container', {
-  // Optional parameters
-  direction: 'horizontal',
-  loop: true,
-
-  // If we need pagination
-  pagination: {
-    el: '.swiper-pagination',
-  },
-
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-
-  // And if we need scrollbar
-  scrollbar: {
-    el: '.swiper-scrollbar',
-  },
-})
-const swiper = new Swiper(mySwiper);
 });

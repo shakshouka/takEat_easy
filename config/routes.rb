@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :weeks, except: [ :destroy ] do
     member do
       get :today
+      get :createlisting
     end
     resources :meals, except: [ :destroy ]
     put '/weeks/:week_id/meals/:id(.:format)/empty', to: "meals#update_empty", as: :empty
