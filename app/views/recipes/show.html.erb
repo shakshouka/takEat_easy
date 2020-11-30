@@ -47,9 +47,15 @@
   <h1 class="text-center border py-2"> <%= @recipe.name %> </h1>
 
   <ul class="recipe-show-list">
-    <h4>Ingredients</h4>
+    <h3>Ingrédients</h3>
     <% @doses.each do |dose| %>
-      <li><%= dose.quantity %> de <%= dose.ingredient.name %></li>
+      <li><%= dose.quantity %>
+        <% if dose.unit == "pc" %>
+          <%= dose.ingredient.name %>
+         <% else  %>
+          <%= dose.unit %> de <%= dose.ingredient.name %>
+        <% end %>
+       </li>
     <% end %>
   </ul>
 
