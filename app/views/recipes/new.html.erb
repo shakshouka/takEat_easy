@@ -6,7 +6,7 @@
   <%= f.input :difficulty, label: 'Difficulté', collection: ["Facile","Moyen","Difficile"], error: "Ne peut pas etre vide" %>
   <%= f.input :cooking_time, label: 'Temps de preparation (en minutes)',placeholder: "en minutes", input_html: { min: '5', step: '5' }, error: "Ne peut pas etre vide" %>
   <%= f.input :instructions, as: :text, error: 'Au moins 30 caracteres seulement alphanumeriques' %>
-  <%= f.input :photo, as: :file, label: false %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.button :submit,'Créer une nouvelle recette', class: "btn-main", style:"width: 100%; margin-bottom:30px"%>
   <br>
   <% end %>
