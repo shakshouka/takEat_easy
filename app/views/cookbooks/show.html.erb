@@ -2,6 +2,15 @@
   <h1><%= @cookbook.name %> </h1>
   <p class="text-center"> <%= @cookbook.description  %> </p>
 
+  <%= form_tag cookbook_path(@cookbook), method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a recipe"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+
   <div class="row">
     <% @cookbookrecipes.each do |cookbookrecipe| %>
       <div class="column">
