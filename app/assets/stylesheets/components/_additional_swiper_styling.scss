@@ -3,6 +3,31 @@
     height: auto;
 }
 
+.myownswiper-slides {
+  display: grid;
+  grid-auto-flow: column;
+  // grid-template-columns: repeat(3, 1fr);
+  grid-gap: 3em;
+  align-content: center;
+  height: 100%;
+  padding: 45px 0px 45px 25px;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+}
+
+.myownswiper {
+  overflow: hidden;
+}
+
+.myownswiper-slides .card-externe:first-child {
+  margin-left: 5px;
+}
+
+.myownswiper-slides .card-externe:last-child {
+  margin-right: 30px;
+}
+
 .swiper-pagination-bullet-active {
   background-color: #FA4A0C;
 }

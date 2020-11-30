@@ -2,19 +2,19 @@ import { swiper } from "../plugins/swiper";
 
 const changeday = () => {
 
-  let active = document.querySelector(".week-icon-active");
+  let active = document.querySelector(".day-active");
   if (active) {
 
-    let icons = document.querySelectorAll(".fa-circle");
-    icons.forEach((icon) => {
-      icon.addEventListener("click", (event) => {
+    let days = document.querySelectorAll(".jourdelasemaine");
+    days.forEach((day) => {
+      day.addEventListener("click", (event) => {
         event.preventDefault();
-        let active = document.querySelector(".week-icon-active");
-        active.classList.remove("week-icon-active");
-        icon.classList.add("week-icon-active");
+        let active = document.querySelector(".day-active");
+        active.classList.remove("day-active");
+        day.classList.add("day-active");
 
-        if (icon.classList.contains("mon")){
-          let swipers = document.querySelectorAll(".swiper-container");
+        if (day.classList.contains("mon")){
+          let swipers = document.querySelectorAll(".repas");
           let rightones = document.querySelectorAll(".mon")
           swipers.forEach( (swiper) => {
             swiper.classList.add("hidden");
@@ -24,8 +24,8 @@ const changeday = () => {
           })
         };
 
-        if (icon.classList.contains("tue")){
-          let swipers = document.querySelectorAll(".swiper-container");
+        if (day.classList.contains("tue")){
+          let swipers = document.querySelectorAll(".repas");
           let rightones = document.querySelectorAll(".tue")
           swipers.forEach( (swiper) => {
             swiper.classList.add("hidden");
@@ -35,8 +35,8 @@ const changeday = () => {
           })
         };
 
-        if (icon.classList.contains("wed")){
-          let swipers = document.querySelectorAll(".swiper-container");
+        if (day.classList.contains("wed")){
+          let swipers = document.querySelectorAll(".repas");
           let rightones = document.querySelectorAll(".wed")
           swipers.forEach( (swiper) => {
             swiper.classList.add("hidden");
@@ -46,8 +46,8 @@ const changeday = () => {
           })
         };
 
-        if (icon.classList.contains("thu")){
-          let swipers = document.querySelectorAll(".swiper-container");
+        if (day.classList.contains("thu")){
+          let swipers = document.querySelectorAll(".repas");
           let rightones = document.querySelectorAll(".thu")
           swipers.forEach( (swiper) => {
             swiper.classList.add("hidden");
@@ -57,8 +57,8 @@ const changeday = () => {
           })
         };
 
-        if (icon.classList.contains("fri")){
-          let swipers = document.querySelectorAll(".swiper-container");
+        if (day.classList.contains("fri")){
+          let swipers = document.querySelectorAll(".repas");
           let rightones = document.querySelectorAll(".fri")
           swipers.forEach( (swiper) => {
             swiper.classList.add("hidden");
@@ -68,8 +68,8 @@ const changeday = () => {
           })
         };
 
-        if (icon.classList.contains("sat")){
-          let swipers = document.querySelectorAll(".swiper-container");
+        if (day.classList.contains("sat")){
+          let swipers = document.querySelectorAll(".repas");
           let rightones = document.querySelectorAll(".sat")
           swipers.forEach( (swiper) => {
             swiper.classList.add("hidden");
@@ -79,8 +79,8 @@ const changeday = () => {
           })
         };
 
-        if (icon.classList.contains("sun")){
-          let swipers = document.querySelectorAll(".swiper-container");
+        if (day.classList.contains("sun")){
+          let swipers = document.querySelectorAll(".repas");
           let rightones = document.querySelectorAll(".sun")
           swipers.forEach( (swiper) => {
             swiper.classList.add("hidden");
