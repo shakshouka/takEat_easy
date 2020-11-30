@@ -1,6 +1,13 @@
 <div class="container ">
   <h1>Recipes</h1>
-
+  <%= form_tag recipes_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a recipe"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
   <div class="row">
     <% @recipes.each do |recipe| %>
       <div class="column">

@@ -6,6 +6,7 @@ class CookbooksController < ApplicationController
 
   def show
     @cookbook = Cookbook.find(params[:id])
+    @cookbookrecipes = CookbookRecipe.where(cookbook_id: @cookbook.id);
     authorize @cookbook
   end
 

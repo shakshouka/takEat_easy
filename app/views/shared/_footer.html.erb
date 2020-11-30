@@ -22,9 +22,9 @@
     </li>
 
     <li class="<%= "footer-active" if (params[:controller] == 'cookbooks') %>" >
-      <%= link_to cookbooks_path do  %>
+      <%= link_to cookbook_path(Cookbook.first) do  %>
         <i class="fas fa-book footer-icon"></i>
-        <br>LIVRES
+        <br>FAVORIS
       <% end %>
     </li>
 
