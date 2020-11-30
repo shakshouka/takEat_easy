@@ -39,36 +39,18 @@
 
   position: relative;
 
-  a {
-    text-decoration: none;
-  }
-
-  p {
-    text-align: center;
-    color: $color-paragraph;
-    font-size: 10px;
-    font-style: italic;
-  }
-
-  h5 {
-    text-align: center;
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  }
-
 }
 
 .chg {
   position: absolute;
-  color: white;
+  // coucou
+  color: red;
   bottom: 50px;
   right: 50px;
 }
 
 .del {
-  color: yellow;
+  color: rgb(48, 191, 0);
   top: 0px;
   right: 0px;
 }

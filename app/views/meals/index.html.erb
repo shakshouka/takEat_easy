@@ -35,11 +35,11 @@
                 <% end %>
               )">
                 <h5><%= recipe.name %></h5>
-                <%= link_to week_meal_path(meal.week_id,meal), :method=> :put do %>
-                  <i class="fas fa-sync chg"></i>
+                <%= link_to week_meal_path(meal.week_id,meal), :method=> :put, class: "chg" do %>
+                  <i class="fas fa-sync"></i>
                 <% end %>
-                <%= link_to week_meal_path(meal.week_id,meal), :method=> :put do %>
-                  <i class="fas fa-minus del"></i>
+                <%= link_to week_meal_path(meal.week_id,meal), :method=> :put, class: "del"  do %>
+                  <i class="fas fa-minus"></i>
                 <% end %>
               </div>
             <% end %>
