@@ -1,30 +1,31 @@
 <div class="footer">
+
   <ul class="footer-list">
 
     <li class="<%= "footer-active" if (params[:controller] == 'weeks' && params[:action] != 'today') %>">
       <%= link_to week_path(Week.first) do %>
-        <%= image_tag "/assets/calendar.svg", class: "pb-1" %>
-        <br>MA SEMAINE
+        <%= render :partial => 'svg/calendar' %>
+        <br>SEMAINE
       <% end %>
     </li>
 
     <li class="<%= "footer-active" if (params[:controller] == 'recipes') %>">
       <%= link_to recipes_path do %>
-        <%= image_tag "/assets/search.svg", class: "pb-1" %>
-        <br>PARCOURIR
+        <%= render :partial => 'svg/search' %>
+        <br>RECETTES
       <% end %>
     </li>
 
     <li class="<%= "footer-active" if (params[:controller] == 'cookbooks') %>" >
       <%= link_to cookbook_path(Cookbook.first) do  %>
-        <%= image_tag "/assets/star.svg", class: "pb-1" %>
+        <%= render :partial => 'svg/star' %>
         <br>FAVORIS
       <% end %>
     </li>
 
     <li class="<%= "footer-active" if (params[:controller] == 'grocery_items') %>">
       <%= link_to '/weeks/2/grocery_list/1' do  %>
-        <%= image_tag "/assets/shopping-cart.svg", class: "pb-1" %>
+        <%= render :partial => 'svg/shopping' %>
         <br>COURSES
       <% end %>
     </li>

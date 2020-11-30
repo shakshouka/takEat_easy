@@ -18,18 +18,19 @@
     text-decoration: none;
     display: inline;
     width: 25%;
-    font-size: 8px;
+    font-size: 12px;
     text-align: center;
     padding-bottom: 10px;
     padding-top: 10px;
+    color: #BDBDBD;
     > a {
-      color: black;
+      color: #BDBDBD;
+      > svg {
+      padding-bottom: 5px;
+      }
     }
-  }
-}
 
-.footer-icon {
-  font-size: 24px;
+  }
 }
 
 .footer-active {
@@ -39,7 +40,3 @@
     color: #FA4A0C!important;
   }
 }
-
-body {
-  background-color:  rgb(245,245,245);
-  }
