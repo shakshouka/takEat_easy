@@ -10,4 +10,11 @@ class Recipe < ApplicationRecord
   validates :difficulty, presence: true, inclusion: { in: %w[Facile Moyen Difficile] }
   validates :cooking_time, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validates :instructions, presence: true, length: { minimum: 30 }
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name,
+    against: [ :name ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 end

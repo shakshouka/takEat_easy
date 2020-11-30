@@ -1,4 +1,4 @@
 <%= simple_form_for @week do |f| %>
-  <%= f.input :start_day, as: :date, html5: true, label: 'Début de ma semaine le: (DD/MM/YYYY)' %>
+  <%= f.input :start_day, html5: true, input_html: {class: "flatpickr"}, label: "Quand debute votre semaine?"  %>
    <%= f.button :submit, class: "btn btn-main" %>
 <% end %>

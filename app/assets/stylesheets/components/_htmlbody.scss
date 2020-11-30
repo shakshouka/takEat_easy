@@ -2,6 +2,7 @@ html, body {
   margin: 0!important;
   padding: 0!important;
   position: relative;
+  background: #E5E5E5;
 }
 
 .container-wrapper{
@@ -9,6 +10,7 @@ html, body {
   display: flex;
   height: 100vh;
   overflow: hidden;
+  background-color: #F2F2F2;
 }
 
 .container-main {
@@ -17,6 +19,7 @@ html, body {
   margin: 0;
   padding: 0;
   padding-bottom: 40px;
+  background-color: #F2F2F2;
 }
 a:hover {
   text-decoration: none!important;
@@ -27,24 +30,28 @@ a:active{
 }
 
 h1 {
-  font-size:30px;
+  font-size:34px;
   text-align: center;
   margin: 0 auto;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 33px;
+  text-align: center;
 }
+
  h2 {
-  font-size:24px;
+  font-size: 26px;
   margin: 0 auto 0.25em auto;
+
  }
- h3 {
+
+ h3, h4, h5 {
   font-size:20px;
   margin: 0 auto 0.5em auto;
  }
 
- h4 {
-  font-size:18px;
-  margin: 0 auto 0.5em auto;
- }
-
  p {
-  font-size:18px;
+  font-size:16px;
+  // font-weight: 600;
+  letter-spacing: 0.02em;
  }

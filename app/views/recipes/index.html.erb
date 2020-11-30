@@ -1,16 +1,23 @@
 <div class="container ">
   <h1>Recipes</h1>
-
+  <%= form_tag recipes_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a recipe"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
   <div class="row">
     <% @recipes.each do |recipe| %>
       <div class="column">
         <%= link_to recipe_path(recipe), class: "cardit" do %>
           <div class="card-rcp" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(
 
-          <% if recipe.name == 'Omlette nature' %>
-              <%=  'https://fac.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Ffac.2F2018.2F07.2F30.2Fd7199c6d-baf2-4570-a540-93551a0e2a04.jpeg' %>/omelette-piquante.jpeg" %>
-             <% #elsif recipe.photos.attached? %>
-              <% #recipe.photos.first.key, #height: 100, width: 400, crop: :fill %>
+            <% if recipe.photos.attached? %>
+              <%= cl_image_path recipe.photos[0].key, crop: :fill %>
+            <% elsif recipe.name == 'Omlette nature' %>
+             <%=  'https://fac.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Ffac.2F2018.2F07.2F30.2Fd7199c6d-baf2-4570-a540-93551a0e2a04.jpeg' %>
             <% elsif recipe.name == 'Crepes faciles' %>
               <%= 'https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/39ee5603-5ac4-4420-9563-11ae0ec17b41/Derivates/21ffd62c-8c68-43ac-9593-16c4c09e644d.jpg' %>
             <% elsif recipe.name == 'Puree de carottes' %>
