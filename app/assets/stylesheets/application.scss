@@ -9,7 +9,9 @@
 @import "font-awesome";
 // @import "swiper/swiper-bundle.css";
 @import "swiper/swiper-bundle";
-
+@import "flatpickr/dist/flatpickr";
+@import "flatpickr/dist/themes/material_green";
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+

@@ -268,21 +268,17 @@ puts "------ Grocery_items fin -----------------"
 
 puts "############## Cookbooks #################"
 puts "------ Cookbooks debut -----------------"
-puts cookbook = Cookbook.create!(name: 'Hello', description: 'Awesome beginner starter', user_id: user.id)
-puts cookbook1 = Cookbook.create!(name: 'World', description: 'Second best book to have!', user_id: user.id)
+puts cookbook = Cookbook.create!(name: 'Favoris', description: 'Favorites recipes!', user_id: user.id)
 puts "------ Cookbooks fin ----------------"
 
 puts "############## Cookbook-recipes #################"
 puts "------ Cookbook-recipes debut -----------------"
 
-puts cbkrcp = CookbookRecipe.new(cookbook_id: cookbook.id, recipe_id: Recipe.find_by(name:"crepes"))
-puts cbkrcp2 = CookbookRecipe.new(cookbook_id: cookbook.id, recipe_id: Recipe.find_by(name:"raclette"))
-puts cbkrcp3 = CookbookRecipe.new(cookbook_id: cookbook.id, recipe_id: Recipe.find_by(name:"pommes_sautees"))
+puts cbkrcp = CookbookRecipe.create!(cookbook_id: 1, recipe_id: 1)
+puts cbkrcp2 = CookbookRecipe.create!(cookbook_id: 1, recipe_id: 2)
+puts cbkrcp3 = CookbookRecipe.create!(cookbook_id: 1, recipe_id: 3)
 
-puts cbkrcp4 = CookbookRecipe.new(cookbook_id: cookbook1.id, recipe_id: Recipe.find_by(name:"crepes"))
-puts cbkrcp5 = CookbookRecipe.new(cookbook_id: cookbook1.id, recipe_id: Recipe.find_by(name:"raclette"))
-puts cbkrcp6 = CookbookRecipe.new(cookbook_id: cookbook1.id, recipe_id: Recipe.find_by(name:"rot_porc"))
-puts cbkrcp7 = CookbookRecipe.new(cookbook_id: cookbook1.id, recipe_id: Recipe.find_by(name:"vel_potiron"))
+puts cbkrcp4 = CookbookRecipe.create!(cookbook_id: 1, recipe_id: 4)
 puts "------ Cookbook-recipes fin -----------------"
 
 p "*************************"

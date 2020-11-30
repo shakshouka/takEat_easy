@@ -8,7 +8,6 @@
 </div>
 
 
-
 <div class="swiper-container swiper-show">
   <!-- Additional required wrapper -->
 
@@ -42,6 +41,13 @@
           <%= cl_image_tag photo.key , crop: :fill %>
         </div>
       <% end %>
+
+      <% @recipe.photos.each do |photo| %>
+        <div class="swiper-slide">
+          <%= cl_image_tag photo.key , crop: :fill %>
+        </div>
+      <% end %>
+
   </div>
 
   <!-- If we need pagination -->
@@ -72,7 +78,13 @@
 
     <h4> <strong>Ingredients: </strong></h4>
     <% @doses.each do |dose| %>
-      <li><%= dose.quantity %> de <%= dose.ingredient.name %></li>
+      <li><%= dose.quantity %>
+        <% if dose.unit == "pc" %>
+          <%= dose.ingredient.name %>
+         <% else  %>
+          <%= dose.unit %> de <%= dose.ingredient.name %>
+        <% end %>
+       </li>
     <% end %>
   </ul>
   <br>

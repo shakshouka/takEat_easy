@@ -2,7 +2,11 @@ class RecipesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @recipes = policy_scope(Recipe).order(created_at: :desc)
+    if params[:query].present?
+      @recipes = policy_scope(Recipe.search_by_name(params[:query]))
+    else
+      @recipes = policy_scope(Recipe).order(created_at: :desc)
+    end
   end
 
   def show

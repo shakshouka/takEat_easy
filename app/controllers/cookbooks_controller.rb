@@ -6,6 +6,11 @@ class CookbooksController < ApplicationController
 
   def show
     @cookbook = Cookbook.find(params[:id])
+    if params[:query].present?
+      @cookbookrecipes = CookbookRecipe.global_search(params[:query])
+    else
+      @cookbookrecipes = CookbookRecipe.where(cookbook_id: @cookbook.id)
+    end
     authorize @cookbook
   end
 

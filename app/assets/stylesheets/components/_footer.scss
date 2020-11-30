@@ -2,7 +2,8 @@
   width: 100vw;
   background-color: transparent;
   margin: 0 auto;
-  padding:0;
+  padding:5px 0;
+  border-radius: 25px;
 
   box-shadow: 4px 10px 10px 10px rgba(0,0,0,0.07);
 }
@@ -16,29 +17,26 @@
   li {
     text-decoration: none;
     display: inline;
-    width: 20%;
-    font-size: 8px;
+    width: 25%;
+    font-size: 12px;
     text-align: center;
     padding-bottom: 10px;
     padding-top: 10px;
+    color: #BDBDBD;
     > a {
-      color: black;
+      color: #BDBDBD;
+      > svg {
+      padding-bottom: 5px;
+      }
     }
-  }
-}
 
-.footer-icon {
-  font-size: 24px;
+  }
 }
 
 .footer-active {
-  background-color: #0F6A50;
+  color: #FA4A0C;
   font-weight: bold;
   > a {
-    color: white!important;
+    color: #FA4A0C!important;
   }
 }
-
-body {
-  background-color:  rgb(245,245,245);
-  }
