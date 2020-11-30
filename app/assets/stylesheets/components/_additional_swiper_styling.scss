@@ -1,16 +1,6 @@
 .swiper-container {
-  height: 60%;
-}
-
-.swiper-slide .card-externe {
-  height: 300px;
-  margin: 0 auto;
-}
-
-.swiper-slide {
-  display: flex;
-  align-items: center;
-  width: 80%;
+    width: 90vw;
+    height: auto;
 }
 
 .myownswiper-slides {
@@ -38,5 +28,7 @@
   margin-right: 30px;
 }
 
-
+.swiper-pagination-bullet-active {
+  background-color: #FA4A0C;
+}
 
