@@ -1,36 +1,30 @@
 <div class="footer">
   <ul class="footer-list">
 
-    <li class="<%= "footer-active" if (params[:controller] == 'weeks' && params[:action] == 'today') %>">
-      <%= link_to today_week_path(Week.first) do %>
-        <i class="fas fa-calendar-day footer-icon"></i><br>JOUR
-      <% end %>
-    </li>
-
     <li class="<%= "footer-active" if (params[:controller] == 'weeks' && params[:action] != 'today') %>">
       <%= link_to week_path(Week.first) do %>
-        <i class="fas fa-calendar-week footer-icon"></i>
+        <%= image_tag "/assets/calendar.svg", class: "pb-1" %>
         <br>MA SEMAINE
       <% end %>
     </li>
 
     <li class="<%= "footer-active" if (params[:controller] == 'recipes') %>">
       <%= link_to recipes_path do %>
-        <i class="fas fa-search footer-icon"></i>
+        <%= image_tag "/assets/search.svg", class: "pb-1" %>
         <br>PARCOURIR
       <% end %>
     </li>
 
     <li class="<%= "footer-active" if (params[:controller] == 'cookbooks') %>" >
-      <%= link_to cookbooks_path do  %>
-        <i class="fas fa-book footer-icon"></i>
-        <br>LIVRES
+      <%= link_to cookbook_path(Cookbook.first) do  %>
+        <%= image_tag "/assets/star.svg", class: "pb-1" %>
+        <br>FAVORIS
       <% end %>
     </li>
 
     <li class="<%= "footer-active" if (params[:controller] == 'grocery_items') %>">
       <%= link_to '/weeks/2/grocery_list/1' do  %>
-        <i class="fas fa-shopping-cart footer-icon"></i>
+        <%= image_tag "/assets/shopping-cart.svg", class: "pb-1" %>
         <br>COURSES
       <% end %>
     </li>
