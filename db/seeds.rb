@@ -21,6 +21,9 @@ puts "########### Destroy #################"
 puts "-----Destroy Grocery-item----"
 GroceryItem.destroy_all
 
+puts "-----Destroy Grocery-list----"
+GroceryList.destroy_all
+
 puts "-----Destroy Meal----"
 Meal.destroy_all
 
@@ -41,9 +44,6 @@ Recipe.destroy_all
 
 puts "-----Destroy Cookbook----"
 Cookbook.destroy_all
-
-puts "-----Destroy Grocery-list----"
-GroceryList.destroy_all
 
 puts "-----Destroy User----"
 User.destroy_all
