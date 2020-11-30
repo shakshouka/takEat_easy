@@ -32,6 +32,8 @@
         <div class="swiper-slide"><%= image_tag "https://img-3.journaldesfemmes.fr/zCdWcXo8IjfSP8MK8uAgxqetCq4=/910x607/smart/09ca38eb418e4ba4b8d5732c442a775b/ccmcms-jdf/10861244.jpg", alt: "alttext" %></div>
         <div class="swiper-slide"><%= image_tag "https://cac.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcac.2F2018.2F09.2F25.2F61f5f2f4-cfd2-4107-8d0c-8a012ebf3f6e.2Ejpeg/750x562/quality/80/crop-from/center/cr/wqkgU3RvY2tmb29kL1N1Y3LDqSBzYWzDqSAvIEN1aXNpbmUgQWN0dWVsbGU%3D/omelette-nature.jpeg", alt: "alttext" %></div>
       <% end %>
+      <%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
+
   </div>
   <!-- If we need pagination -->
   <div class="swiper-pagination"></div>
