@@ -1,72 +1,99 @@
-<div class="d-flex justify-content-left recipebar">
-  <div>
-    <%= link_to "ALL RECIPES", recipes_path, class: "black" %>
-  </div>
+<div class="d-flex justify-content-left recipebar back-heart ">
+
+    <%= link_to recipes_path do %>
+      <i class="fas fa-chevron-left icon"></i>
+    <% end %>
+    <a href=""><i class="far fa-heart icon"></i></a>
+
 </div>
 
 
 
 <div class="swiper-container swiper-show">
   <!-- Additional required wrapper -->
+
   <div class="swiper-wrapper">
       <!-- Slides -->
       <% if @recipe.name.downcase == "puree de carottes" %>
-        <div class="swiper-slide"><%= image_tag "https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/45FB121B-7335-4D18-824C-9CF7FAB14F39/Derivates/5576DF0E-DE68-4469-9FC5-572DDB92FC35.jpg", alt: "alttext" %></div>
-        <div class="swiper-slide"><%= image_tag "https://img.cuisineaz.com/660x660/2018-08-27/i141958-veloute-de-carottes-a-la-vache-qui-rit.jpeg", alt: "alttext" %></div>
+        <div class="swiper-slide"><%= image_tag "https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/45FB121B-7335-4D18-824C-9CF7FAB14F39/Derivates/5576DF0E-DE68-4469-9FC5-572DDB92FC35.jpg", class: "swiper-show-image" %></div>
+        <div class="swiper-slide"><%= image_tag "https://img.cuisineaz.com/660x660/2018-08-27/i141958-veloute-de-carottes-a-la-vache-qui-rit.jpeg", class: "swiper-show-image" %></div>
       <% elsif @recipe.name.downcase == "veloute de potiron" %>
-        <div class="swiper-slide"><%= image_tag "https://assets.afcdn.com/recipe/20160325/63237_w1024h768c1cx1000cy1500.jpg", alt: "alttext" %></div>
-        <div class="swiper-slide"><%= image_tag "https://assets.afcdn.com/recipe/20130924/60726_w1024h768c1cx1911cy1274.jpg", alt: "alttext" %></div>
+        <div class="swiper-slide"><%= image_tag "https://assets.afcdn.com/recipe/20160325/63237_w1024h768c1cx1000cy1500.jpg", class: "swiper-show-image" %></div>
+        <div class="swiper-slide"><%= image_tag "https://assets.afcdn.com/recipe/20130924/60726_w1024h768c1cx1911cy1274.jpg", class: "swiper-show-image" %></div>
       <% elsif @recipe.name.downcase == "crepes faciles" %>
-        <div class="swiper-slide"><%= image_tag "https://assets.afcdn.com/recipe/20140103/29898_w1024h768c1cx2592cy1728.jpg", alt: "alttext" %></div>
-        <div class="swiper-slide"><%= image_tag "https://media.soscuisine.com/images/recettes/large/2805.jpg", alt: "alttext" %></div>
+        <div class="swiper-slide"><%= image_tag "https://assets.afcdn.com/recipe/20140103/29898_w1024h768c1cx2592cy1728.jpg", class: "swiper-show-image" %></div>
+        <div class="swiper-slide"><%= image_tag "https://media.soscuisine.com/images/recettes/large/2805.jpg", class: "swiper-show-image" %></div>
       <% elsif @recipe.name.downcase == "roti de porc aux oignons" %>
-        <div class="swiper-slide"><%= image_tag "https://i2.wp.com/www.cuisinelolo.fr/wp-content/uploads/2018/03/R%C3%B4ti-de-porc-au-miel-oignons-3.jpg?fit=660%2C440&ssl=1", alt: "alttext" %></div>
-        <div class="swiper-slide"><%= image_tag "https://fr.chatelaine.com/wp-content/uploads/2020/01/RotiPorcBraiseCidreOignonsCaramelises_PolentaCremeuse_615x500.jpg", alt: "alttext" %></div>
+        <div class="swiper-slide"><%= image_tag "https://i2.wp.com/www.cuisinelolo.fr/wp-content/uploads/2018/03/R%C3%B4ti-de-porc-au-miel-oignons-3.jpg?fit=660%2C440&ssl=1", class: "swiper-show-image" %></div>
+        <div class="swiper-slide"><%= image_tag "https://fr.chatelaine.com/wp-content/uploads/2020/01/RotiPorcBraiseCidreOignonsCaramelises_PolentaCremeuse_615x500.jpg", class: "swiper-show-image" %></div>
       <% elsif @recipe.name.downcase == "pommes de terres sautees" %>
-        <div class="swiper-slide"><%= image_tag "https://s3-eu-west-1.amazonaws.com/images-ca-1-0-1-eu/recipe_photos/original/799/pommes-sautees-a-cru-3000x2000.jpg", alt: "alttext" %></div>
-        <div class="swiper-slide"><%= image_tag "https://img-3.journaldesfemmes.fr/gObi3wCRWmgJwf3saJbkWdb9RB8=/910x607/smart/89992ced962a4ec387f6476c40e43fd3/ccmcms-jdf/10408886.jpg", alt: "alttext" %></div>
+        <div class="swiper-slide"><%= image_tag "https://s3-eu-west-1.amazonaws.com/images-ca-1-0-1-eu/recipe_photos/original/799/pommes-sautees-a-cru-3000x2000.jpg", class: "swiper-show-image" %></div>
+        <div class="swiper-slide"><%= image_tag "https://img-3.journaldesfemmes.fr/gObi3wCRWmgJwf3saJbkWdb9RB8=/910x607/smart/89992ced962a4ec387f6476c40e43fd3/ccmcms-jdf/10408886.jpg", class: "swiper-show-image" %></div>
       <% elsif @recipe.name.downcase == "raclette" %>
-        <div class="swiper-slide"><%= image_tag "https://img-3.journaldesfemmes.fr/_r4LFjvRlaoYh3xc-H7fe4LNxCk=/750x/smart/45bf6a7a581843ff83c8522aac5dd856/recipe-jdf/10033866.jpg", alt: "alttext" %></div>
-        <div class="swiper-slide"><%= image_tag "https://recipecontent.fooby.ch/18413_3-2_480-320.jpg", alt: "alttext" %></div>
+        <div class="swiper-slide"><%= image_tag "https://img-3.journaldesfemmes.fr/_r4LFjvRlaoYh3xc-H7fe4LNxCk=/750x/smart/45bf6a7a581843ff83c8522aac5dd856/recipe-jdf/10033866.jpg", class: "swiper-show-image" %></div>
+        <div class="swiper-slide"><%= image_tag "https://recipecontent.fooby.ch/18413_3-2_480-320.jpg", class: "swiper-show-image" %></div>
       <% elsif @recipe.name.downcase == "omelette nature" %>
-        <div class="swiper-slide"><%= image_tag "https://img-3.journaldesfemmes.fr/zCdWcXo8IjfSP8MK8uAgxqetCq4=/910x607/smart/09ca38eb418e4ba4b8d5732c442a775b/ccmcms-jdf/10861244.jpg", alt: "alttext" %></div>
-        <div class="swiper-slide"><%= image_tag "https://cac.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcac.2F2018.2F09.2F25.2F61f5f2f4-cfd2-4107-8d0c-8a012ebf3f6e.2Ejpeg/750x562/quality/80/crop-from/center/cr/wqkgU3RvY2tmb29kL1N1Y3LDqSBzYWzDqSAvIEN1aXNpbmUgQWN0dWVsbGU%3D/omelette-nature.jpeg", alt: "alttext" %></div>
+        <div class="swiper-slide"><%= image_tag "https://img-3.journaldesfemmes.fr/zCdWcXo8IjfSP8MK8uAgxqetCq4=/910x607/smart/09ca38eb418e4ba4b8d5732c442a775b/ccmcms-jdf/10861244.jpg", class: "swiper-show-image" %></div>
+        <div class="swiper-slide"><%= image_tag "https://cac.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcac.2F2018.2F09.2F25.2F61f5f2f4-cfd2-4107-8d0c-8a012ebf3f6e.2Ejpeg/750x562/quality/80/crop-from/center/cr/wqkgU3RvY2tmb29kL1N1Y3LDqSBzYWzDqSAvIEN1aXNpbmUgQWN0dWVsbGU%3D/omelette-nature.jpeg", class: "swiper-show-image" %></div>
+      <% end %>
+
+      <% @recipe.photos.each do |photo| %>
+        <div class="swiper-slide">
+          <%= cl_image_tag photo.key , crop: :fill %>
+        </div>
       <% end %>
   </div>
+
   <!-- If we need pagination -->
-  <div class="swiper-pagination"></div>
-
+  <div class="div-pagination-time">
+    <div class="div-pagination">
+      <div class="swiper-pagination">
+      </div>
+    </div>
+    <div class="div-time">
+      <span class="time"><%= @recipe.cooking_time %> min</span>
+    </div>
+  </div>
   <!-- If we need navigation buttons -->
-  <div class="swiper-button-prev"></div>
+<!--   <div class="swiper-button-prev"></div>
   <div class="swiper-button-next"></div>
-
+ -->
   <!-- If we need scrollbar -->
   <!-- <div class="swiper-scrollbar"></div> -->
 </div>
+
 <div class="container-fluid">
-  <h1 class="text-center border py-2"> <%= @recipe.name %> </h1>
+
+  <h1> <%= @recipe.name %> </h1>
+  <h2 class="h2-moment"> <%= @meals.moment.capitalize %>  </h2>
+  <br>
 
   <ul class="recipe-show-list">
-    <h4>Ingredients</h4>
+
+    <h4> <strong>Ingredients: </strong></h4>
     <% @doses.each do |dose| %>
       <li><%= dose.quantity %> de <%= dose.ingredient.name %></li>
     <% end %>
   </ul>
+  <br>
 
-<p><strong>Difficulté:</strong> <%= @recipe.difficulty  %></p>
-<p><strong>Temps de préparation:</strong> <%= @recipe.cooking_time  %> min</p>
-<p><strong>Instructions:</strong> <%= @recipe.instructions  %></p>
+  <h4><strong>Difficulté: </strong></h4>
+    <p> <%= @recipe.difficulty  %> </p>
+    <br>
+
+  <h4><strong>Instructions: </strong></h4>
+    <p> <%= @recipe.instructions %></p>
 
 
 </div>
-  <nav class="circular-menu">
-
+<!--   <nav class="circular-menu"> -->
+<!--
     <div class="circle">
       <%= link_to "", new_recipe_path, class: "fas fa-plus text-black bg-dark rounded-circle" %>
       <a href="" class="fas fa-star bg-dark rounded-circle"></a>
     </div>
     <a href="" class="menu-button fa fa-bars fa-2x small text-black"></a>
-
-  </nav>
+ -->
+<!--   </nav> -->
 
 

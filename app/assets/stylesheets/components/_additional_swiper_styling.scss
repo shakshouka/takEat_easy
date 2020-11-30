@@ -1,5 +1,8 @@
 .swiper-container {
     width: 90vw;
-    height: 300px;
+    height: auto;
 }
 
+.swiper-pagination-bullet-active {
+  background-color: #FA4A0C;
+}
