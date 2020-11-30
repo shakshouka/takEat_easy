@@ -6,6 +6,6 @@ class GroceryItemPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    true
   end
 end

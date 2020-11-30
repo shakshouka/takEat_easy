@@ -1,0 +1,112 @@
+/* Remove margins and padding from the list */
+#myUL {
+  margin: 0;
+  padding: 0;/* Include the padding and border in an element's total width and height */
+}
+
+/* Style the list items */
+#myUL li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 0;
+  list-style-type: none;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#myUL a {
+  text-decoration: none;
+  color: #BDBDBD;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+#myUL li:nth-child(odd) {
+  background: #F6F6F9;
+}
+
+/* When clicked on, add a background color and strike out text */
+#myUL li.checked {
+  background: #BDBDBD;
+  color: #F6F6F9;
+  text-decoration: line-through;
+}
+
+/* Style the header */
+.header {
+  background-color: #f44336;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
+
+/* Clear floats after the header */
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the input */
+input {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+/* Style the "Add" button */
+.addBtn {
+  padding: 10px;
+  width: 25%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+.checklist-alignment {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+
+  .checklist {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .checklist-separator {
+    width: 50px;
+    height: 1px;
+    border-bottom: 2px solid #FA4A0E;
+    width: 25%;
+    margin: 0 auto;
+  }
+}
+
+.grocery_list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.align-p {
+  margin: 10px;
+  text-align: center;
+  font-style: italic;
+}

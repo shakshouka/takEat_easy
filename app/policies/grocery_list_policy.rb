@@ -20,4 +20,8 @@ class GroceryListPolicy < ApplicationPolicy
   def createlisting?
     true
   end
+
+  def update?
+    true
+  end
 end
