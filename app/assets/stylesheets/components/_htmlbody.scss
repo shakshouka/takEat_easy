@@ -2,6 +2,7 @@ html, body {
   margin: 0!important;
   padding: 0!important;
   position: relative;
+  background: #E5E5E5;
 }
 
 .container-wrapper{
@@ -27,24 +28,28 @@ a:active{
 }
 
 h1 {
-  font-size:30px;
+  font-size:22px;
   text-align: center;
   margin: 0 auto;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 33px;
+  text-align: center;
 }
+
  h2 {
-  font-size:24px;
+  font-size: 18px;
   margin: 0 auto 0.25em auto;
- }
- h3 {
-  font-size:20px;
-  margin: 0 auto 0.5em auto;
+
  }
 
- h4 {
-  font-size:18px;
+ h3, h4, h5 {
+  font-size:16px;
   margin: 0 auto 0.5em auto;
  }
 
  p {
-  font-size:18px;
+  font-size:15px;
+  // font-weight: 600;
+  letter-spacing: 0.02em;
  }
