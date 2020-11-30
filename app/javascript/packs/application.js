@@ -32,11 +32,8 @@ import { loader } from "../plugins/loader";
 import { changeday } from "../vanilla/changeday";
 import { menu } from "../plugins/menu";
 import { swiper } from "../plugins/swiper";
-<<<<<<< HEAD
 import { grorg } from "../plugins/grocery-org";
-=======
 import { initFlatpickr} from '../plugins/flatpickr';
->>>>>>> master
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
