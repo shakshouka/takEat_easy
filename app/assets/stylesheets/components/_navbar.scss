@@ -1,13 +1,13 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: transparent;
-  box-shadow: 1px 1px 1px rgba(0,0,0,0.05);
+  background-color:#F2F2F2;
+  padding: 30px 0px 30px 20px;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.dropdown-menu {
+  top: 97%!important;
 }

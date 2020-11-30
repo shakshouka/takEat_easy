@@ -1,86 +1,89 @@
-<div class="container week-show">
+<div class="week-show">
 
-  <div class="weekbar d-flex justify-content-between">
+  <div class="weekbar">
     <div>
-      <%= link_to "ALL WEEKS", weeks_path, class: "black" %>
-    </div>
-    <div>
-      <%= link_to "WEEK NEW", new_week_path, class: "black" %>
+      <%= link_to new_week_path do %>
+        <h3 class="black"><span class="pr-3">+</span>Nouvelle semaine</h3>
+      <% end %>
     </div>
   </div>
-  <h1 class="text-center my-3">Menu de la semaine</h1>
-  <h2 class="text-center my-3">Début: <%= @week.start_day.strftime('%a %d %b') %></h2>
-  <br>
-  <% ["mon", "tue", "wed", "thu", "fri", "sat", "sun"].each_with_index do |day, index| %>
-
-      <div class="swiper-container my-3 shadow-sm <%= day %> <%= "hidden" if index != Date.today.wday - 1 %>">
-
-          <div class="swiper-wrapper">
-                <% @week.meals.where('day LIKE ?', "%#{day.capitalize}%").each do |meal| %>
-
-                  <% if meal.recipe.name.downcase == "puree de carottes" %>
-                    <div class="swiper-slide" style='background-image: linear-gradient(rgba(0,0,0,0.4), rgba(50,50,50,0.3)), url(https://img.mesrecettesfaciles.fr/wp-content/uploads/2016/11/pureecarotte-1000x500.jpg); background-size: cover; background-position: center;'>
-                  <% elsif meal.recipe.name.downcase == "omelette nature" %>
-                    <div class="swiper-slide" style='background-image: linear-gradient(rgba(0,0,0,0.4), rgba(50,50,50,0.3)), url(https://img-3.journaldesfemmes.fr/zCdWcXo8IjfSP8MK8uAgxqetCq4=/910x607/smart/09ca38eb418e4ba4b8d5732c442a775b/ccmcms-jdf/10861244.jpg); background-size: cover; background-position: center;'>
-                  <% elsif meal.recipe.name.downcase == "raclette" %>
-                    <div class="swiper-slide" style='background-image: linear-gradient(rgba(0,0,0,0.4), rgba(50,50,50,0.3)), url(https://www.demotivateur.fr/images-buzz/cover/18955809795e30552c9ff4d_raclette-bowl-800x420.jpg); background-size: cover; background-position: center;'>
-                  <% elsif meal.recipe.name.downcase == "pommes de terres sautees" %>
-                    <div class="swiper-slide" style='background-image: linear-gradient(rgba(0,0,0,0.4), rgba(50,50,50,0.3)), url(https://sf1.viepratique.fr/wp-content/uploads/sites/2/2015/04/Pommes-de-terre-saut%C3%A9es.jpg); background-size: cover; background-position: center;'>
-                  <% elsif meal.recipe.name.downcase == "roti de porc aux oignons" %>
-                    <div class="swiper-slide" style='background-image: linear-gradient(rgba(0,0,0,0.4), rgba(50,50,50,0.3)), url(https://res.cloudinary.com/swissmilk/image/fetch/w_1600,c_fill,g_auto,f_auto,q_auto:eco,ar_16:9/https://api.swissmilk.ch/wp-content/uploads/2019/06/schweinsbraten-an-zwiebelsauce.jpg); background-size: cover; background-position: center;'>
-                  <% elsif meal.recipe.name.downcase == "crepes faciles" %>
-                    <div class="swiper-slide" style='background-image: linear-gradient(rgba(0,0,0,0.4), rgba(50,50,50,0.3)), url(https://lepetitjournal.com/sites/default/files/styles/main_article/public/2020-02/Crepes_0.jpg?itok=5V2dScZn); background-size: cover; background-position: center;'>
-                  <% elsif meal.recipe.name.downcase == "veloute de potiron" %>
-                    <div class="swiper-slide" style='background-image: linear-gradient(rgba(0,0,0,0.4), rgba(50,50,50,0.3)), url(https://aufilduthym.fr/wp-content/uploads/2018/10/soupe-potimarron-fenouil-curry-au-fil-du-thym.jpg); background-size: cover; background-position: center;'>
-                  <% else %>
-                    <div class="swiper-slide" style='background-image: linear-gradient(rgba(0,0,0,0.4), rgba(50,50,50,0.3)), url(https://img.cuisineaz.com/660x660/2013-12-20/i108264-puree-de-carottes-aux-epices-douces.jpeg); background-size: cover; background-position: center;'>
-                  <% end %>
-
-                      <%= link_to recipe_path(meal.recipe), class: "white" do %>
-                        <div class="position-bottom align-self-end pl-3 pt-2">
-                          <h2 class="text-white"><%= meal.recipe.name %></h2>
-                          <p><%= meal.day %> <%= meal.moment.capitalize %></p>
-                        </div>
-                      <% end %>
-
-                    </div>
-
-
-                <% end %>
-
-          </div>
-
-        <div class="swiper-pagination"></div>
-
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-      </div>
-  <% end %>
-<br>
-  <div class="card-week-day shadow-sm">
-    <div class="card-week-day-description">
-      <h3>Jour</h3>
-    </div>
-    <div class="card-week-day-calendar">
-      <ul>
-
-        <li>
-          L
-          <br><a href="">
-            <i class="far fa-circle mon <%= "week-icon-active" if Date.today.wday == 1 %>"></i>
-          </a>
-        </li>
-
-        <li>M<br><a href=""><i class="far fa-circle tue <%= "week-icon-active" if Date.today.wday== 2 %>"></i></a></li>
-        <li>M<br><a href=""><i class="far fa-circle wed <%= "week-icon-active" if Date.today.wday== 3 %>"></i></a></li>
-        <li>J<br><a href=""><i class="far fa-circle thu <%= "week-icon-active" if Date.today.wday== 4 %>"></i></a></li>
-        <li>V<br><a href=""><i class="far fa-circle fri <%= "week-icon-active" if Date.today.wday== 5 %>"></i></a></li>
-        <li>S<br><a href=""><i class="far fa-circle sat <%= "week-icon-active" if Date.today.wday== 6 %>"></i></a></li>
-        <li>D<br><a href=""><i class="far fa-circle sun <%= "week-icon-active" if Date.today.wday== 7 %>"></i></a></li>
-      </ul>
-    </div>
+  <div class="menudelasemaine">
+    <h1>Menu de la semaine</h1>
   </div>
 
+
+<div class="myownswiper">
+  <div class="myownswiper-slides">
+    <div class="divjourdelasemaine ml-3">
+      <p class="jourdelasemaine mon <%= "day-active" if Date.today.wday == 1 %>">Lundi</p>
+    </div>
+    <div class="divjourdelasemaine">
+      <p class="jourdelasemaine tue <%= "day-active" if Date.today.wday == 2 %>">Mardi</p>
+    </div>
+    <div class="divjourdelasemaine">
+      <p class="jourdelasemaine wed<%= "day-active" if Date.today.wday == 3 %>">Mercredi</p>
+    </div>
+    <div class="divjourdelasemaine">
+      <p class="jourdelasemaine thu <%= "day-active" if Date.today.wday == 4 %>">Jeudi</p>
+    </div>
+    <div class="divjourdelasemaine">
+      <p class="jourdelasemaine fri <%= "day-active" if Date.today.wday == 5 %>">Vendredi</p>
+    </div>
+    <div class="divjourdelasemaine">
+      <p class="jourdelasemaine sat<%= "day-active" if Date.today.wday == 6 %>">Samedi</p>
+    </div>
+    <div class="divjourdelasemaine">
+      <p class="jourdelasemaine sun <%= "day-active" if Date.today.wday == 7 %>">Dimanche</p>
+    </div>
+  </div>
 </div>
 
+
+
+
+
+
+
+<% ["mon", "tue", "wed", "thu", "fri", "sat", "sun"].each_with_index do |day, index| %>
+
+
+  <div class="myownswiper repas <%= day %> <%= "hidden" if index != Date.today.wday - 1 %>">
+    <div class="myownswiper-slides">
+      <% @week.meals.where('day LIKE ?', "%#{day.capitalize}%").each do |meal| %>
+
+        <div class="card-externe">
+          <div class="card-repas">
+            <% if meal.recipe.name.downcase == "puree de carottes" %>
+              <%= image_tag "https://img.mesrecettesfaciles.fr/wp-content/uploads/2016/11/pureecarotte-1000x500.jpg" %>
+            <% elsif meal.recipe.name.downcase == "omelette nature" %>
+              <%= image_tag "https://img-3.journaldesfemmes.fr/zCdWcXo8IjfSP8MK8uAgxqetCq4=/910x607/smart/09ca38eb418e4ba4b8d5732c442a775b/ccmcms-jdf/10861244.jpg" %>
+            <% elsif meal.recipe.name.downcase == "raclette" %>
+              <%= image_tag "https://www.demotivateur.fr/images-buzz/cover/18955809795e30552c9ff4d_raclette-bowl-800x420.jpg" %>
+            <% elsif meal.recipe.name.downcase == "pommes de terres sautees" %>
+              <%= image_tag "https://sf1.viepratique.fr/wp-content/uploads/sites/2/2015/04/Pommes-de-terre-saut%C3%A9es.jpg" %>
+            <% elsif meal.recipe.name.downcase == "roti de porc aux oignons" %>
+              <%= image_tag "https://res.cloudinary.com/swissmilk/image/fetch/w_1600,c_fill,g_auto,f_auto,q_auto:eco,ar_16:9/https://api.swissmilk.ch/wp-content/uploads/2019/06/schweinsbraten-an-zwiebelsauce.jpg" %>
+            <% elsif meal.recipe.name.downcase == "crepes faciles" %>
+              <%= image_tag "https://lepetitjournal.com/sites/default/files/styles/main_article/public/2020-02/Crepes_0.jpg?itok=5V2dScZn" %>
+            <% elsif meal.recipe.name.downcase == "veloute de potiron" %>
+              <%= image_tag "https://aufilduthym.fr/wp-content/uploads/2018/10/soupe-potimarron-fenouil-curry-au-fil-du-thym.jpg" %>
+            <% end %>
+          </div>
+          <div class="card-repas-description">
+            <div class="card-description-h1">
+              <h3><%= meal.recipe.name.capitalize %></h3>
+            </div>
+            <div class="card-description-p">
+              <p><%= meal.moment.capitalize %></p>
+            </div>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+
+<% end %>
+
+</div>
 

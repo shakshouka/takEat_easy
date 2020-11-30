@@ -1,90 +1,40 @@
-
-.white{
-  color: white;
-  display: block;
-  height: 100%;
-  width: 100%;
-}
 .weekbar {
-  margin-top: 15px;
+  margin-top: 0px;
+  position: fixed;
+  top: 27px;
+  right: 20px;
 }
 
 .black{
-  color: black;
-  border: 1px solid black;
-  padding: 2px 10px;
-}
-.position-bottom {
-  width: 337px;
-}
-.card-week {
-  width: 350px;
-  height: 450px;
-  border: 1px solid rgb(150,150,150);
-  border-radius: 10px;
-  margin: 0 auto;
-  margin-bottom: 30px;
-  background-color: rgb(150,150,150);
-  text-align:center;
-  position: relative;
-  #left {
-    position:absolute;
-    left: 0;
-    transform: translateY(50%);
-    bottom: 50%;
-    color: black;
-    text-decoration: none;
-    z-index: 1;
-  }
-  #right {
-    position:absolute;
-    right: 0;
-    transform: translateY(50%);
-    bottom: 50%;
-    color:black;
-    text-decoration: none;
-    z-index: 1;
-  }
+  color: #FA4A0C;
+  border: 2px solid #FA4A0C;
+  padding: 10px 15px;
+  border-radius: 15px;
 }
 
-.card-week-day {
-  border: 1px solid rgb(150,150,150);
-  border-radius: 10px;
-  width: 350px;
-  margin: 0 auto;
-  padding-top: 10px;
-  margin-top: 30px;
-  .card-week-day-description {
+.menudelasemaine {
+  > h1 {
+    font-size: 34px;
+    text-align: left;
+  }
+  width: 250px;
+  padding: 25px 25px 0 25px;
+}
+
+.divjourdelasemaine {
+  width: 65px;
+  > .jourdelasemaine {
     text-align: center;
   }
-  .card-week-day-calendar {
-    padding:0px 30px;
-    padding-bottom: 10px;
-    ul {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin: 0;
-      padding: 0;
-      li {
-        display: inline;
-        text-decoration: none;
-        text-align:center;
-        a {
-          justify-content: space-between;
-          color: black;
-          text-align:center;
-        }
-      }
-    }
-  }
 }
 
-.week-icon-active {
-  background-color: black;
-  background-size: 5px 5px;
-  border-radius: 50%;
+.day-active {
+  border-bottom: 2px solid #FA4A0C;
+  color: #FA4A0C;
+}
+
+.week-show {
+  background-color:#F2F2F2;
 }
 
 .hidden {
