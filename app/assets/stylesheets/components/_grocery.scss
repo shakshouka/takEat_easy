@@ -5,7 +5,7 @@
 }
 
 /* Style the list items */
-#myUL li {
+#myli {
   cursor: pointer;
   position: relative;
   padding: 12px 0;
@@ -25,9 +25,7 @@
 }
 
 /* When clicked on, add a background color and strike out text */
-#myUL li.checked {
-  background: #BDBDBD;
-  color: #F6F6F9;
+li.checked {
   text-decoration: line-through;
 }
 
@@ -46,16 +44,16 @@
   clear: both;
 }
 
-/* Style the input */
-input {
-  margin: 0;
-  border: none;
-  border-radius: 0;
-  width: 75%;
-  padding: 10px;
-  float: left;
-  font-size: 16px;
-}
+// /* Style the input */
+// input {
+//   margin: 0;
+//   border: none;
+//   border-radius: 0;
+//   width: 75%;
+//   padding: 10px;
+//   float: left;
+//   font-size: 16px;
+// }
 
 /* Style the "Add" button */
 .addBtn {
