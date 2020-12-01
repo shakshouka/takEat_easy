@@ -10,7 +10,6 @@
   position: relative;
   padding: 12px 0;
   list-style-type: none;
-  background: #eee;
   font-size: 18px;
   transition: 0.2s;
 
@@ -23,12 +22,7 @@
 
 #myUL a {
   text-decoration: none;
-  color: #BDBDBD;
-}
-
-/* Set all odd list items to a different color (zebra-stripes) */
-#myUL li:nth-child(odd) {
-  background: #F6F6F9;
+  color: black;
 }
 
 /* When clicked on, add a background color and strike out text */
@@ -93,7 +87,7 @@ input {
   .checklist-separator {
     width: 50px;
     height: 1px;
-    border-bottom: 2px solid #FA4A0E;
+    border-bottom: 2px solid #BDBDBD;
     width: 25%;
     margin: 0 auto;
   }
