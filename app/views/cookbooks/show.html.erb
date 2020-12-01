@@ -12,37 +12,36 @@
   <% end %>
 </div>
 <div class="recipe-index-container2">
-    <% @cookbookrecipes.each do |cookbookrecipe| %>
-      <div class="column">
-        <%= link_to recipe_path(cookbookrecipe.recipe), class: "cardit" do %>
-          <div class="card-rcp" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(
+  <% @cookbookrecipes.each do |cookbookrecipe| %>
+    <div class="column">
+      <%= link_to recipe_path(cookbookrecipe.recipe), class: "cardit" do %>
+        <div class="card-rcp" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(
 
-          <% if cookbookrecipe.recipe.name == 'Omlette nature' %>
-              <%=  'https://fac.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Ffac.2F2018.2F07.2F30.2Fd7199c6d-baf2-4570-a540-93551a0e2a04.jpeg' %>/omelette-piquante.jpeg" %>
-             <% #elsif recipe.photos.attached? %>
-              <% #recipe.photos.first.key, #height: 100, width: 400, crop: :fill %>
-            <% elsif cookbookrecipe.recipe.name == 'Crepes faciles' %>
-              <%= 'https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/39ee5603-5ac4-4420-9563-11ae0ec17b41/Derivates/21ffd62c-8c68-43ac-9593-16c4c09e644d.jpg' %>
-            <% elsif cookbookrecipe.recipe.name == 'Puree de carottes' %>
-              <%=  'https://img.cuisineaz.com/660x660/2013-12-20/i108264-puree-de-carottes-aux-epices-douces.jpeg' %>
-            <% elsif cookbookrecipe.recipe.name == 'Veloute de potiron' %>
-              <%= 'https://www.fourchette-et-bikini.fr/sites/default/files/styles/full_320x256/public/1_puree_potimarron_carotte_navet.jpg?itok=t4rFVMg8' %>
-            <% elsif cookbookrecipe.recipe.name == 'Roti de porc aux oignons' %>
-              <%= 'https://www.cuisinelolo.fr/wp-content/uploads/2018/03/R%C3%B4ti-de-porc-au-miel-oignons-3.jpg' %>
-            <% elsif cookbookrecipe.recipe.name == 'Pommes de terres sautees' %>
-              <%= 'https://odelices.ouest-france.fr/images/recettes/pommes-de-terre-sautees.jpg' %>
-            <% elsif cookbookrecipe.recipe.name == 'Raclette' %>
-              <%= 'https://www.hervecuisine.com/wp-content/uploads/2017/12/recette-raclette-1024x683.jpg.webp' %>
-            <% elsif cookbookrecipe.recipe.name == 'Omelette nature' %>
-              <%= 'https://img-3.journaldesfemmes.fr/zCdWcXo8IjfSP8MK8uAgxqetCq4=/910x607/smart/09ca38eb418e4ba4b8d5732c442a775b/ccmcms-jdf/10861244.jpg' %>
+        <% if cookbookrecipe.recipe.name == 'Omlette nature' %>
+            <%=  'https://fac.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Ffac.2F2018.2F07.2F30.2Fd7199c6d-baf2-4570-a540-93551a0e2a04.jpeg' %>/omelette-piquante.jpeg" %>
+           <% #elsif recipe.photos.attached? %>
+            <% #recipe.photos.first.key, #height: 100, width: 400, crop: :fill %>
+          <% elsif cookbookrecipe.recipe.name == 'Crepes faciles' %>
+            <%= 'https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/39ee5603-5ac4-4420-9563-11ae0ec17b41/Derivates/21ffd62c-8c68-43ac-9593-16c4c09e644d.jpg' %>
+          <% elsif cookbookrecipe.recipe.name == 'Puree de carottes' %>
+            <%=  'https://img.cuisineaz.com/660x660/2013-12-20/i108264-puree-de-carottes-aux-epices-douces.jpeg' %>
+          <% elsif cookbookrecipe.recipe.name == 'Veloute de potiron' %>
+            <%= 'https://www.fourchette-et-bikini.fr/sites/default/files/styles/full_320x256/public/1_puree_potimarron_carotte_navet.jpg?itok=t4rFVMg8' %>
+          <% elsif cookbookrecipe.recipe.name == 'Roti de porc aux oignons' %>
+            <%= 'https://www.cuisinelolo.fr/wp-content/uploads/2018/03/R%C3%B4ti-de-porc-au-miel-oignons-3.jpg' %>
+          <% elsif cookbookrecipe.recipe.name == 'Pommes de terres sautees' %>
+            <%= 'https://odelices.ouest-france.fr/images/recettes/pommes-de-terre-sautees.jpg' %>
+          <% elsif cookbookrecipe.recipe.name == 'Raclette' %>
+            <%= 'https://www.hervecuisine.com/wp-content/uploads/2017/12/recette-raclette-1024x683.jpg.webp' %>
+          <% elsif cookbookrecipe.recipe.name == 'Omelette nature' %>
+            <%= 'https://img-3.journaldesfemmes.fr/zCdWcXo8IjfSP8MK8uAgxqetCq4=/910x607/smart/09ca38eb418e4ba4b8d5732c442a775b/ccmcms-jdf/10861244.jpg' %>
 
-            <% end %>
-          )">
+          <% end %>
+        )">
 
-            <h5><%= cookbookrecipe.recipe.name  %></h5>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+          <h5><%= cookbookrecipe.recipe.name  %></h5>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
