@@ -48,15 +48,15 @@ class MealsController < ApplicationController
 
   def index
     @week = Week.find(params[:week_id])
-    @meals = policy_scope(Meal.where(week_id: @week.id)).order(created_at: :asc)
+    @meals = policy_scope(Meal.where(week_id: @week.id)).order(created_at: :desc)
     authorize @meals
   end
-
-  private
 
   def random_recipe
     return Recipe.find(rand(2..Recipe.count))
   end
+
+  private
 
   def set_params
     params.require(:meal).permit(:moment, :day, :num_of_members, :week_id, :recipe_id)
