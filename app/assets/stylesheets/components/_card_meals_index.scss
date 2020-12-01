@@ -40,6 +40,7 @@
   color: #FA4A0C;
   font-size: 17px;
   text-align: center;
+  position: relative
 }
 
 .myownswiper-slides-ml {
@@ -53,5 +54,46 @@
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
   overscroll-behavior-x: contain;
-  background-color: red;
+  // background-color: gray;
+}
+
+.empty > img {
+  filter: grayscale(100%);
+}
+
+.add{
+  position: absolute;
+  top: 45px;
+  right: 38px;
+  // background-color: red;
+  padding: 33px;
+  border-radius: 50%;
+  font-size: 32px;
+  text-align: center;
+  color: $color-main;
+}
+
+.del{
+  position: absolute;
+  top: -42px;
+  right: 25px;
+  // background-color: red;
+  padding: 1px 8px;
+  border-radius: 50%;
+  font-size: 27px;
+  text-align: center;
+  color: $color-main;
+  background-color: $color-second-transparency;
+}
+
+.chg{
+  position: absolute;
+  top: 223px;
+  right: 0px;
+  // background-color: red;
+  padding: 0px 6px;
+  border-radius: 50%;
+  font-size: 32px;
+  text-align: center;
+  color: $color-main;
 }
