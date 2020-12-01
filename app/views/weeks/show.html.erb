@@ -45,7 +45,7 @@
   <div class="myownswiper repas <%= day %> <%= "hidden" if index != Date.today.wday - 1 %>">
     <div class="myownswiper-slides">
       <% @week.meals.where('day LIKE ?', "%#{day.capitalize}%").each do |meal| %>
-
+      <%= link_to recipe_path(meal.recipe) do  %>
         <div class="card-externe">
           <div class="card-repas">
             <% if meal.recipe.name.downcase == "puree de carottes" %>
@@ -73,7 +73,7 @@
             </div>
           </div>
         </div>
-
+      <% end %>
       <% end %>
     </div>
   </div>
