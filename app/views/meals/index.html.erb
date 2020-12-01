@@ -1,8 +1,13 @@
-<div class="week-show">
-
-  <div class="propositonmenus">
-    <h1>Proposition de menus</h1>
+<div class="weekbar">
+  <div>
+    <%= link_to createlisting_week_path(@week.id) do %>
+      <h3 class="black"><span class="pr-3">+</span>Valider les menus</h3>
+    <% end %>
   </div>
+</div>
+<div class="recipe-index-container">
+  <h1 class="text-left">Proposition de menus</h1>
+</div>
 
   <div class="myownswiper">
     <div class="myownswiper-slides">
