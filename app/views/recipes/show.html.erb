@@ -38,17 +38,17 @@
 
       <% @recipe.photos.each do |photo| %>
         <div class="swiper-slide">
-          <%= cl_image_tag photo.key , crop: :fill %>
+          <%= cl_image_tag photo.key, crop: :fill, class: "swiper-show-image" %>
         </div>
       <% end %>
 
       <% @recipe.photos.each do |photo| %>
         <div class="swiper-slide">
-          <%= cl_image_tag photo.key , crop: :fill %>
+          <%= cl_image_tag photo.key, crop: :fill, class: "swiper-show-image" %>
         </div>
       <% end %>
-
   </div>
+
 
   <!-- If we need pagination -->
   <div class="div-pagination-time">
