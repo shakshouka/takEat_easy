@@ -15,21 +15,18 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-
   </head>
 
   <body>
     <div class="container-wrapper">
-      <% if user_signed_in? %>
+      <% if !(params[:controller] == "recipes" && params[:action] == "show") %>
         <%= render 'shared/navbar' %>
         <%= render 'shared/flashes' %>
       <% end %>
       <div class="container-main">
         <%= yield %>
       </div>
-      <% if user_signed_in? %>
-        <%= render 'shared/footer' %>
-      <% end %>
+      <%= render 'shared/footer' %>
     </div>
   </body>
 </html>

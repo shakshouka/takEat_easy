@@ -23,10 +23,19 @@
       <% end %>
     </li>
 
-    <li class="<%= "footer-active" if (params[:controller] == 'grocery_items') %>">
-      <%= link_to '/weeks/2/grocery_list/1' do  %>
-        <%= render :partial => 'svg/shopping' %>
-        <br>COURSES
+    <li class="<%= "footer-active" if (params[:controller] == 'meals') || (params[:controller] == 'grocery_list') %>">
+      <% @week_id = Week.last.id %>
+      <% @week = Week.last %>
+      <% if GroceryList.find_by(week_id: @week.id) %>
+        <%= link_to "/weeks/#{@week_id}/grocery_list/1" do  %>
+          <%= render :partial => 'svg/shopping' %>
+          <br>COURSES
+        <% end %>
+      <% else %>
+        <%= link_to root_path do  %>
+          <%= render :partial => 'svg/shopping' %>
+          <br>COURSES
+        <% end %>
       <% end %>
     </li>
   </ul>

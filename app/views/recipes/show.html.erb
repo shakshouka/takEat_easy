@@ -1,9 +1,12 @@
 <div class="d-flex justify-content-left recipebar back-heart ">
 
-    <%= link_to recipes_path do %>
+    <%= link_to :back do %>
       <i class="fas fa-chevron-left icon"></i>
     <% end %>
-    <a href=""><i class="far fa-heart icon"></i></a>
+
+    <div class="div-like">
+      <%= render "like" %>
+    </div>
 
 </div>
 
@@ -34,18 +37,12 @@
       <% elsif @recipe.name.downcase == "omelette nature" %>
         <div class="swiper-slide"><%= image_tag "https://img-3.journaldesfemmes.fr/zCdWcXo8IjfSP8MK8uAgxqetCq4=/910x607/smart/09ca38eb418e4ba4b8d5732c442a775b/ccmcms-jdf/10861244.jpg", class: "swiper-show-image" %></div>
         <div class="swiper-slide"><%= image_tag "https://cac.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcac.2F2018.2F09.2F25.2F61f5f2f4-cfd2-4107-8d0c-8a012ebf3f6e.2Ejpeg/750x562/quality/80/crop-from/center/cr/wqkgU3RvY2tmb29kL1N1Y3LDqSBzYWzDqSAvIEN1aXNpbmUgQWN0dWVsbGU%3D/omelette-nature.jpeg", class: "swiper-show-image" %></div>
-      <% end %>
-
-      <% @recipe.photos.each do |photo| %>
-        <div class="swiper-slide">
-          <%= cl_image_tag photo.key , crop: :fill %>
-        </div>
-      <% end %>
-
-      <% @recipe.photos.each do |photo| %>
-        <div class="swiper-slide">
-          <%= cl_image_tag photo.key , crop: :fill %>
-        </div>
+      <% elsif @recipe.photos.attached? %>
+        <% @recipe.photos.each do |photo| %>
+          <div class="swiper-slide">
+            <%= cl_image_tag photo.key , crop: :fill, class: "swiper-show-image" %>
+          </div>
+        <% end %>
       <% end %>
 
   </div>
