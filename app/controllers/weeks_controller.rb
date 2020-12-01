@@ -79,8 +79,8 @@ class WeeksController < ApplicationController
 
   def empty_meals
     (0..6).to_a.each do |day|
-      Meal.new(moment: "déjeuner", day: @week.start_day + day, week_id: @week.id, recipe_id: 1).save
-      Meal.new(moment: "diner", day: @week.start_day + day, week_id: @week.id, recipe_id: 1).save
+      Meal.new(moment: "déjeuner", day: (@week.start_day + day).strftime('%a %d %b %Y'), week_id: @week.id, recipe_id: 1).save
+      Meal.new(moment: "diner", day: (@week.start_day + day).strftime('%a %d %b %Y'), week_id: @week.id, recipe_id: 1).save
     end
   end
 

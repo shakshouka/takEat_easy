@@ -48,7 +48,7 @@ class MealsController < ApplicationController
 
   def index
     @week = Week.find(params[:week_id])
-    @meals = policy_scope(Meal.where(week_id: @week.id)).order(created_at: :desc)
+    @meals = policy_scope(Meal.where(week_id: @week.id)).order(created_at: :asc)
     authorize @meals
   end
 
