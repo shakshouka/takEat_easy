@@ -14,13 +14,11 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @meals = Meal.find(params[:id])
     @restrictions = []
-    @doses.each do |dose|
-      if dose.ingredient_id.list_of_restrictions
-      @restrictions << dose.ingredient_id.list_of_restrictions
-      end
+    # @doses.each do |dose|
+      # if dose.ingredient_id.list_of_restrictions
+      # @restrictions << dose.ingredient_id.list_of_restrictions
+      # end
     end
-    raise
-    @restrictions
     authorize @recipe
   end
 
