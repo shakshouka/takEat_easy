@@ -12,7 +12,6 @@
   <% end %>
 </div>
 <div class="recipe-index-container2">
-  <div class="row">
     <% @cookbookrecipes.each do |cookbookrecipe| %>
       <div class="column">
         <%= link_to recipe_path(cookbookrecipe.recipe), class: "cardit" do %>
