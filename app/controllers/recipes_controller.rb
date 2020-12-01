@@ -18,7 +18,7 @@ class RecipesController < ApplicationController
       # if dose.ingredient_id.list_of_restrictions
       # @restrictions << dose.ingredient_id.list_of_restrictions
       # end
-    end
+    # end
     authorize @recipe
   end
 
