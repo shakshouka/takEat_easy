@@ -1,13 +1,22 @@
-<div class="container ">
-  <h1>Recipes</h1>
+<div class="weekbar">
+  <div>
+    <%= link_to new_recipe_path do %>
+      <h3 class="black"><span class="pr-3">+</span>Ajouter une recette</h3>
+    <% end %>
+  </div>
+</div>
+<div class="recipe-index-container">
+  <h1 class="text-left py-4">Recettes</h1>
   <%= form_tag recipes_path, method: :get do %>
     <%= text_field_tag :query,
       params[:query],
-      class: "form-control",
-      placeholder: "Find a recipe"
+      class: "form-control rounded",
+      placeholder: "Retrouver la recette de votre gEORGES"
     %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+<!--     <%= submit_tag "Rechercher", class: "btn btn-block btn-primary" %> -->
   <% end %>
+</div>
+<div class="recipe-index-container2">
   <div class="row">
     <% @recipes.each do |recipe| %>
       <div class="column">
@@ -32,7 +41,6 @@
               <%= 'https://www.hervecuisine.com/wp-content/uploads/2017/12/recette-raclette-1024x683.jpg.webp' %>
             <% elsif recipe.name == 'Omelette nature' %>
               <%= 'https://img-3.journaldesfemmes.fr/zCdWcXo8IjfSP8MK8uAgxqetCq4=/910x607/smart/09ca38eb418e4ba4b8d5732c442a775b/ccmcms-jdf/10861244.jpg' %>
-
             <% end %>
           )">
 
