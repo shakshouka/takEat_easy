@@ -1,4 +1,4 @@
 class Ingredient < ApplicationRecord
   has_many :doses
-  has_many :groceryitems
+  has_many :grocery_items
 end

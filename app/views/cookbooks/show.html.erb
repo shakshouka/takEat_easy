@@ -1,16 +1,17 @@
-<div class="container ">
-  <h1><%= @cookbook.name %> </h1>
-  <p class="text-center"> <%= @cookbook.description  %> </p>
+<div class="recipe-index-container">
+  <h1 class="text-left"><%= @cookbook.name %> </h1>
+  <p class="text-left">Les innoubliables</p>
 
   <%= form_tag cookbook_path(@cookbook), method: :get do %>
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
-      placeholder: "Find a recipe"
+      placeholder: "Retrouver un georges perdu"
     %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+<!--     <%= submit_tag "Chercher", class: "btn btn-primary" %> -->
   <% end %>
-
+</div>
+<div class="recipe-index-container2">
   <div class="row">
     <% @cookbookrecipes.each do |cookbookrecipe| %>
       <div class="column">
@@ -46,4 +47,3 @@
     <% end %>
   </div>
 </div>
-

@@ -55,7 +55,7 @@ class WeeksController < ApplicationController
     @grocery_list.save
     authorize @grocery_list
     fill_in_cart
-    redirect_to '/weeks/2/grocery_list/1'
+    redirect_to week_grocery_list_path(@grocery_list.week, @grocery_list.id)
   end
 
   private
@@ -67,7 +67,7 @@ class WeeksController < ApplicationController
       @doses << Dose.where(recipe_id: meal.recipe_id)
     end
     @doses.flatten.each do |dose|
-      if GroceryItem.find_by(ingredient_id: dose.ingredient_id)
+      if GroceryItem.find_by(ingredient_id: dose.ingredient_id, grocery_list_id: @grocery_list.id)
         @updating_grocery = GroceryItem.find_by(ingredient_id: dose.ingredient_id)
         @updating_grocery.total_quantity += dose.quantity
         @updating_grocery.save
