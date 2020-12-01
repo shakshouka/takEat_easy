@@ -2,13 +2,14 @@
 #myUL {
   margin: 0;
   padding: 0;/* Include the padding and border in an element's total width and height */
+  list-style-type: none;
 }
 
 /* Style the list items */
 #myli {
   cursor: pointer;
   position: relative;
-  padding: 12px 0;
+  padding: 12px;
   list-style-type: none;
   font-size: 18px;
   transition: 0.2s;
@@ -76,7 +77,11 @@ li.checked {
   width: 100%;
 
   .checklist {
-    text-align: center;
+    display: flex;
+    padding-left: 65px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: justify;
     width: 100%;
     margin: 0 auto;
   }
@@ -86,7 +91,7 @@ li.checked {
     height: 1px;
     border-bottom: 2px solid #BDBDBD;
     width: 25%;
-    margin: 0 auto;
+    margin: 0 65px;
   }
 }
 

@@ -1,13 +1,13 @@
 <div class="grocery-list">
-  <h1 style="text-decoration: underline!important;">Ma liste de courses:</h1>
+  <h1>Ma liste de courses</h1>
   <div class="align-p">
-    <p>Cliquez sur l'ingrédient acheté</p> <hr>
+    <p>Cliquez sur les ingrédients achetés</p> <hr>
   </div>
   <ul id="myUL">
     <% @grocery_list.grocery_items.each do |item| %>
       <%= link_to grocery_item_path(item), method: :put do %>
         <div class="checklist-alignment">
-          <div class="checklist"><li id="myLI" class="<%= 'checked' if item.bought == true %>"> <%= item.ingredient.name %> </li></div>
+          <div class="checklist"><li id="myLI" class="<%= 'checked' if item.bought == true %>"><%= item.total_quantity %><%= item.unit %> - <%= item.ingredient.name %></li></div>
           <div class="checklist-separator"></div>
         </div>
       <% end %>
