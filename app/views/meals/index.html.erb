@@ -35,27 +35,26 @@
     <div class="myownswiper repas <%= day %> <%= "hidden" if index != Date.today.wday - 1 %>">
       <div class="myownswiper-slides-ml">
         <% @meals.where('day LIKE ?', "%#{day.capitalize}%").each do |meal| %>
-          <div class="card-externe-ml">
-            <div class="card-repas-ml">
-              <% if meal.recipe.name == "EMPTY" %>
-                <div class="card-externe-ml">
-                  <div class="card-repas-ml empty">
-                    <img src="https://img.pixers.pics/pho_wat(s3:700/FO/93/16/42/95/700_FO93164295_1737960c10cf442f2f8ca63be4ab279e.jpg,700,643,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,593,jpg)/posters-assiette-vide.jpg.jpg" alt="">
-                  </div>
-                  <div class="card-repas-description-ml">
-                    <div class="card-description-h1-ml">
-                      <h3>Repas non prévu</h3>
-                    </div>
-                    <div class="card-description-p-ml">
-                      <p><%=meal.moment%></p>
-                    </div>
-                      <%= link_to week_meal_path(meal.week_id,meal), :method=> :put do %>
-                        <i class="fas fa-plus add"></i>
-                      <% end %>
-                    </div>
-                  </div>
+          <% if meal.recipe.name == "EMPTY" %>
+            <div class="card-externe-ml">
+              <div class="card-repas-ml empty">
+                <%#= image_tag "https://img.pixers.pics/pho_wat(s3:700/FO/93/16/42/95/700_FO93164295_1737960c10cf442f2f8ca63be4ab279e.jpg,700,643,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,593,jpg)/posters-assiette-vide.jpg.jpg" %>
+              </div>
+              <div class="card-repas-description-ml">
+                <div class="card-description-h1-ml">
+                  <h3>Repas non prévu</h3>
                 </div>
-              <% else %>
+                <div class="card-description-p-ml">
+                  <p><%=meal.moment%></p>
+                </div>
+                <%= link_to week_meal_path(meal.week_id,meal), :method=> :put do %>
+                  <i class="fas fa-plus add"></i>
+                <% end %>
+              </div>
+            </div>
+          <% else %>
+            <div class="card-externe-ml">
+              <div class="card-repas-ml">
                 <% if meal.recipe.name.downcase == "puree de carottes" %>
                   <%= image_tag "https://img.mesrecettesfaciles.fr/wp-content/uploads/2016/11/pureecarotte-1000x500.jpg" %>
                 <% elsif meal.recipe.name.downcase == "omelette nature" %>
@@ -71,17 +70,17 @@
                 <% elsif meal.recipe.name.downcase == "veloute de potiron" %>
                   <%= image_tag "https://aufilduthym.fr/wp-content/uploads/2018/10/soupe-potimarron-fenouil-curry-au-fil-du-thym.jpg" %>
                 <% end %>
-              <% end %>
-            </div>
-            <div class="card-repas-description-ml">
-              <div class="card-description-h1-ml">
-                <h3><%= meal.recipe.name.capitalize %></h3>
               </div>
-              <div class="card-description-p-ml">
-                <p><%= meal.moment.capitalize %></p>
+              <div class="card-repas-description-ml">
+                <div class="card-description-h1-ml">
+                  <h3><%= meal.recipe.name.capitalize %></h3>
+                </div>
+                <div class="card-description-p-ml">
+                  <p><%= meal.moment.capitalize %></p>
+                </div>
               </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       </div>
     </div>
