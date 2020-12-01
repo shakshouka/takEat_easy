@@ -17,9 +17,13 @@
   <% end %>
 </div>
 <div class="recipe-index-container2">
-    <% @recipes.each do |recipe| %>
+  <% @recipes.each do |recipe| %>
+    <% if recipe.name != "EMPTY" %>
+
       <div class="column">
         <%= link_to recipe_path(recipe), class: "cardit" do %>
+
+
           <div class="card-rcp" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(
 
             <% if recipe.photos.attached? %>
@@ -45,7 +49,12 @@
 
             <h5><%= recipe.name  %></h5>
           </div>
+
         <% end %>
       </div>
+
+
+
     <% end %>
+  <% end %>
 </div>

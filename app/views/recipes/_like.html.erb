@@ -1,0 +1,9 @@
+<% if CookbookRecipe.find_by(recipe_id: @recipe.id)  %>
+  <%= link_to cookbook_recipe_path(@recipe.id), method: :delete, remote: true do %>
+    <i class="fas fa-heart icon like-btn orange"></i>
+  <% end %>
+<% else %>
+  <%= link_to recipe_cookbook_recipes_path(@recipe.id), method: :post, remote: true do %>
+    <i class="far fa-heart like-btn icon"></i>
+  <% end %>
+<% end %>
