@@ -32,6 +32,7 @@ import { loader } from "../plugins/loader";
 import { changeday } from "../vanilla/changeday";
 import { menu } from "../plugins/menu";
 import { swiper } from "../plugins/swiper";
+import { grorg } from "../plugins/grocery-org";
 import { initFlatpickr} from '../plugins/flatpickr';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -43,5 +44,6 @@ document.addEventListener('turbolinks:load', () => {
   swiper();
   menu();
   changeday();
+  grorg();
   initFlatpickr();
 });
