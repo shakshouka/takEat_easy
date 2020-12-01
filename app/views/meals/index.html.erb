@@ -1,14 +1,100 @@
-<%= link_to "Valider semaine", createlisting_week_path(@week.id) %>
-<ul>
-  <% @meals.each do |meal|%>
-    <li>
-      <% if Recipe.find(meal.recipe_id).name == "EMPTY" %>
-        <p> Pas de recette pour ce jour </p>
-      <% else %>
-        <%= Recipe.find(meal.recipe_id).name %>
-      <% end %>
-      <%= link_to "Changer", week_meal_path(meal.week_id,meal), :method=> :put %>
-      <%= link_to "Supprimer", week_empty_path(meal.week_id,meal), :method=> :put %>
-    </li>
+<div class="weekbar">
+  <div>
+    <%= link_to createlisting_week_path(@week.id) do %>
+      <h3 class="black"><span class="pr-3">+</span>Valider les menus</h3>
+    <% end %>
+  </div>
+</div>
+<div class="recipe-index-container">
+  <h1 class="text-left">Proposition de menus</h1>
+</div>
+
+  <div class="myownswiper">
+    <div class="myownswiper-slides">
+      <div class="divjourdelasemaine ml-3">
+        <p class="jourdelasemaine mon <%= "day-active" if Date.today.wday == 1 %>">Lundi</p>
+      </div>
+      <div class="divjourdelasemaine">
+        <p class="jourdelasemaine tue <%= "day-active" if Date.today.wday == 2 %>">Mardi</p>
+      </div>
+      <div class="divjourdelasemaine">
+        <p class="jourdelasemaine wed<%= "day-active" if Date.today.wday == 3 %>">Mercredi</p>
+      </div>
+      <div class="divjourdelasemaine">
+        <p class="jourdelasemaine thu <%= "day-active" if Date.today.wday == 4 %>">Jeudi</p>
+      </div>
+      <div class="divjourdelasemaine">
+        <p class="jourdelasemaine fri <%= "day-active" if Date.today.wday == 5 %>">Vendredi</p>
+      </div>
+      <div class="divjourdelasemaine">
+        <p class="jourdelasemaine sat<%= "day-active" if Date.today.wday == 6 %>">Samedi</p>
+      </div>
+      <div class="divjourdelasemaine">
+        <p class="jourdelasemaine sun <%= "day-active" if Date.today.wday == 7 %>">Dimanche</p>
+      </div>
+    </div>
+  </div>
+
+  <% ["mon", "tue", "wed", "thu", "fri", "sat", "sun"].each_with_index do |day, index| %>
+
+    <div class="myownswiper repas <%= day %> <%= "hidden" if index != Date.today.wday - 1 %>">
+      <div class="myownswiper-slides-ml">
+        <% @meals.where('day LIKE ?', "%#{day.capitalize}%").each do |meal| %>
+          <% if meal.recipe.name == "EMPTY" %>
+            <div class="card-externe-ml">
+              <div class="card-repas-ml empty">
+                <%= image_tag "https://img.pixers.pics/pho_wat(s3:700/FO/93/16/42/95/700_FO93164295_1737960c10cf442f2f8ca63be4ab279e.jpg,700,643,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,593,jpg)/posters-assiette-vide.jpg.jpg" %>
+                <%= link_to week_meal_path(meal.week_id,meal), :method=> :put do %>
+                  <i class="fas fa-plus add"></i>
+                <% end %>
+              </div>
+              <div class="card-repas-description-ml">
+                <div class="card-description-h1-ml">
+                  <h3>Repas non prévu</h3>
+                </div>
+                <div class="card-description-p-ml">
+                  <p><%=meal.moment%></p>
+                </div>
+              </div>
+            </div>
+          <% else %>
+            <div class="card-externe-ml">
+              <div class="card-repas-ml">
+                <% if meal.recipe.name.downcase == "puree de carottes" %>
+                  <%= image_tag "https://img.mesrecettesfaciles.fr/wp-content/uploads/2016/11/pureecarotte-1000x500.jpg" %>
+                <% elsif meal.recipe.name.downcase == "omelette nature" %>
+                  <%= image_tag "https://img-3.journaldesfemmes.fr/zCdWcXo8IjfSP8MK8uAgxqetCq4=/910x607/smart/09ca38eb418e4ba4b8d5732c442a775b/ccmcms-jdf/10861244.jpg" %>
+                <% elsif meal.recipe.name.downcase == "raclette" %>
+                  <%= image_tag "https://www.demotivateur.fr/images-buzz/cover/18955809795e30552c9ff4d_raclette-bowl-800x420.jpg" %>
+                <% elsif meal.recipe.name.downcase == "pommes de terres sautees" %>
+                  <%= image_tag "https://sf1.viepratique.fr/wp-content/uploads/sites/2/2015/04/Pommes-de-terre-saut%C3%A9es.jpg" %>
+                <% elsif meal.recipe.name.downcase == "roti de porc aux oignons" %>
+                  <%= image_tag "https://res.cloudinary.com/swissmilk/image/fetch/w_1600,c_fill,g_auto,f_auto,q_auto:eco,ar_16:9/https://api.swissmilk.ch/wp-content/uploads/2019/06/schweinsbraten-an-zwiebelsauce.jpg" %>
+                <% elsif meal.recipe.name.downcase == "crepes faciles" %>
+                  <%= image_tag "https://lepetitjournal.com/sites/default/files/styles/main_article/public/2020-02/Crepes_0.jpg?itok=5V2dScZn" %>
+                <% elsif meal.recipe.name.downcase == "veloute de potiron" %>
+                  <%= image_tag "https://aufilduthym.fr/wp-content/uploads/2018/10/soupe-potimarron-fenouil-curry-au-fil-du-thym.jpg" %>
+                <% end %>
+              </div>
+              <div class="card-repas-description-ml">
+                <div class="card-description-h1-ml">
+                  <h3><%= meal.recipe.name.capitalize %></h3>
+                </div>
+                <div class="card-description-p-ml">
+                  <p><%= meal.moment.capitalize %></p>
+                </div>
+              </div>
+              <%= link_to week_meal_path(meal.week_id,meal), :method=> :put, class: "chg" do %>
+                <i class="fas fa-sync"></i>
+              <% end %>
+              <%= link_to week_empty_path(meal.week_id,meal), :method=> :put, class: "del"  do %>
+                <i class="fas fa-minus"></i>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
+

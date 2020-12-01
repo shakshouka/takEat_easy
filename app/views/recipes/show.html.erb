@@ -76,6 +76,7 @@
 
   <ul class="recipe-show-list">
 
+
     <h4> <strong>Ingredients: </strong></h4>
     <% @doses.each do |dose| %>
       <li><%= dose.quantity %>
@@ -95,7 +96,6 @@
 
   <h4><strong>Instructions: </strong></h4>
     <p> <%= @recipe.instructions %></p>
-
 
 </div>
 <!--   <nav class="circular-menu"> -->
