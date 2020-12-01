@@ -17,7 +17,6 @@
   <% end %>
 </div>
 <div class="recipe-index-container2">
-  <div class="row">
     <% @recipes.each do |recipe| %>
       <div class="column">
         <%= link_to recipe_path(recipe), class: "cardit" do %>
@@ -49,5 +48,4 @@
         <% end %>
       </div>
     <% end %>
-  </div>
 </div>
