@@ -2,12 +2,12 @@
   <% if user_signed_in? %>
           <%= image_tag "https://p7.hiclipart.com/preview/402/481/317/hamburger-button-drop-down-list-computer-icons-navigation-bars-and-page-menu-templates.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-            <%= link_to "Check my profile", "/user", class: "dropdown-item" %>
-            <%= link_to "Edit my profile", "/users/edit", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <%= link_to "Voir mon profil", "/user", class: "dropdown-item" %>
+            <%= link_to "Modifier mon profil", "/users/edit", class: "dropdown-item" %>
+            <%= link_to "Se deconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
       <% else %>
-        <%= link_to "Login", new_user_session_path, class: "btn" %>
+        <%= link_to "Connexion", new_user_session_path, class: "btn" %>
       <% end %>
 </div>
