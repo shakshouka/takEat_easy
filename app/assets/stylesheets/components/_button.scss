@@ -76,4 +76,18 @@
   border-radius: 15px;
   display: block;
   margin : 40px auto;
+  &:active {
+    color: #FA4A0C;
+  }
 }
+
+.btn-calendar-off {
+  color: #6c757d;
+  border: 2px solid #6c757d;
+  padding: 10px 15px;
+  border-radius: 15px;
+  display: block;
+  margin : 40px auto;
+  opacity: 0.4;
+}
+
