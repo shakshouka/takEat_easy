@@ -94,6 +94,12 @@
   color: $color-main;
   // background-color: $color-second-transparency;
   // background-color: red;
+  &:focus {
+    color: $color-main;
+  };
+  &:active {
+    color: $color-main;
+  }
 }
 
 .chg{
@@ -106,8 +112,10 @@
   font-size: 27px;
   text-align: center;
   color: $color-main;
-}
-
-.empty-meal{
-  
+  &:focus {
+    color: $color-main;
+  };
+  &:active {
+    color: $color-main;
+  }
 }
