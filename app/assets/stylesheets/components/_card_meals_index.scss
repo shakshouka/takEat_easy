@@ -85,15 +85,18 @@
 
 .del{
   position: absolute;
-  bottom: 1px;
-  left: 3px;
+  bottom: 5px;
+  left: 5px;
   padding: 1px 8px;
   border-radius: 50%;
-  font-size: 27px;
+  font-size: 23px;
   text-align: center;
   color: $color-main;
   // background-color: $color-second-transparency;
   // background-color: red;
+  &:focus {
+    color: $color-main;
+  }
 }
 
 .chg{
@@ -106,8 +109,7 @@
   font-size: 27px;
   text-align: center;
   color: $color-main;
-}
-
-.empty-meal{
-  
+  &:focus {
+    color: $color-main;
+  }
 }
