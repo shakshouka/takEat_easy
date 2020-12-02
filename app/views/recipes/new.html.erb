@@ -8,9 +8,10 @@
   <%= f.input :cooking_time, label: 'Combien de temps faut il? (en minutes)',placeholder: "Utilisez les fleches directionnelles", input_html: { min: '5', step: '5' }, error: "Ne peut pas être vide" %>
   <%= f.input :instructions, as: :text, :input_html => { 'rows' => 5, 'cols' => 10 }, label: 'Racontez nous les etapes!', error: 'Au moins 30 caracteres seulement alphanumeriques', placeholder: "Au moins 30 caracteres." %>
 
-  <%= f.input :photos, as: :file, input_html: { multiple: true, class: "hidden" }, label_html: { class: 'upload-photo'}, label: '📷 Télécharger une photo', error: "Ne peut pas être vide" %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true, class: 'hidden', id: 'photo-input'}, label_html: { class: 'upload-photo'}, label: '📷 Télécharger une photo', error: "Ne peut pas être vide" %>
+  <%= image_tag "", width: 50, height:50, class: "hidden", id: "photo-preview" %>
 
-  <%= f.button :submit,'Créer une recette', class: "btn-main", style:"width: 100%; margin-bottom:30px"%>
+  <%= f.button :submit,'Créer une recette', class: "btn-main", style:"width: 100%; margin-bottom:30px; margin-top:10px; "%>
   <% end %>
 </div>
 

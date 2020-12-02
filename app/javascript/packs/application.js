@@ -33,8 +33,10 @@ import { changeday } from "../vanilla/changeday";
 import { menu } from "../plugins/menu";
 import { swiper } from "../plugins/swiper";
 import { grorg } from "../plugins/grocery-org";
+
 import { initFlatpickr } from '../plugins/flatpickr';
 import { calendarbtn } from '../vanilla/calendarbtn';
+import { previewImageOnFileSelect } from "../vanilla/photo_preview";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -48,4 +50,7 @@ document.addEventListener('turbolinks:load', () => {
   grorg();
   initFlatpickr();
   calendarbtn();
+  previewImageOnFileSelect();
 });
+
+

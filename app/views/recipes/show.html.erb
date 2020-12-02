@@ -10,7 +10,6 @@
 
 </div>
 
-
 <div class="swiper-container swiper-show">
   <!-- Additional required wrapper -->
 
@@ -45,7 +44,6 @@
       <% end %>
   </div>
 
-
   <!-- If we need pagination -->
   <div class="div-pagination-time">
     <div class="div-pagination">
@@ -72,16 +70,11 @@
 
   <ul class="recipe-show-list">
 
-
     <h4> <strong>Ingredients: </strong></h4>
     <% @doses.each do |dose| %>
       <li><%= dose.quantity %>
-        <% if dose.unit == "pc" %>
-          <%= dose.ingredient.name %>
-         <% else  %>
-          <%= dose.unit %> de <%= dose.ingredient.name %>
-        <% end %>
-       </li>
+        <%= dose.unit %> - <%= dose.ingredient.name %>
+      </li>
     <% end %>
   </ul>
   <br>

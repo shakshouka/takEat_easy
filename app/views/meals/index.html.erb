@@ -18,7 +18,7 @@
         <p class="jourdelasemaine tue <%= "day-active" if Date.today.wday == 2 %>">Mardi</p>
       </div>
       <div class="divjourdelasemaine">
-        <p class="jourdelasemaine wed<%= "day-active" if Date.today.wday == 3 %>">Mercredi</p>
+        <p class="jourdelasemaine wed <%= "day-active" if Date.today.wday == 3 %>">Mercredi</p>
       </div>
       <div class="divjourdelasemaine">
         <p class="jourdelasemaine thu <%= "day-active" if Date.today.wday == 4 %>">Jeudi</p>
@@ -43,7 +43,9 @@
           <% if meal.recipe.name == "EMPTY" %>
             <div class="card-externe-ml">
               <div class="card-repas-ml empty">
-                <%= image_tag "https://img.pixers.pics/pho_wat(s3:700/FO/93/16/42/95/700_FO93164295_1737960c10cf442f2f8ca63be4ab279e.jpg,700,643,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,593,jpg)/posters-assiette-vide.jpg.jpg" %>
+                <div class="empty-meal">
+                </div>
+                <%#= image_tag "https://img.pixers.pics/pho_wat(s3:700/FO/93/16/42/95/700_FO93164295_1737960c10cf442f2f8ca63be4ab279e.jpg,700,643,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,593,jpg)/posters-assiette-vide.jpg.jpg" %>
                 <%= link_to week_meal_path(meal.week_id,meal), :method=> :put do %>
                   <i class="fas fa-plus add"></i>
                 <% end %>
@@ -90,7 +92,7 @@
                 <i class="fas fa-sync"></i>
               <% end %>
               <%= link_to week_empty_path(meal.week_id,meal), :method=> :put, class: "del"  do %>
-                <i class="fas fa-minus"></i>
+                <i class="fas fa-trash"></i>
               <% end %>
             </div>
           <% end %>
@@ -99,4 +101,3 @@
     </div>
   <% end %>
 </div>
-
