@@ -76,6 +76,8 @@
                   <%= image_tag "https://lepetitjournal.com/sites/default/files/styles/main_article/public/2020-02/Crepes_0.jpg?itok=5V2dScZn" %>
                 <% elsif meal.recipe.name.downcase == "veloute de potiron" %>
                   <%= image_tag "https://aufilduthym.fr/wp-content/uploads/2018/10/soupe-potimarron-fenouil-curry-au-fil-du-thym.jpg" %>
+                <% elsif meal.recipe.photos.attached? %>
+                  <%= cl_image_tag meal.recipe.photos[0].key %>
                 <% end %>
               </div>
               <div class="card-repas-description-ml">
