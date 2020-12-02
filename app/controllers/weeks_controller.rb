@@ -79,12 +79,20 @@ class WeeksController < ApplicationController
 
   def empty_meals
     (0..6).to_a.each do |day|
-      Meal.new(moment: "Déjeuner", day: (@week.start_day + day).strftime('%a %d %b %Y'), week_id: @week.id, recipe_id: 1).save
-      Meal.new(moment: "Diner", day: (@week.start_day + day).strftime('%a %d %b %Y'), week_id: @week.id, recipe_id: 1).save
+      Meal.new(moment: "Diner", day: (@week.start_day + day).strftime('%a %d %b %Y'), week_id: @week.id, recipe_id: random_recipe.id).save
+      if [0,6].member?((@week.start_day + day).wday)
+        Meal.new(moment: "Déjeuner", day: (@week.start_day + day).strftime('%a %d %b %Y'), week_id: @week.id, recipe_id: random_recipe.id).save
+      else
+        Meal.new(moment: "Déjeuner", day: (@week.start_day + day).strftime('%a %d %b %Y'), week_id: @week.id, recipe_id: 1).save
+      end
     end
   end
 
   def set_params
     params.require(:week).permit(:user_id, :start_day)
+  end
+
+  def random_recipe
+    return Recipe.find(rand(2..Recipe.count))
   end
 end
