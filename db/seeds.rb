@@ -11,7 +11,6 @@
 
 require 'open-uri'
 require 'nokogiri'
-require 'pry-byebug'
 
 puts "######################################"
 puts "########## SEED - START ##############"
@@ -129,7 +128,6 @@ end
 
 def word?(restriction, ingredient)
   restriction[:words].each do |word|
-    binding.pry
     return true if ingredient.match?(/#{word}/)
   end
   return false
