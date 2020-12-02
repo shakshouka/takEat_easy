@@ -1,7 +1,8 @@
 const loader = () => {
+  const host = window.location.host
   if (document.querySelector("#loader")){
     setTimeout(function(){
-      window.location.replace("http://localhost:3000/weeks/1")
+      window.location.replace("http://" + host + "/weeks/1")
     }, 2000)}
 };
 
