@@ -108,6 +108,7 @@ RESTRICTIONS  = [
   },
 ]
 
+
 def restrictions(ingredient)
   list_of_restrictions = []
 
