@@ -2,11 +2,11 @@
   <h1>Créez votre nouvelle recette!</h1>
   <br>
   <%= simple_form_for @recipe do |f| %>
-  <%= f.input :name, label: 'Quelle est le nom de votre recette?', error: 'Utiliser seulement les caracteres alphanumeriques', input_html: { maxlength: 30 } %>
+  <%= f.input :name, label: 'Quelle est le nom de votre recette?', error: 'Utiliser seulement les caracteres alphanumeriques', input_html: { maxlength: 30 }, placeholder: "Marmite de porc et legumes de saison" %>
 
-  <%= f.input :difficulty, label: 'Quelle est la difficulté?', collection: ["Facile","Moyen","Difficile"], error: "Ne peut pas etre vide" %>
-  <%= f.input :cooking_time, label: 'Quel est le temps de préparation?',placeholder: "en minutes", input_html: { min: '5', step: '5' }, error: "Ne peut pas être vide" %>
-  <%= f.input :instructions, as: :text, :input_html => { 'rows' => 5, 'cols' => 10 }, label: 'Quelles sont les étapes à suivre?', error: 'Au moins 30 caracteres seulement alphanumeriques' %>
+  <%= f.input :difficulty, label: 'Est-ce difficile?', collection: ["Facile","Moyen","Difficile"], error: "Ne peut pas etre vide" %>
+  <%= f.input :cooking_time, label: 'Combien de temps faut il? (en minutes)',placeholder: "Utilisez les fleches directionnelles", input_html: { min: '5', step: '5' }, error: "Ne peut pas être vide" %>
+  <%= f.input :instructions, as: :text, :input_html => { 'rows' => 5, 'cols' => 10 }, label: 'Racontez nous les etapes!', error: 'Au moins 30 caracteres seulement alphanumeriques', placeholder: "Au moins 30 caracteres." %>
 
   <%= f.input :photos, as: :file, input_html: { multiple: true, class: "hidden" }, label_html: { class: 'upload-photo'}, label: '📷 Télécharger une photo', error: "Ne peut pas être vide" %>
 
