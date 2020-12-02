@@ -77,3 +77,19 @@
   display: block;
   margin : 40px auto;
 }
+
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+  float: left;
+  margin-right: 4px;
+  width: 110px;
+  height: 32px;
+  input{
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transform: translate(-300px, 0) scale(4);
+    direction: ltr;
+    cursor: pointer;
+  }
+}
