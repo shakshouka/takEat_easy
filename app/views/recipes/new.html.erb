@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Créez votre nouvelle recette!</h1>
+  <h1>Ajoutez votre recette!</h1>
   <br>
   <%= simple_form_for @recipe do |f| %>
   <%= f.input :name, label: 'Quelle est le nom de votre recette?', error: 'Utiliser seulement les caracteres alphanumeriques', input_html: { maxlength: 30 }, placeholder: "Marmite de porc et legumes de saison" %>
