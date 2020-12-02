@@ -96,6 +96,9 @@
   // background-color: red;
   &:focus {
     color: $color-main;
+  };
+  &:active {
+    color: $color-main;
   }
 }
 
@@ -110,6 +113,9 @@
   text-align: center;
   color: $color-main;
   &:focus {
+    color: $color-main;
+  };
+  &:active {
     color: $color-main;
   }
 }
