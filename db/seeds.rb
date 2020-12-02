@@ -11,6 +11,7 @@
 
 require 'open-uri'
 require 'nokogiri'
+require 'pry-byebug'
 
 puts "######################################"
 puts "########## SEED - START ##############"
@@ -54,7 +55,8 @@ puts "---Ingredients noms debut---------"
 
 RESTRICTIONS  = [
   {name: "gluten",
-  words: %w[ abadèche ble seigle orge avoine epeautre kamut pain abadèche ]
+  words: %w[ abadèche ble seigle orge avoine epeautre kamut pain ],
+  exceptions: %w[ erable orgeat toblerone ]
   },
   {name: "Crustaces",
   words: %w[ crevette crabe langouste langoustine homard ecrevisse tourteau ]
@@ -95,7 +97,7 @@ RESTRICTIONS  = [
   words: %w[ escargot huître moules palourde coquille "Saint Jacques" calamars poulpe seiche ]
   },
   {name: "Porc",
-  words: %w[ porc jambon cochon andouille sauciss rosette rillettes marcassin ]
+  words: %w[ porc jambon cochon andouille sauciss rosette rillettes marcassin abadèche ]
   },
   {name: "Non Vegan",
   words: %w[ viande porc boeuf bœuf poulet poule jambon veau lapin lièvre palombe agneau canard canard andouille autruche dinde tournedos steack sauciss rumsteck dindon biche rosette rognons rillettes poularde mouton perdrix pate marcassin joue oie entrecôte grenouille mouton volaille chevreuil chevreau cheval chèvre farce faux-filet],
@@ -126,6 +128,7 @@ end
 
 def word?(restriction, ingredient)
   restriction[:words].each do |word|
+    binding.pry
     return true if ingredient.match?(/#{word}/)
   end
   return false
@@ -141,7 +144,7 @@ end
 # restrictions("viande des grisons")
 count = 0
 
-("a".."z").each do |letter|
+("a".."a").each do |letter|
   puts letter
   (1..13).each do |page_num| # (1..13)
     url = "https://www.marmiton.org/recettes/index/ingredient/#{letter}/#{page_num}"
@@ -154,6 +157,7 @@ count = 0
       ingredient_name = text.text.strip.downcase
       list_of_restrictions = restrictions(ingredient_name)
       Ingredient.create!(name: ingredient_name, list_of_restrictions: list_of_restrictions)
+      p "#{ingredient_name} - #{list_of_restrictions}"
       count += 1
       # img = element.search('img')
       # ingredient_img = img.attr('src').value
