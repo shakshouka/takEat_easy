@@ -12,9 +12,9 @@
 
 .btn-second {
   // font-weight: bold;
-  color: #FFFFFF;
+  color: white;
 
-  background: $color-third;
+  background: $color-main;
   border-radius: 7px;
   padding: 15px 50px;
   text-decoration: none;
@@ -67,4 +67,13 @@
   cursor: pointer;
   background: white;
   border-radius: 7px;
+}
+
+.btn-calendar {
+  color: #FA4A0C;
+  border: 2px solid #FA4A0C;
+  padding: 10px 15px;
+  border-radius: 15px;
+  display: block;
+  margin : 40px auto;
 }
