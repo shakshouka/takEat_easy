@@ -143,7 +143,7 @@ end
 # restrictions("viande des grisons")
 count = 0
 
-("a".."a").each do |letter|
+("a".."z").each do |letter|
   puts letter
   (1..13).each do |page_num| # (1..13)
     url = "https://www.marmiton.org/recettes/index/ingredient/#{letter}/#{page_num}"
