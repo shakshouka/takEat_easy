@@ -20,4 +20,5 @@ Rails.application.routes.draw do
     put '/weeks/:week_id/meals/:id(.:format)/empty', to: "meals#update_empty", as: :empty
     resources :grocery_list, only: [ :show, :update ]
   end
+  resources :doses, only: [ :new, :create ]
 end

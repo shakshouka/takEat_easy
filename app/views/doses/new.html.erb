@@ -1,0 +1,9 @@
+<div class="container">
+  <%= simple_form_for @dose do |f| %>
+    <%= f.input :quantity %>
+    <%= f.input :unit, collection: ["g", "cl", "pc"] %>
+    <%= f.association :recipe, collection: Recipe.all %>
+    <%= f.association :ingredient,collection: Ingredient.all %>
+    <%= f.button :submit , class: "btn btn-danger"%>
+  <% end %>
+</div>
