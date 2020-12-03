@@ -8,7 +8,7 @@
       <div class="<%= 'checked-first' if item.bought == true %>">
         <%= link_to grocery_item_path(item), method: :put do %>
           <div class="checklist-alignment">
-            <div class="checklist"><li id="myLI" class="<%= 'checked' if item.bought == true %>"><i class="far fa-circle"></i> <%= item.total_quantity %><%= item.unit %> - <%= item.ingredient.name %></li></div>
+            <div class="checklist"><li id="myLI" class="<%= 'checked' if item.bought == true %>"><i class="far fa-circle"></i> <%= item.total_quantity %><%= item.unit %> - <%= item.ingredient.name.capitalize %></li></div>
             <div class="checklist-separator"></div>
           </div>
         <% end %>
