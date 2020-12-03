@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   get '/swipe', to: "pages#swipe"
   get 'user', to: "users#show"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
   resources :recipes do
     resources :cookbook_recipes, only: [ :create ]
   end
+
   resources :cookbook_recipes, only: [ :destroy ]
   resources :cookbooks
   resources :grocery_items, only: [ :update ]
