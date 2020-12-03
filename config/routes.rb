@@ -6,11 +6,6 @@ Rails.application.routes.draw do
   get 'user', to: "users#show"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
-  # error pages
-  %w( 404 422 500 503 ).each do |code|
-    get code, :to => "errors#show", :code => code
-  end
-  
   resources :recipes do
     resources :cookbook_recipes, only: [ :create ]
   end
