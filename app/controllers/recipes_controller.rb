@@ -23,6 +23,7 @@ class RecipesController < ApplicationController
   end
 
   def new
+    @doses = Dose.new
     @recipe = Recipe.new
     authorize @recipe
   end

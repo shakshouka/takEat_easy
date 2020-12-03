@@ -99,7 +99,7 @@
             <%= link_to week_meal_path(meal.week_id,meal), :method=> :put, remote: true, class: "chg" do %>
               <i class="fas fa-sync"></i>
             <% end %>
-            <%= link_to week_empty_path(meal.week_id,meal), :method=> :put,remote: true, class: "del"  do %>
+            <%= link_to week_empty_path(meal.week_id,meal), :method=> :put, remote: true, class: "del"  do %>
               <i class="fas fa-trash"></i>
             <% end %>
           </div>
