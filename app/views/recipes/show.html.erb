@@ -50,10 +50,21 @@
       <div class="swiper-pagination">
       </div>
     </div>
-    <div class="div-time">
-      <span class="time"><%= @recipe.cooking_time %> min</span>
-    </div>
   </div>
+  <h1> <%= @recipe.name %> </h1>
+  <br>
+    <div class="time-person-diff">
+      <div class="div-time">
+        <span class="time-person"><i class="far fa-clock label"></i> <p> <%= @recipe.cooking_time %> min </p> </span>
+      </div>
+      <div class="div-person">
+        <span class="time-person"><i class="fas fa-male label"> </i> <p><%= @user.num_of_members %></p> </span>
+      </div>
+      <div class="div-difficulty">
+        <span class="time-person"><i class="fas fa-blender label"></i> <p><%= @recipe.difficulty %> </p> </span>
+      </div>
+    </div>
+
   <!-- If we need navigation buttons -->
 <!--   <div class="swiper-button-prev"></div>
   <div class="swiper-button-next"></div>
@@ -64,36 +75,21 @@
 
 <div class="containerrecipeshow">
 
-  <h1> <%= @recipe.name %> </h1>
-  <br>
 
-  <ul class="recipe-show-list">
+  <div class="card-white">
+    <ul class="recipe-show-list">
 
-    <h4> <strong>Ingredients: </strong></h4>
-    <% @doses.each do |dose| %>
-      <li><%= dose.quantity %>
-        <%= dose.unit %> - <%= dose.ingredient.name %>
-      </li>
-    <% end %>
-  </ul>
-  <br>
-
-  <h4><strong>Difficulté: </strong></h4>
-    <p> <%= @recipe.difficulty  %> </p>
+      <h4 class="orange">Ingrédients: </h4>
+      <% @doses.each do |dose| %>
+        <li><%= dose.quantity %>
+          <%= dose.unit %> - <%= dose.ingredient.name %>
+        </li>
+      <% end %>
+    </ul>
     <br>
 
-  <h4><strong>Instructions: </strong></h4>
-    <p> <%= @recipe.instructions %></p>
-
+    <h4 class="orange">Instructions: </h4>
+      <p> <%= @recipe.instructions %></p>
+  </div>
 </div>
-<!--   <nav class="circular-menu"> -->
-<!--
-    <div class="circle">
-      <%= link_to "", new_recipe_path, class: "fas fa-plus text-black bg-dark rounded-circle" %>
-      <a href="" class="fas fa-star bg-dark rounded-circle"></a>
-    </div>
-    <a href="" class="menu-button fa fa-bars fa-2x small text-black"></a>
- -->
-<!--   </nav> -->
-
 
