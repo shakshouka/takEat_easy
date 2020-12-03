@@ -118,9 +118,13 @@ li > i {
   background-color: orange;
 }
 
-.test:nth-child(odd) {
+.checked-first {
   background-color: #e5e5e5;
 }
+
+// .test:nth-child(odd) {
+//   background-color: #e5e5e5;
+// }
 
 // .checklist-alignment::nth-child(even) {
 //   background-color: white;
