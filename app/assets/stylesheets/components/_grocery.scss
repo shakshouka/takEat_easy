@@ -86,13 +86,13 @@ li.checked {
     margin: 0 auto;
   }
 
-  .checklist-separator {
-    width: 50px;
-    height: 1px;
-    border-bottom: 2px solid #BDBDBD;
-    width: 25%;
-    margin: 0 65px;
-  }
+  // .checklist-separator {
+  //   width: 50px;
+  //   height: 1px;
+  //   border-bottom: 2px solid #BDBDBD;
+  //   width: 25%;
+  //   margin: 0 65px;
+  // }
 }
 
 .grocery_list {
@@ -106,3 +106,23 @@ li.checked {
   text-align: center;
   font-style: italic;
 }
+
+li > i {
+  font-size: 20px;
+}
+
+.checked > i {
+  border-radius: 50%;
+  font-size: 20px;
+  color: black;
+  background-color: orange;
+}
+
+.test:nth-child(odd) {
+  background-color: #e5e5e5;
+}
+
+// .checklist-alignment::nth-child(even) {
+//   background-color: white;
+// }
+

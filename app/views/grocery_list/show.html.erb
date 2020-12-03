@@ -5,12 +5,14 @@
   </div>
   <ul id="myUL">
     <% @grocery_list.grocery_items.each do |item| %>
-      <%= link_to grocery_item_path(item), method: :put do %>
-        <div class="checklist-alignment">
-          <div class="checklist"><li id="myLI" class="<%= 'checked' if item.bought == true %>"><%= item.total_quantity %><%= item.unit %> - <%= item.ingredient.name %></li></div>
-          <div class="checklist-separator"></div>
-        </div>
-      <% end %>
+      <div class="test">
+        <%= link_to grocery_item_path(item), method: :put do %>
+          <div class="checklist-alignment">
+            <div class="checklist"><li id="myLI" class="<%= 'checked' if item.bought == true %>"><i class="far fa-circle"></i> <%= item.total_quantity %><%= item.unit %> - <%= item.ingredient.name %></li></div>
+            <div class="checklist-separator"></div>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   </ul>
 </div>
