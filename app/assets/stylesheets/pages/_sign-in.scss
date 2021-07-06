@@ -1,0 +1,13 @@
+// Specific CSS for your home-page
+#home-informations {
+  h2 {
+    font-size: 15px ;
+  }
+  a {
+    font-weight: bold;
+    color: $color-main;
+  }
+  a:hover {
+    color: $color-main-transparency;
+  }
+}
