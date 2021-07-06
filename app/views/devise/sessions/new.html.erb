@@ -5,6 +5,15 @@
   <br>
   <h1>Connexion</h1>
 <br>
+
+<h3>Pour entrer sans créer un nouveau compte, utiliser les éléments suivants:
+  <ul>
+    <li>Identifiant: toto1@yahoo.fr</li>
+    <li>Mot de passe: abcdef </li>
+  </ul>
+</h3>
+<br>
+
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-inputs">
       <%= f.input :email,
